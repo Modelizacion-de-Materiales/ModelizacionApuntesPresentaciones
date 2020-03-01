@@ -1,0 +1,47 @@
+
+\newcommand{\timebar}[1]{
+\begin{tikzpicture}
+\fill [gray] (0,0) rectangle (1.5,1); 
+\fill [Cerulean] (1.5,0) rectangle (4,1); 
+\draw (0,0) rectangle (4,1);
+\node at (2,0.5) {\textcolor{white}{#1}};
+\end{tikzpicture}
+}
+
+\mode<article>
+
+En todas las etapas de la resolución 
+del problema, el ingeniero o profesional 
+hará uso de ciertas herramientas que 
+le permitirán resolver el problema. 
+La participación participación 
+(i.e. tiempo de trabajo) estará repartida
+entre el usuario y la herramientas
+en sí (típicamente la pc 
+o software a utilizar). 
+
+\mode*
+
+\begin{frame}<presentation>[fragile,label=FrameResulucionProblemas]{Resolucion de Problemas}
+
+%\begin{columns}[t]
+%\column{0.3\textwidth}
+\timebar{\bfseries{  PREROCESO }}
+%\column{0.3\textwidth}
+\timebar{\bfseries{  PROCESO }}
+%\column{0.3\textwidth}
+\timebar{\bfseries{  POSPROCESO }}
+%\end{columns}
+
+\vspace{2cm} 
+
+\centering
+\tikz\fill [Cerulean] (0,0) rectangle (0.5,0.5) ;
+Usuario, Ingeniero o Profesional
+
+\tikz\fill [gray] (0,0) rectangle (0.5,0.5);
+Herramienta de Cáclulo
+
+\end{frame}
+
+\mode<all>

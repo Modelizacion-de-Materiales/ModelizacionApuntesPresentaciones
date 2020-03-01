@@ -1,0 +1,70 @@
+\mode<all>
+% Incluyo los paquetes necesarios.
+\include{./PREAMBLE/PACKS}
+%\mode<presentation>{
+% para ver las notas con la presentacion.  
+%\setbeameroption{hide notes}
+%para dejar las notas en la segunda patnalla
+%}
+
+% incluyo los beamercolors
+\include{./PREAMBLE/BEAMERCOLORS}
+
+%incluyo el tema y modificaciones
+\include{./PREAMBLE/BEAMERTHEME}
+
+% modifico los temas
+\include{./PREAMBLE/THEMES}
+% defino el template para la diapositiva del título
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Defino la Clase
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{./PREAMBLE/MATERIA}
+\title{
+  \mode<article>{
+\includegraphics[height=1cm]{./PREAMBLE/logo-isabt25.png}
+\hfill
+\includegraphics[height=1cm]{./PREAMBLE/ISOLOGOCNEA.png}
+\hfill
+\includegraphics[height=1cm]{./PREAMBLE/logo-unsam.png}
+\\}  Herramientas y Elementos de Programación}
+\subject{Introducción a la Materia. Repaso de elementos de Programación.}
+\keywords{Matlab, Modelizacion 2019, Programación}
+% Inicia el documento.
+\begin{document}
+
+% Título de la clase. 
+\mode<presentation>{
+\begin{frame}[plain]
+\titlepage
+\end{frame}
+}
+
+\mode<article>{
+\maketitle
+}
+
+
+\mode<all>
+
+\section{Problema Ingenieril o Físico}
+\input{./01-SECCION/01-SECCION}
+\input{./01-SECCION/02-SECCION}
+
+\section{Herramientas}
+\input{./02-HERRAMIENTAS/00-02-Herramientas}
+\input{./02-HERRAMIENTAS/01-02-HERRAMIENTAS}
+
+\mode<all>
+\section{Conceptos de Programación}
+\input{./04-ElementosProgramar/01-04-Elementos.tex}
+%%\input{./04-ElementosProgramar/02-04-Elementos.tex}
+\input{./04-ElementosProgramar/03-04-Elementos.tex}
+\mode<all>
+\input{./05-IO/01-05-IO.tex}
+\input{./05-IO/02-05-Ejemplos}
+\subsection{Funciones}
+\input{./06-Funciones/01-06-Funciones.tex}
+
+\end{document}

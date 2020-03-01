@@ -1,0 +1,78 @@
+\mode<article>
+Cuando un equipo profesional se disponoe a resolver 
+un problema Ingenieril o físico, es posible dividir la 
+tarea en tres etapas, como se puestra en la Figura 
+\ref{FiguraProbIngFis}.  
+El \emph{preproceso} 
+abarca toda la etapa de planteo del problema
+desde la identificación del modelo físico a 
+usar, las condiciones de contorno, toma de 
+medidas, modelo matemático, etc. 
+
+Como \emph{proceso} del problema, podemos ubicar
+la etapa de implementación del modelo
+matemático. Cuando se usen computadoras
+para resolver esta parte del problema,
+la discreitzación y matricialización de 
+las funciones de estado y de las variables
+independientes pueden ubicarse en esta 
+etapa. La resolución, i.e. la ejecucion
+del comando final , y el registro de los
+resultados pueden ubicarse aquí.
+
+Por último, en la etapa de 
+\emph{postproceso} podemos ubicar todas
+las tareas de medición y análisis sobre 
+los resultados obtenidos en la etapa
+anterior. 
+
+ \begin{figure}
+  \includeslide[width=\textwidth]{FrameProbIngFis}
+  \caption{División del problema a resolver en etapas de análisis \label{FiguraProbIngFis}}
+
+\end{figure}
+
+
+\mode*
+
+\begin{frame}<presentation>[label=FrameProbIngFis]{Problema Ingenieril o Físico}
+\begin{columns}[t]
+\column{0.3\textwidth}
+\begin{beamercolorbox}[ht=1cm,sep=10pt]{header1}
+\centering Preproceso \par
+\end{beamercolorbox}
+\begin{itemize}
+\item “dibujo” del problema
+\item recinto de validez
+
+\item Modelo Físico\tikz\node[overlay](n1){};
+\item Condiciones de contorno\tikz\node[overlay](n2){};
+\end{itemize}
+\column{0.3\textwidth}
+\begin{beamercolorbox}[ht=1cm,sep=10pt]{header2}
+\centering Proceso \par
+\end{beamercolorbox}
+\begin{itemize}
+\item  \tikz\node[overlay](n3){}; Matricialización
+\item Lectura de datos
+\item Resolución
+\item Escritura de resultados
+\end{itemize}
+\pause
+\tikz[overlay] \draw[->,draw=red] (n1) -- (n3);
+\tikz[overlay] \draw[->,draw=red] (n2) -- (n3);
+\pause
+\column{0.3\textwidth}
+\begin{beamercolorbox}[ht=1cm,sep=10pt]{header3}
+\centering Postproceso \par
+\end{beamercolorbox}
+\begin{itemize}
+\item Mediciones Ingenieriles 
+\item Información Gráfica
+\item Interpretación de resultados
+\end{itemize}
+\end{columns}
+
+\end{frame}
+
+\mode<all>

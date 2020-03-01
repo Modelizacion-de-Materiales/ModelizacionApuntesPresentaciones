@@ -1,0 +1,215 @@
+     Preproceso                Preproceso                Post Proceso
+
+
+“dibujo” del problema        Matricialización       Mediciones Ingenieriles
+
+recinto de validez           Lectura de datos          Información Gráfica
+
+Modelo Físico                  Resolución                 Interpretación de
+                                                                 resultados
+Condiciones de contorno   Escritura de resultados
+     Preproceso                Preproceso                Post Proceso
+
+
+“dibujo” del problema        Matricialización       Mediciones Ingenieriles
+
+recinto de validez           Lectura de datos          Información Gráfica
+
+Modelo Físico                  Resolución                 Interpretación de
+                                                                 resultados
+Condiciones de contorno   Escritura de resultados
+Preproceso          Proceso             Post Proceso
+
+
+
+             Usuario, Ingeniero o Profesional
+
+
+             Herramienta de Cálculo (PC)
+ Preproceso            Proceso         Post Proceso
+
+
+Modelo Físico                          Interpretación de
+Condicion de                                  resultados
+Contorno            Matricialización
+
+                   Lectura de datos     Mediciones
+                        Resolución
+                       Escritura de
+                         resultados
+  Dibujo                                       Gráficos
+  Discretización
+Fortran
+
+
+Scilab
+
+
+Python / Numpy / SciPy
+
+
+Octave
+Scilab
+
+
+Python / Numpy / SciPy
+
+
+Octave
+MATrix LABoratory
+
+Multiplataforma (JVM)
+
+
+
+          http://www.mathworks.com/products/matlab
+          /
+
+Lenguaje de programación /
+consola programable /
+Scripts
+                Editor
+Panel Lateral
+
+
+
+
+                   Ventana de Commandos
+Asignación
+de variables
+
+
+       Transponer
+
+
+
+
+    prompt
+Rango de filas,
+Todas las columnas
+
+
+Vector de índices
+for
+
+
+
+
+while
+if
+Abrir archivo,
+reescribir o agregar:
+
+
+
+Guardar un tipo de
+Datos en el medio de
+Una linea:
+
+Concatenar
+
+
+Imprimir en archivo
+Con retorno de carro!
+Bien entonces, las herramientas de cómputo que
+  vamos a usar oficialmente es el matlab, las clases
+  van a estar orientadas a esto.
+
+Sin Embargo, Pueden elegir entre otras alternativas.
+  Por ejemplo, históricamente siempre hay gente que
+  elije tener una experiencia en Linux / Fortram , el
+  año pasado alguien hizo todas las prácticas en
+  Octave (versión libre de Matlab ) , pero también se
+  puede pensar en cosas nuevas como Python o
+  Scilab, incluso c, c++ , o cualquier otra cosa que
+  nos quieran enseñar.
+Sin embargo, de nuevo, la herramienta oficial de la
+  materia es Matlab, y las clases van a mostrar
+  ejemplos en este lenguaje. Sin embargo, por
+  supuesto cualquier herramienta que elijan va a
+  tener soporte de nuestra parte, siempre que esté a
+  nuestro alcance. usar oficialmente es el matlab, las
+  clases van a estar orientadas a esto.
+Matlab es un acrónimo de Matrix Laboratory, lo cual
+ nos viene como anillo al dedo porque como vamos
+ a ver la filosofía de esta materia es que las
+ ecuaciones diferenciales se van a expresar en
+ forma matricial. La interfaz está basada en java de
+ manera que es multiplataforma. El programa ofrece
+ un lenguaje de programación no compilable, es
+ decir que los programas se pueden correr
+ directamente desde la ventanita (rapidamente) ,
+ pero a demas ofrece la posibilidad de guardar la
+ secuencia de comandos en scripts, para repetir
+ ejecucion y compartir programas.
+Cuando abrimos matlab tenemos una vista mas o
+ menos así: un panel lateral configurable, pero
+ principalmente una línea de comandos, y
+ opcionalmente un editor.
+Conceptos básicos, así se escribe una matriz, sobre
+ la cual se pueden hacer todo tipo de operaciones
+ por ejemplo transponer.
+Una cosa que se puede hacer sobre las matrices es
+ tomar alguna submatriz o corte ( slice ) de esta
+ manera, simplemente haciendo uso de vectores de
+  índices, que pueden ser una lista de índices o un
+ rango de índices. Fijemse que implicitamente
+ estamos viendo esta variable “ans” que guarda el
+ resultado de la última operación, siempre que no
+ se halla indicado otra variable para guardar el
+ resultado.
+Como en todos los lenguajes de programación se
+ puede hacer uso de los lazos (loops)
+En for hay que indicar un rango de una variable
+ sobre el cual se va a operar , entonces por ejemplo
+ aquí dice: para i , que toma valores desde 1 hasta
+ 10, hacer esta operación, el end indica que ya se
+ indicaron todos los pasos .
+
+En cambio while indica alguna condición lógica que
+ marcará el fin del lazo. Por ejemplo aquí dice:
+Mientras i sea menor que 10, hacer todo esto.
+
+Ver que en for se incrementa automáticamente i, en
+ while hay que hacerlo a mano.
+EN Matlab también hay condicionales, y cualquier
+  problema se puede resolver con cantidad suficiente
+  de if, for , while acomodados en forma mas o
+  menos inteligente.
+El if tiene esta estructura. Por ejemplo aquí:
+Si i es igual a 10, hacer esto. Fijarse en los
+  comandoos break y continue, y se puede usar la
+  estrcutrua if, elseif, else, end.
+Las funciones en matlab son una especie de unidad
+  operativa a la cual le doy una serie de parámetros ,
+  y me devuelve una serie de respuestas. Se
+  declaran preferentemente en archivos separados.
+  Cuando se ejecutan por ejemplo desde la linea de
+  comandos, hay que darles los argumentos en el
+  orden en el que la función los toma en la
+  declaración, no necesariamente con el mismo
+  nombre, y me va a devolver las variables de salida
+  en el orden declarado, no necesariamente con el
+  mismo nombre.
+Bueno, gráficos:
+El comando plot grafica siempre un vector en función
+  de otro, pudiendo poner opciones de estilo como
+  qué simbolo quieren , color y ese tipo de cosas.
+Hay un aspecto sobre el que vamos a trabajar mucho
+ que es la interacción de matlab con otros
+ programas, y para eso tenemos que aprender,
+ tarde o temprano, a leer parámetros desde un
+ archivo de texto y a escribir resultados en otro
+ archivo de texto. Para eso hay cuatro comandos
+ básicos. Los dos primeros son los comandos que
+ abren o cierran los archivos: open y close. Una vez
+ abierto el archivo, guardar algun contenido, línea
+ por línea supngamos, para eso se usa el comando
+ fprintf.
+
+Para leer de un archivo se usa otro comando que es
+ fgetl. Por ahora nos quedamos con esto y ya
+ vamos a ver en otra presentación más detalle
+ sobre I/O, ya que va a ser importante para
+ nosostros.
+
