@@ -6,17 +6,17 @@ INCLUDES=./01-Problema/*.tex  ./02-Matriza/*.tex ./03-CondicionContorno/*.tex
 
 all: notes
 
-notes: handout figures ${INCLUDES} main.tex notes.tex lists
+notes.pdf: handout figures ${INCLUDES} main.tex notes.tex lists
 	${PDFLATEX} notes.tex
 	${PDFLATEX} notes.tex
 
-beamer: ${INCLUDES} main.tex beam.tex figures lists
+beamer.pdf: ${INCLUDES} main.tex beam.tex figures lists
 	${PDFLATEX} beam.tex
 	${PDFLATEX} beam.tex
 
 
 
-handout:  handout.tex figures ${INCLUDES} main.tex lists
+handout.pdf:  handout.tex figures ${INCLUDES} main.tex lists
 	${PDFLATEX} handout.tex
 	${PDFLATEX} handout.tex
 
