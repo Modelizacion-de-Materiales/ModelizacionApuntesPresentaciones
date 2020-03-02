@@ -1,0 +1,39 @@
+set terminal epslatex standalone header "\\usepackage{amsmath}" font ",12" size 9,5
+set output 'tiempos.tex'
+
+input_fortran='./TiemposFortran.dat'
+input_python='./TiemposPython.dat' 
+input_mlaptop='./TiemposMatlabmlaptop' 
+
+f(a,b,x)=a*x+b
+a1=6
+b1=1
+a2=6
+b2=1
+a3=6
+b3=1
+
+fit  f(a1,b1,x) input_fortran u (log10($1)):(log10($2)) via a1,b1
+labelfortran="$(".gprintf("%4.2f",a1)." \\pm ".gprintf("%4.2f",a1_err).") x + ".gprintf("%4.2f",b1)."$"
+fit  f(a2,b2,x) input_python u (log10($1)):(log10($2)) via a2,b2
+labelpython="$(".gprintf("%4.2f",a2)." \\pm ".gprintf("%4.2f",a2_err).") x + ".gprintf("%4.2f",b2)."$"
+fit  f(a3,b3,x) input_mlaptop u (log10($1)):(log10($2)) via a3,b3
+labelmlaptop="$(".gprintf("%4.2f",a2)." \\pm ".gprintf("%4.2f",a3_err).") x + ".gprintf("%4.2f",b3)."$"
+
+#set rmargin 1cm
+set xlabel "$\\log_{10}(Nx)$"
+set ylabel "$\\log_{10}(t)$"
+set key tmargin horizontal center samplen 3
+#set key font ",8"
+#set logscale x
+#set logscale y
+plot input_fortran u (log10($1)):(log10($2)) w p ti "fotran@moffice ",\
+     f(a1,b1,x) w l ls -1 ti labelfortran,\
+     input_python u (log10($1)):(log10($2)) w p ti  "python@moffice ",\
+     f(a2,b2,x) w l ls 3 ti labelpython,\
+     input_mlaptop u (log10($1)):(log10($2)) w p ti "maltlab@mlaptop",\
+     f(a3,b3,x) w l ls 4 ti labelmlaptop 
+ 
+set out
+
+

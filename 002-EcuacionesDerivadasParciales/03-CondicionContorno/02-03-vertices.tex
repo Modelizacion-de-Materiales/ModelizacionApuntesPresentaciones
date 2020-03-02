@@ -1,0 +1,28 @@
+\mode<article>
+
+El caso de los vértices debe ser tratado en forma separada. 
+esto se debe a que según la definición de los bordes en 
+la ecuación \ref{EqNumeracionBordes}, los nodos en los 
+vértices pueden pertenecer a dos bordes simultáneamente.
+Por ejemplo el nodo $k=1$ pertenece a $k_A$ y a $K_C$. 
+
+Pueden tomarse varias estrategias para atacar estos 
+problemas. Podemos tomar preferencia por alguno de 
+los bordes. Entonces la lógica que adoptaremos 
+debe evaluar primero si los nodos están en los
+bordes según la preferencia dada. 
+
+Otra alternativa es que la lógica de la solución 
+evalúe primero si el nodo está en algún borde, se 
+le asigne alguna condición de contorno específica.
+Una vez descartada la pertenencia a todos los vértices,
+evaluar la pertecia a los bordes. 
+En este úlimo caso es sencillo asignar por ejemplo
+el promedio de las temperaturas de los bordes 
+subyacentes al vértice, por ejemplo.
+
+\mode*
+\begin{frame}<presentation:0>[label=FrameEmpty1]
+  \frametitle{}
+\end{frame}
+\mode<all>

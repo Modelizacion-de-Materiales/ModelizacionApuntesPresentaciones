@@ -1,0 +1,62 @@
+\mode<article>
+
+Vamos a encarar el problema presentado en la Figura \ref{FiuguraPresentacionProblema}. 
+se tiene una chapa dispuesta bajo condiciones de contorno tales que sus lados se 
+encuentran a temperaturas fijas  $T_A$, $T_B$, $T_C$, $T_D$.
+
+Queremos obtener la distribución de temperatura dentro 
+del recinto de la chapa, en condiciones estacionarias, 
+es decir, cuando las temperaturas de no varían en ningún 
+punto del recinto. Por lo tanto, podemos elegir el 
+modelo físico a resolver. La ecuación diferencial 
+que rige el problema es la ecuación de Poison, que es 
+la ecuación de transferencia térmica homogénea. 
+
+  \begin{equation}
+    \frac{\partial ^2 T_{(x,y)}}{\partial x ^2}
+    +
+    \frac{\partial ^2 T_{(x,y)} }{\partial y ^2}
+    =0
+    \label{EqEcuacionPoisson}
+  \end{equation}
+
+Debido a que los contornos del recinto donde debemos
+resolver la ecuación \ref{EqEcuacionPoisson} son los adecuados,
+elegimos utilizar el método de \textbf{Diferencias Finitas}. 
+
+
+\begin{figure}
+  \includeslide[width=\textwidth]{FrameProblema}
+  \caption{Presentación del Problema. Chapa bidimensional 
+  de conductividad térmica finita, cuyos bordes se encuentran 
+  a temperaturas constantes finitas $T_A$, $T_B$, $T_C$, $T_D$}
+  \label{FiuguraPresentacionProblema}.
+\end{figure}
+
+\mode<all>
+
+\mode*
+
+\begin{frame}<presentation:1|article:0>[label=FrameProblema]
+  \frametitle<1>{Presentación del Problema}
+  \frametitle<2>{Bordes a temperatura Fija}
+%  \begin{tikzpicture}[overlay]
+%    \draw [draw,thick,pattern=north east lines] (4.9,-3.1) rectangle (9.1,1.1);
+%    \draw [draw,line width=2pt,anchor=base,fill=white] (5,-3) rectangle (9,1);
+%    \draw [<->, >=latex, line width = 2pt ]
+%    (2,-1) node [anchor=south] { $y_j$ }  -- (2,-3) -- (4,-3) node [anchor=south] {$x_i$};
+%  \end{tikzpicture}
+  \tikz[overlay] \node at (6,-1) {
+    \includegraphics[width=9 cm]{./01-Problema/Figura01-01-Chapa.pdf}
+  };
+
+%  \begin{equation}
+$$  \frac{\partial ^2 T_{(x,y)}}{\partial x ^2}
+    +
+    \frac{\partial ^2 T_{(x,y)} }{\partial y ^2}
+    =0 $$
+%  \end{equation}
+
+\end{frame}
+
+\mode<all>

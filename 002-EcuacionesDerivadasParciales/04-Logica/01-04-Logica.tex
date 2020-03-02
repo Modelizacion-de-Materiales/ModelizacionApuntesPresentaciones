@@ -1,0 +1,68 @@
+\mode<article>
+
+Sabiendo los valores de los coeficientes de la matriz que 
+representa a nuestra ecuación diferencial, podemos trazar la 
+lógica de nuestro modelo computacional.
+
+Cuando inicie el estudio del problema, no use tamaños de grillas 
+grandes. Utilice la mínima grilla posible, por ejemplo
+$N_x = N_y = 3$ para poder interpretar los resultados 
+en forma legible. 
+
+\mode*
+
+\begin{frame}<presentation>[label=FrameLogicaEnumerate]
+  \frametitle{Lógica del programa}
+  
+\begin{enumerate}
+    \item<+-> Recorrer todos los valores posibles para el índice k, es decir los nodos
+    \item<+-> decidir si el nodo está en un borde o en el interior de la chapa
+    \item<+-> llenar la fila correspondiente de la matriz y al vector $\vec{b}$
+      en consecuencia.
+    \item<+-> resolver el sistema lineal
+    \item<+-> Graficar !
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}<presentation>[label=FrameLogica]
+  \frametitle{Lógica del modelo}
+  \begin{tikzpicture}[every node/.style={
+      rectangle, minimum size=1cm, draw, thick,
+      align=center, font=\ttfamily
+    },
+    every path/.style={ >=latex },
+    node distance=1.5cm and 1.5cm]
+
+    % column 1
+    \node (start) {Leer Condiciones\\de Contorno };
+    \node[below of=start] (fork) {$1\leq k \leq N_x N_y $};
+    \node [below of=fork] (vertex) {$k \in k_A,k_B, k_C,k_D$ ?};
+
+    %column 2
+    \node [right=of start] (matrix) {Armar la\\matriz};
+    \node [below of=matrix] (sizes) {$N_x , N_y$};
+    \node [below of=sizes](matcc) {
+      \scalebox{0.5}{$ M[ k, :] = [\dotsi , 0,  1,0,\dotsi] $ } };
+    \node [below of=matcc] (eqint) { \scalebox{0.5}{
+      $M[k,[k-N_x,k-1,k,k+1,k+N_x]]=[ \beta ^2 , 1 , 2\big(1+\beta^2\big),  1 \beta^2]$
+    }
+    };
+
+    % column 3
+    \node [right=of matrix] (solve) {resolver el\\sistema};
+
+    %column 4
+    \node [right=of solve] (graph) {graficar};
+
+    %row 1
+    \draw [->] (start) -- (matrix);
+    \draw [->] (matrix) -- (solve);
+    \draw [->] (solve) -- (graph);
+    \draw[->] (vertex) -- (matcc) node [midway,above,draw=none] {Si};
+    \draw[->] (vertex.south) |- (eqint.west) node [midway,left,draw=none] {No};
+    
+  \end{tikzpicture}
+\end{frame}
+
+\mode<all>
