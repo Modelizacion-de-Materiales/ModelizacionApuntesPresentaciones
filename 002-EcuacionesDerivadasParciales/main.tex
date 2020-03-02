@@ -1,0 +1,74 @@
+\mode<all>
+% Incluyo los paquetes necesarios.
+\include{./PREAMBLE/PACKS}
+%\mode<presentation>{
+% para ver las notas con la presentacion.  
+%\setbeameroption{hide notes}
+%para dejar las notas en la segunda patnalla
+%}
+
+% incluyo los beamercolors
+\include{./PREAMBLE/BEAMERCOLORS}
+
+%incluyo el tema y modificaciones
+\include{./PREAMBLE/BEAMERTHEME}
+
+% modifico los temas
+\include{./PREAMBLE/THEMES}
+% defino el template para la diapositiva del título
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Defino la Clase
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{./PREAMBLE/MATERIA}
+\title{
+  \mode<article>{
+\includegraphics[height=1cm]{./PREAMBLE/logo-isabt25.png}
+\hfill
+\includegraphics[height=1cm]{./PREAMBLE/ISOLOGOCNEA.png}
+\hfill
+\includegraphics[height=1cm]{./PREAMBLE/logo-unsam.png}
+\\}  Método de las Difrerencias Finitas }
+\subject{Repaso de Diferencias Finitas, Ayudas para el ejercicio 1 de la guía}
+\keywords{Modelizacion 2019, Diferencias Finitas  }
+% Inicia el documento.
+\begin{document}
+
+% Título de la clase. 
+\mode<presentation>{
+\begin{frame}[plain]
+\titlepage
+\end{frame}
+}
+
+\mode<article>{
+\maketitle
+}
+\mode<all>
+
+\section{Problema de la chapa}
+\input{./01-Problema/01-01-Problema}
+\subsection{Discretización del Problema}
+\input{./01-Problema/02-01-Discretizacion.tex}
+\section{Matricialización del Probema}
+\input{./02-Matriza/01-02-Ecuacion.tex}
+\section{Condiciones de Contorno}
+\subsection{ Borde a Temperatura Fija }
+\input{./03-CondicionContorno/01-03-Borde-T}
+\subsubsection{Vértices} 
+\input{./03-CondicionContorno/02-03-vertices}
+\section{Lógica}
+\input{./04-Logica/01-04-Logica}
+\section{Resultados con temperaturas Fijas}
+\input{./05-Resultado1/01-05-Resultados1}
+\section{Cálculo de Flujos}
+\input{./06-CalculoFlujos/01-06-Flujos}
+\mode<all>
+%
+%\section{}
+%\input{}
+%
+%\section{}
+%\input{}
+%
+\end{document}

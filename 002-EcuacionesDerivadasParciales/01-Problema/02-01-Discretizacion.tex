@@ -1,0 +1,159 @@
+\mode<article>
+
+El primer paso en este sentido consiste en discretizar 
+el dominio de la chapa en un conjunto de puntos regularmente 
+distribuídos. Al tratarse de un recinto cuadrado, este paso es trivial.
+
+Para formar la grilla dividimos los lados sobre 
+los ejes $x$ e $y$ del cuadrado en $N_x-1$ y $N_y-1$
+segmentos iguales, determinando $N_x$ y $N_y$ puntos
+equidistantes sobre cada uno. De las intersecciones
+de las líneas paralelas a los lados que se 
+extienden de los puntos formados se genera la grilla 
+a usar, como se muestra en la Figura \ref{FiguraDiscretizacion}.
+Puede verse inmediatamente que la cantidad de nodos
+total de la grila es $N_x N_y$
+
+\begin{figure}
+  \includeslide[width=\textwidth]{FrameDiscretizacion}
+  \caption{Grilla de discretización del dominio de la chapa\label{FiguraDiscretizacion}}
+\end{figure}
+
+%Supongamos por un instante que conocemos la distribución
+%de temperaturas en la chapa.
+Para poder asignar una temperatura a cada nodo de la grilla, 
+debemos tomar una convención para numerarlos. La primera
+intuición tiene que ver con una numeración de índices según 
+las dos direcciones cartesianas $x$ e $y$. Necesitamos 
+entonces dos índices $i$ y $j$, de manera que las 
+temperaturas $T(x_i,y_j)$ para los nodos de la grilla
+pueden representarse en forma matricial $T_{i,j}$.
+
+Sin embargo, por razones que pronto quedarán claras, es 
+conveniente tomar una numeración de un único índice $k$
+para cada nodo.  
+Con alguna arbitrariedad, puede tomarse una numeración
+correlativa asignando $k=1$ al nodo del 
+el vértice inferior izquierdo, hacia la 
+derecha. en cada "fin de línea" se toma el índice 
+siguiente para el primer nodo de la línea superior. 
+Con esta convención, puede verse que los vértices 
+de la chapa quedan identificados en función de las dimensiones
+de la grilla elegida
+
+\begin{equation}
+  \begin{split}
+    \text{Vertice inferior izquierdo:   } & k=1\\
+    \text{Vertice inferior derecho:     } & k=N_x \\
+    \text{Vertice superior izquierdo:   } & k=N_xN_y-N_x+1\\
+    \text{Vertice superior derecho:     } & k=N_xN_y
+  \end{split}
+  \label{EqEcuacionesNumeracionVerticies}
+\end{equation}
+
+Ahora, las temperaturas de la barra 
+pueden representarse en un \textbf{vector} 
+
+\begin{equation} \label{EqEcuacionVectorT}
+  \vec{T} = 
+  \begin{pmatrix}
+    T_1 \\ T_2 \\ \vdots \\ T_{Nx Ny}
+  \end{pmatrix}
+\end{equation}
+
+Es conveniente encontrar una relación entre los sistemas
+de índices. como $1 \leq i \leq N_x $ ; $1 \leq j \leq  N_y$, puede verse
+fácilmente que dicha relación es
+
+\begin{equation}\label{EqEcuacionRelacionIndices}
+  \begin{aligned}
+  k &= i + (j-1)N_x \\
+  j &= floor \bigg( \frac{k-1}{N_x} +1  \bigg)\\
+  i &= k - (j-1)N_x
+  \end{aligned}
+\end{equation}
+donde la función $floor$ indica que debe tomarse la parte
+entera inferior de su argumento. Por otro lado, las relaciones
+de la ecuación \ref{EqEcuacionRelacionIndices} permite
+relacionar ambas convenciones de índices en forma biyectiva.
+
+de manera que podamos relacionarlo
+con la numeración de dos índices $i,j$ en forma unívoca.
+
+
+Según el método de las diferencias fnitas, debemos
+usar las versiones \emph{discretas} de las derivadas
+segundas en la ecuación \ref{EqEcuacionPoisson}. 
+Puede consultar la teórica para rescatar estas 
+definiciones, pero aquí razonaremos en base a las
+mismas, que las derivadas segundas pueden calcularse
+a partir de las derivadas primeras. 
+
+Para empezar por el problema más sencillo, busquemos la
+segunda derivada parcial respecto de x como un cociente 
+incremental de las derivadas primeras. 
+Dado un nodo de 
+numeración $k$ \emph{que no se encuentre en ningún borde
+de la chapa}, notemos según nuestra convención el punto
+siguiente hacia las positivas es el número $k+1$, mientras
+que el nodo hacia las $x$ negativas es el $k-1$. Podemos
+definir entonces las derivadas primera y segunda en el
+nodo $k$-ésimo como 
+
+\begin{equation}\label{EqEcuacionDerivadaX}
+    \begin{aligned}
+    \frac{\partial T}{\partial x} \Bigr\rvert _k &=
+			   \frac{T_{k}-T_{k-1}}{\Delta x} &= dT_k  \\
+    \frac{\partial^2 T}{\partial x^2} \Bigr\rvert _k &=
+    \frac{dT_{k+1}- dT_k}{\Delta x}                  &= 
+			   \frac{1}{\Delta x} \big(
+			   \frac{T_{k+1}-T_k}{\Delta x}
+			   -
+			   \frac{T_{k}-T_{k-1} }{\Delta x}
+			   \big)\\
+    \Rightarrow  &= 
+    \frac{T_{k+1} - 2T_k +T_{k-1} }{\Delta x ^2}
+  \end{aligned}
+\end{equation}
+
+%  \label{EqDerivadaDiscretaX}
+%\end{multline}
+
+Para poder calcular la derivada segunda en la otra dirección 
+debemos notar que es necesario tomar cocientes incrementales
+de la temperatura hacia arriba y hacia abajo. Debe notar que 
+para un nodo de índice $k$, el nodo de \emph{arriva} tiene 
+el orden $k+N_x$. Haga el ejercicio de obtener la derivada 
+segunda respecto de y
+
+\begin{equation}\label{EqEcuacionDerivadaY}
+    \frac{\partial^2 T}{\partial y^2} \Bigr\rvert _k 
+    =
+    \frac{T_{k+N_x} - 2T_k +T_{k-N_y} }{\Delta y ^2}
+\end{equation}
+
+
+
+\mode*
+
+\begin{frame}<presentation>[label=FrameDiscretizacion]
+  \frametitle{Discretización del Problema}
+  \begin{columns}
+    \column{0.6\textwidth}
+    \includegraphics[width=\textwidth]{./01-Problema/01-Figura-Grilla.pdf}
+%    \input{./01-Problema/01-Figura-Grilla.tikz}
+    \column{0.5\textwidth}
+\centering
+$\frac{T_{k+1} - 2T_k +T_{k-1} }
+  {\Delta x ^2} +
+ \frac{ T_{k+N_x} - 2T_k +T_{k-N_y} }{ \Delta y^2 } =0 $
+
+    \vspace{1cm}
+    $ \vec{T}= \begin{pmatrix}
+    T_1 \\ T_2 \\ \vdots \\ T_{Nx Ny}
+     \end{pmatrix}$ 
+
+  \end{columns}
+\end{frame}
+
+\mode<all>
