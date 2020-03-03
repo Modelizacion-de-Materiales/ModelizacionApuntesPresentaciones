@@ -1,0 +1,95 @@
+\mode<article>
+Los Archivos de definición de los mallados se guardan en 
+archivos de texto plano con extensión 
+\texttt{.msh}. Son un poco más 
+complejos. Como se esquematiza en la Figura 
+\ref{FiguraEstructuraMallados} puede separarse su estructura
+en bloques. 
+\begin{figure}
+  \includeslide[width=\textwidth]{FrameEstructuraMallados}
+  \caption{Esquema de la etructura en bloques del archivo
+  de mallados\label{FiguraEstructuraMallados} }
+\end{figure}
+
+\subsubsection{Encabezado}
+
+El encabezado del archivo de mallado indica la versión del 
+interprete de mallados que gmsh debe usar. Tómelo como
+una receta. 
+
+\subsubsection{Definición de Matriz de Nodos}
+
+Inmediatamente después del encabezado sigue el bloque de 
+la definición de los nodos. Como se esquematiza en la 
+Figura \ref{FiguraEncabezado} las etiquetas \texttt{\$Nodes} 
+y \texttt{\$EndNodes} encierran la definición de los 
+nodos. Primero debe indicarse el número de nodos 
+presentes. Luego se definen los nodos con su índice y sus 
+coordenadas cartesianas. Siempre se indican tres coordenadas. 
+
+\begin{figure}
+  \includeslide[width=\textwidth]{FrameEncabezado}
+  \caption{ Esquema de los bloques de encabezado y de 
+  definición de Nodos \label{FiguraEncabezado} }
+
+\end{figure}
+
+\subsubsection{Definición de Elementos}
+
+Luego del bloque de nodos debe seguir el bloque de los 
+elementos, que se delimita por las etiquetas 
+\texttt{\$Elements} y \texttt{\$EndElements} como se 
+esquematiza en la Figura \ref{FiguraDefinicionElementos}. En
+primera instancia debe indicarse el número total de elementos 
+a considerar. Debe notarse que s posible tomar definiciones
+de elementos de disntinas naturalezas. De hecho, al guardar
+un mallado cualquiera desde la interfaz de gmsh puede 
+encontrarse que los puntos, líneas y demas elementos 
+geométricos de menor gerarquía forman elementos en 
+el archivo. Por esta razón se indica luego del numero de
+elemento (columna 1) el \texttt{tipo} de elemento. La
+codificación para el tipo de elemento puede encotrarse 
+en el manual de gmsh. 
+
+Luego del tipo de elemento, debe indicarse el número de 
+etiquetas descriptivas que siguen. estas etiquetas indican
+pertenencia  a elementos geométricos de mayor gerarquía 
+(por ejemplo superficies). En los archivos
+que han sido guardados en gmsh se guardan siempre dos 
+etiquetas. 
+
+Luego de las etiquetas sigue la matriz de conectividad para 
+el elemento de la fila en tratamiento.
+
+\begin{figure}
+  \includeslide[width=\textwidth]{FrameDefinicionElementos}
+  \caption{Esqema del contenido del bloque de elementos
+  \label{FiguraDefinicionElementos} }
+  
+\end{figure}
+
+\mode*
+
+\begin{frame}<presentation>[label=FrameEstructuraMallados]
+  \frametitle{Estructura de los Mallados.}
+
+  \includegraphics[width=\textwidth,page=7,
+  bb=0cm 0cm 28cm 16.5cm,clip]{./GMSH_fileformat_2019.pdf}
+
+\end{frame}
+
+\begin{frame}<presentation>[label=FrameEncabezado]
+  \frametitle{Encabezado del archivo de mallado}
+
+  \includegraphics[width=\textwidth,page=8,
+  bb=0cm 0cm 28cm 16.5cm,clip]{./GMSH_fileformat_2019.pdf}
+
+\end{frame}
+
+\begin{frame}<presentation>[label=FrameDefinicionElementos]
+  \frametitle{Definición de Elementos}
+  \includegraphics[width=\textwidth,page=9,
+  bb=0cm 0cm 28cm 16.5cm,clip]{./GMSH_fileformat_2019.pdf}
+
+\end{frame}
+\mode<all>
