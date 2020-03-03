@@ -1,0 +1,87 @@
+\mode<article>
+
+Luego de la definición de la geometría y 
+las matrices que definen el mallado 
+(de nodos y de conectividad) es posible 
+adhosar los resultados de los cálculos
+hechos por nuestro programa de proceso. 
+Típicamente podremos agrupar estos 
+resultados como \emph{propiedades de nodos}
+y \emph{propiedades de elementos}. Cada dato 
+a visualizar tendrá su bloque de 
+definición. No hay un orden específico en el cual 
+escribir estos bloques, simplemente hay que cuidar
+de delimitarlos en forma correcta y que la correlación
+entre los datos y los elementos o nodos sea correcta. 
+
+\subsubsection{Datos de Nodos}
+
+Un \emph{bloque de datos de nodo} se delimita por las
+etiquetas \texttt{\$NodeData} y \texttt{\$EndNodeData}
+como se indica en la Figura \ref{FiguraDatosNodos}.
+Debe indicarse el número de títulos que identifican
+al bloque, luego deben especificarse los títulos 
+entre comillas dobles. 
+
+\begin{figure}
+
+  \includeslide[width=\textwidth]{FrameDatosNodos}
+  \caption{Esquema del bloque de datos para los nodos
+  \label{FiguraDatosNodos}}
+
+\end{figure}
+
+Luego se indica que sigue una etiquetas real. Esta 
+etiqueta indica el valor de tiempo para el cual 
+corresponde el bloque de datos. Puede repetirse la 
+especificación de bloques de igual título para 
+distintos valores de tiempo lo cual permite generar 
+una película de una propiedad con variación temporal.
+
+Sigue a esto el número de etiquetas enteras. Estas 
+especifican el índice temporar, la dimensionalidad del
+dato (escalar =1, vectorial =3, tensorial =6). 
+
+Por último, se indica el número de datos a escribir.
+en general hay un dato por cada nodo. 
+
+Deben escribirse los datos especificando el nodo al
+cual corresponde. 
+
+\subsubsection{Datos para los Elementos}
+
+La estructura del bloque de datos para los elementos
+es similar a la correspondiente para los nodos. 
+En esta caso el bloque estará delimitado por las
+etiquetas \texttt{\$ElementData} y 
+\texttt{\$EndElementData} como se esquematiza en la 
+Figura \ref{FiguraDatosElementos} 
+
+\begin{figure}
+
+  \includeslide[width=\textwidth]{FrameDatosElemento}
+  \caption{Esquema del bloque de datos para los 
+  Elementos\label{FiguraDatosElementos} }
+
+\end{figure}
+
+\mode* 
+
+\begin{frame}<presentation>[label=FrameDatosNodos]
+  \frametitle{Datos de Nodos}
+  \includegraphics[width=\textwidth,page=10,
+  bb=0cm 0cm 28cm 16.8cm,clip]{./GMSH_fileformat_2019.pdf}
+
+
+
+\end{frame}
+
+
+\begin{frame}<presentation>[label=FrameDatosElemento]
+  \frametitle{Datos para Elementos}
+  \includegraphics[width=\textwidth,page=11,
+  bb=0cm 0cm 28cm 16.5cm,clip]{./GMSH_fileformat_2019.pdf}
+
+\end{frame}
+
+\mode<all>
