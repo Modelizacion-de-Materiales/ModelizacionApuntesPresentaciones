@@ -2,7 +2,7 @@
 \subsection{Asignación de Variables}
 
 \mode*
-\begin{frame}<presentation>[fragile,label=FrameAsignacionVariables]{Asignación de Variables}
+\begin{frame}<presentation>[fragile,label=FrameAsignacionVariables]{Asignación de Variables .m}
 
 \mode<trans>{
   Asignación de una matriz
@@ -12,7 +12,7 @@
 
  \vspace{0.5cm}
 
-\hfill \texttt{Asignación de variables,}
+\hfill \texttt{Asignación de variables}
 
 \vspace{1cm}
 
@@ -28,6 +28,35 @@
 \end{codeblock}
 
 \end{columns}
+\end{frame}
+
+\begin{frame}<presentation>[label=FrameAsignacionesPython]
+  \frametitle{Asignacion de Variables .py}
+\mode<trans>{
+  Asignación de una matriz (version Python)
+}
+\begin{columns}[T]
+\column{0.3\textwidth}
+
+ \vspace{0.5cm}
+
+\flushright \texttt{Asignación de variables}
+
+\vspace{1cm}
+
+\hfill \texttt{Transponer},
+
+\vspace{1cm}
+
+\hfill \texttt{prompt.}
+
+\column{0.7\textwidth}
+\begin{codeblock}
+  \verbatiminput{./CODEXAMPLES/ASIGNACION.py}
+\end{codeblock}
+
+\end{columns}
+
 \end{frame}
 
 \mode<article>
@@ -48,6 +77,11 @@
 \caption{Asignación y operaciones básicas en MATLAB\label{FigAsignacionVariables}}
 \end{figure}
 
+\begin{figure}
+  \includeslide[width=\textwidth]{FrameAsignacionesPython} 
+\caption{Asignación y operaciones básicas en Python. Observe la importación del 
+        módulo \protect\emph{Numpy} para el tratamiento de Matrices. \protect\label{FigAsignacionVariablesPython}}
+\end{figure}
 
 \mode* 
 
@@ -56,25 +90,39 @@
 \begin{frame}<presentation>[fragile,label=FrameMatlabIndexacion]{Indexación de Variables}
 
 \begin{columns}[T]
-\column{0.5\textwidth}
+\column{0.25\textwidth}
+  \vspace{0.5cm}
 \hfill \texttt{Rango de filas, todas las columnas}
-\column{0.5\textwidth}
+
+\column{0.25\textwidth}
+  \textbf{Matlab}
 
 \begin{codeblock}
   \verbatiminput{./CODEXAMPLES/Slice1.m}
 \end{codeblock}
-\end{columns}
+  \column{0.4\textwidth}
+  \textbf{Python}
+\begin{codeblock}
+%  \verbatiminput{./CODEXAPLES/Slice1.py}
+  \verbatiminput{./CODEXAMPLES/Slice1.py}
+\end{codeblock}
 
+\end{columns}
+  \vspace{0.5cm}
 \begin{columns}[T]
-\column{0.5\textwidth}
+\column{0.25\textwidth}
 \hfill \texttt{Vector de Índices}
 
-\column{0.5\textwidth}
+\column{0.25\textwidth}
 \begin{codeblock}
   \verbatiminput{./CODEXAMPLES/Slices2.m}
 \end{codeblock}
-\end{columns}
 
+  \column{0.4\textwidth}
+  \begin{codeblock}
+    \verbatiminput{./CODEXAMPLES/Slices2.py}
+  \end{codeblock}
+\end{columns}
 \end{frame}
 
 \mode<article>
@@ -89,6 +137,15 @@ más dimensiones persiste en otros lenguajes, y será particularmente
 útil más adelante en esta materia, por lo que se sugiere que
 verifique su implementación en el lenguaje de programación 
 que elija. 
+
+Observe en el ejemplo de la \autoref{FigMatlabIndexacion} para \emph{Python}
+la necesidad de usar la función \texttt{ Numpy.ix\_ } para generar todas las 
+combinaciones de índices dadas por los índices de las columnas 
+\texttt{ ( i\textsubscript{1} , i \textsubscript{2} ) }
+y de las columnas \texttt{ ( j\textsubscript{1} , j \textsubscript{2} ) }, 
+mientras que en matlab no es necesario
+una función extra. Verifique en su lenguaje de programación cómo debe indexar 
+las filas y las columnas para obtener el resultado del ejeplo. 
 
 \mode*
 
