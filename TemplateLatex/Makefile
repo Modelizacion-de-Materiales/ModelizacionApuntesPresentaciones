@@ -9,4 +9,14 @@ clase: main.tex ${INCLUDES}
 	pdflatex main.tex
 
 clean:
-	rm *.out *.log *.aux ./??-SECCION/*.{log,out,aux} 10-CONCLUS/*.{log,out,aux}
+	find -iname \*.out \
+	  -o -iname \*.log \
+	  -o -iname \*.aux \
+	  -o -iname \*.snm \
+	  -o -iname .\*.swp \
+	  -o -iname \*.toc \
+	  -o -iname \*.asp \
+	  -o -iname ~\* \
+	  -o -iname \*.nav \
+	  |xargs rm
+#	rm *.out *.log *.aux ./??-SECCION/*.{log,out,aux} 10-CONCLUS/*.{log,out,aux}

@@ -1,9 +1,0 @@
-\select@language {spanish}
-\beamer@sectionintoc {1}{Contenido Sencillo}{2}{0}{1}
-\beamer@sectionintoc {2}{Im\IeC {\'a}genes y multimedia}{4}{0}{2}
-\beamer@subsectionintoc {2}{1}{Multimedia}{5}{0}{2}
-\beamer@sectionintoc {3}{Diapositivas con Slides}{7}{0}{3}
-\beamer@sectionintoc {4}{Diapositivas con Notas}{18}{0}{4}
-\beamer@subsectionintoc {5}{1}{recuadros en el texto}{22}{0}{5}
-\beamer@sectionintoc {5}{El Uso de recuadros}{21}{0}{5}
-\beamer@sectionintoc {6}{Diapositivas con tikz}{26}{0}{6}
