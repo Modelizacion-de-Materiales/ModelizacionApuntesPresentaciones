@@ -4,9 +4,9 @@ PDFLATEX=pdflatex -interaction=batchmode
 PREAMBLE=./PREAMBLE/*.tex
 INCLUDES=./01-Problema/*.tex  ./02-Matriza/*.tex ./03-CondicionContorno/*.tex
 
-all: notes
+all: notes.pdf
 
-notes.pdf: handout figures ${INCLUDES} main.tex notes.tex lists
+notes.pdf: handout.pdf figures ${INCLUDES} main.tex notes.tex lists
 	${PDFLATEX} notes.tex
 	${PDFLATEX} notes.tex
 
