@@ -36,6 +36,12 @@ Figura-Tiempos-Escaleo: DATA/plot-tiempos.gpi
 
 #########################################
 
+clase-lo/clase-lo.pdf: ./clase-lo
+	make -C ./clase-lo
+
+.PHONY: clase-lo/clase-lo.pdf
+
+
 lists: 
 	grep -e \\label{Eq.*}  */*.tex > ListOfEquations.md      	
 	grep -e \\label{[fF]ig.*}  */*.tex > ListOfFigures.md
