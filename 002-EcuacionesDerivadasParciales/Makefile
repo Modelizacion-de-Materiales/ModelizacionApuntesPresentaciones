@@ -1,23 +1,25 @@
 # INCLUDES=./FRAMES/title.tex ./FRAMES/01-WHOIAM.tex 
-PDFLATEX=pdflatex -interaction=batchmode 
+PDFLATEX=pdflatex # -interaction=batchmode 
 
 PREAMBLE=./PREAMBLE/*.tex
 INCLUDES=./01-Problema/*.tex  ./02-Matriza/*.tex ./03-CondicionContorno/*.tex
 
-all: notes
+all: notes.pdf beamer.pdf
 
-notes.pdf: handout figures ${INCLUDES} main.tex notes.tex lists
+notes.pdf: notes.aux # figures ${INCLUDES} main.tex notes.tex lists
 	${PDFLATEX} notes.tex
+
+notes.aux: handout.aux #notes.tex ${INCLUDES} main.tex lists figures
 	${PDFLATEX} notes.tex
 
-beamer.pdf: ${INCLUDES} main.tex beam.tex figures lists
-	${PDFLATEX} beam.tex
-	${PDFLATEX} beam.tex
+beamer.pdf: ${INCLUDES} main.tex beamer.tex figures lists
+	${PDFLATEX} beamer.tex
+	${PDFLATEX} beamer.tex
 
-
-
-handout.pdf:  handout.tex figures ${INCLUDES} main.tex lists
+handout.pdf:  handout.aux # handout.tex figures ${INCLUDES} main.tex lists
 	${PDFLATEX} handout.tex
+
+handout.aux: handout.tex figures ${INCLUDES} main.tex lists
 	${PDFLATEX} handout.tex
 
 ##########################################	
