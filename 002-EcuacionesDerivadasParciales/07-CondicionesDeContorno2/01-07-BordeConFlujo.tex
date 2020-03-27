@@ -1,0 +1,24 @@
+\mode<article>
+
+Hasta aquí resolvimos el problema con condiciones de contorno de 
+temperaturas fijas. Si queremos incorporar una condición de 
+contorno para derivadas (flujos) sobre alguno de los bordes
+debemos tener en cuenta el siguiente truco. Consideremos como 
+ejemplo el flujo entrante hacia la chapa sobre el borde 
+izquierdo. En un punto de ese borde, podemos aproximar el flujo entrante
+de calor a una cantidad proporcional a la derivada primera,
+
+\begin{equation}\label{EqFluxPartialT}
+  Q_{x} \propto  \dfrac{\partial T }{\partial x} 
+\end{equation}
+
+\mode*
+
+\begin{frame}<presentation>[label=FrameGrillaFlujoDado]
+  \frametitle{Borde Izquierdo con Flujo}
+
+  \includegraphics[width=\textheight,page=16]{./clase-lo/EDP2019.pdf}
+
+\end{frame}
+
+\mode<all>
