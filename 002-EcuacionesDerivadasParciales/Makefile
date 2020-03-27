@@ -4,20 +4,22 @@ PDFLATEX=pdflatex # -interaction=batchmode
 PREAMBLE=./PREAMBLE/*.tex
 INCLUDES=./01-Problema/*.tex  ./02-Matriza/*.tex ./03-CondicionContorno/*.tex
 
-all: notes.pdf
+all: notes.pdf beamer.pdf
 
-notes.pdf: handout.pdf figures ${INCLUDES} main.tex notes.tex lists
+notes.pdf: notes.aux # figures ${INCLUDES} main.tex notes.tex lists
 	${PDFLATEX} notes.tex
+
+notes.aux: handout.aux #notes.tex ${INCLUDES} main.tex lists figures
 	${PDFLATEX} notes.tex
 
 beamer.pdf: ${INCLUDES} main.tex beamer.tex figures lists
-	${PDFLATEX} beam.tex
-	${PDFLATEX} beam.tex
+	${PDFLATEX} beamer.tex
+	${PDFLATEX} beamer.tex
 
-
-
-handout.pdf:  handout.tex figures ${INCLUDES} main.tex lists
+handout.pdf:  handout.aux # handout.tex figures ${INCLUDES} main.tex lists
 	${PDFLATEX} handout.tex
+
+handout.aux: handout.tex figures ${INCLUDES} main.tex lists
 	${PDFLATEX} handout.tex
 
 ##########################################	
