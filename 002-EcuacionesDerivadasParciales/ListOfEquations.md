@@ -10,4 +10,4 @@
 03-CondicionContorno/01-03-Borde-T.tex:\begin{equation}\label{EqNumeracionBordes}
 03-CondicionContorno/01-03-Borde-T.tex:\begin{equation}\label{EqEcuacionesTFija}
 05-Resultado1/01-05-Resultados1.tex:\begin{equation}\label{EqEcuacionSistemaLineal}
-07-CondicionesDeContorno2/01-07-BordeConFlujo.tex:\begin{equation}\label{EqFluxPartialT}
+07-CondicionesDeContorno2/01-07-BordeConFlujo.tex:    \begin{equation}\label{EquationFluxBorder}
