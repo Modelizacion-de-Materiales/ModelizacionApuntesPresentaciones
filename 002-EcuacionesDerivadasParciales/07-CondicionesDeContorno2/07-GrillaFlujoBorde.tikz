@@ -1,0 +1,24 @@
+\documentclass{standalone}
+\usepackage[dvipsnames,svgnames,x11names]{xcolor}
+\usepackage{tikz}
+\begin{document}
+
+\begin{tikzpicture}[
+    dT/.style={->,>=latex,line width=2pt},
+    dy/.style={alt=<beamer>{draw=Blue},alt=<handout>{draw=DarkRed}} ,
+    dx/.style={draw=Blue}
+  ]
+  \draw [line width=1pt] (-2,-2) grid (2,2);
+  \foreach \x in {-2,...,2}
+  \foreach \y in {-2,...,2}
+  {
+    \draw [fill=black] (\x,\y) circle (2pt);
+  }
+  \draw [ draw = red ] (-3,0) circle (2pt) ;
+  \node[anchor=north east] (k) at (-2,0) {\tiny $k$} ;
+  \node[anchor=north east] (k) at (-3,0) {\tiny $\tilde{k}$} ;
+  \node[anchor=north west] (k) at (-1,0) {\tiny $ k+1$} ;
+  \draw [ dashed, draw=DarkGreen, line width=2pt ] (-2.5,-2.5) rectangle (-1.5,2.5);
+  \draw [dT, draw=Blue ] (-3,0) -- (-1,0) ;
+\end{tikzpicture}
+\end{document}

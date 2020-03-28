@@ -7,3 +7,5 @@
 05-Resultado1/01-05-Resultados1.tex:  \label{FiguraResultadoTfija}}
 06-CalculoFlujos/01-06-Flujos.tex:  y del borde. \label{FiguraFlujosCalorAdentro}}
 06-CalculoFlujos/01-06-Flujos.tex:  las condiciones de borde de temperatura \label{FiguraResultadosFlujos}
+07-CondicionesDeContorno2/01-07-BordeConFlujo.tex:      \caption{\protect\label{FigureFlujoIzquierda} Para aproximar la temperatura en 
+07-CondicionesDeContorno2/01-07-BordeConFlujo.tex:  \caption{\protect\label{FiguraCoeficientesMatrizFluxLeft} Al reemplazar

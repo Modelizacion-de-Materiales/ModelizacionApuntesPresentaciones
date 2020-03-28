@@ -10,4 +10,6 @@
 05-Resultado1/01-05-Resultados1.tex:\begin{frame}<presentation>[label=FrameResultadoTfija]
 06-CalculoFlujos/01-06-Flujos.tex:\begin{frame}<presentation>[label=FrameFlujosCalorAdentro]
 06-CalculoFlujos/01-06-Flujos.tex:\begin{frame}<presentation>[label=FrameResultadosFlujos]
-07-CondicionesDeContorno2/01-07-BordeConFlujo.tex:\begin{frame}<presentation>[label=FrameGrillaFlujoDado]
+07-CondicionesDeContorno2/01-07-BordeConFlujo.tex:%\begin{frame}<presentation>[label=FrameGrillaFlujoDado]
+07-CondicionesDeContorno2/01-07-BordeConFlujo.tex:\begin{frame}[label=FrameFlujoIzquierda]
+07-CondicionesDeContorno2/01-07-BordeConFlujo.tex:\begin{frame}<presentation>[label=FrameCoeficientesMatrizFluxLeft]
