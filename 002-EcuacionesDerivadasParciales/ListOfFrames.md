@@ -13,3 +13,4 @@
 07-CondicionesDeContorno2/01-07-BordeConFlujo.tex:%\begin{frame}<presentation>[label=FrameGrillaFlujoDado]
 07-CondicionesDeContorno2/01-07-BordeConFlujo.tex:\begin{frame}[label=FrameFlujoIzquierda]
 07-CondicionesDeContorno2/01-07-BordeConFlujo.tex:\begin{frame}<presentation>[label=FrameCoeficientesMatrizFluxLeft]
+07-CondicionesDeContorno2/01-07-BordeConFlujo.tex:\begin{frame}<presentation>[label=FramePlotQ0]
