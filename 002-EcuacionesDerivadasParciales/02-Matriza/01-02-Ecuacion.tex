@@ -111,23 +111,22 @@ $  \begin{pmatrix}
   $ \dotsi $
   \tikz[baseline] \node [anchor=base] (k-1) at (0,0) {$1$};
   $ \dotsi  $
-  \tikz[baseline] \node [anchor=base] (diag) at (0,0) {$2\big(1+\beta^2\big)$};
+  \tikz[baseline] \node [anchor=base] (diag) at (0,0) {$-2\big(1+\beta^2\big)$};
   $ \dotsi $
-  \tikz[baseline] \node [anchor=base] (k+1) at (0,0) { $1$};
+  \tikz[baseline] \node [anchor=base] (k+1) at (0,0) {$1$};
   $\dotsi $  
   \tikz[baseline] \node [anchor=base] (b2) at (0,0) {$ \beta^2$} ;
-  $\Big]$
-  \tikz[overlay,->] \draw [blue] (-b2.south west)  -- ($(-b2)-(2,2)$)  node[text=black,anchor=north] {$k-N_x$};
-  \tikz[overlay,->] \draw [blue] (k-1.south)       -- ($(k-1)-(1,2)$)  node[text=black,anchor=north] {$k-1$};
-  \tikz[overlay,->] \draw [blue] (diag.south)      -- ($(diag)-(0,2)$) node[text=black,anchor=north] {$k$};
-  \tikz[overlay,->] \draw [blue] (k+1.south)       -- ($(k+1)-(-1,2)$) node[text=black,anchor=north] {$k+1$};
-  \tikz[overlay,->] \draw [blue] (b2.south)        -- ($(b2)-(-2,2)$)  node[text=black,anchor=north] {$k+N_x$};
+  $ \dotsi \Big]$
+  \tikz[overlay,->] \draw [blue] (-b2.south west) -- ($(-b2)-(2,2)$)  node[text=black,anchor=north] {$k-N_x$};
+  \tikz[overlay,->] \draw [blue] (k-1.south)      -- ($(k-1)-(1,2)$)  node[text=black,anchor=north] {$k-1$};
+  \tikz[overlay,->] \draw [blue] (diag.south)     -- ($(diag)-(0,2)$) node[text=black,anchor=north] {$k$};
+  \tikz[overlay,->] \draw [blue] (k+1.south)      -- ($(k+1)-(-1,2)$) node[text=black,anchor=north] {$k+1$};
+  \tikz[overlay,->] \draw [blue] (b2.south)       -- ($(b2)-(-2,2)$)  node[text=black,anchor=north] {$k+N_x$};
 
   \vspace{3cm}
 
   \hfill  \tikz[baseline]  \node (b0) at (-0.5,0) {$b_k  = 0$}; 
   \hspace{1cm} \tikz[baseline,fill=none]  \node (help) at (0,0) {};
-
   \tikz[overlay] \draw [->,>=latex,blue] (ecuacion.east) -| (help.west) -- (b0.east);
  
 \end{frame}

@@ -101,11 +101,11 @@ condición de contorno.
   \tikz[baseline] \node [anchor=base] (-b2) at (0,0) {$\beta^2$} ;
   $ \dotsi $
   \tikz[baseline] \node [anchor=base] (k-1) at (0,0) {$ 0 $};
-  \tikz[baseline] \node [anchor=base] (diag) at (0,0) {$2\big(1+\beta^2\big)$};
+  \tikz[baseline] \node [anchor=base] (diag) at (0,0) {$-2\big(1+\beta^2\big)$};
   \tikz[baseline] \node [anchor=base] (k+1) at (0,0) { $2$};
   $\dotsi $  
   \tikz[baseline] \node [anchor=base] (b2) at (0,0) {$ \beta^2$} ;
-  $\Big]$
+  $\dotsi \Big]$
   \tikz[overlay,->] \draw [blue] (-b2.south west)  -- ($(-b2)-(1.5,1.0)$)  node[text=black,anchor=north] {$k-N_x$};
   \tikz[overlay,->] \draw [blue] (k-1.south)       -- ($(k-1)-(1,1.0)$)  node[text=black,anchor=north] {$k_A-1$};
   \tikz[overlay,->] \draw [blue] (diag.south)      -- ($(diag)-(0,1.0)$) node[text=black,anchor=north] {$k_A$};
