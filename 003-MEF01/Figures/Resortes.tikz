@@ -1,16 +1,24 @@
 \documentclass{standalone}
 \usepackage[svgnames, x11names, dvipsnames]{xcolor}
 \usepackage{tikz}
-\usetikzlibrary{decorations.pathmorphing,calc}
+\usetikzlibrary{decorations.pathmorphing,calc,patterns}
 \begin{document}
 
 \begin{tikzpicture}
   [
+  nodraw/.style ={draw=none}
   every path/.style={line width=1pt}
   ]
 %    decoration = {zigzag,
 %		 segment length = .5cm,
 %		 amplitude = 1cm},
+  %\coordinate A at (-0.25,0) ;
+  %\coordinate B at ( 2.5, 0) ;
+  %\coordinate C at ( 0.5, 0) ;
+
+  \fill[nodraw,pattern=north east lines, draw] (-0.6,-1) rectangle (-0.5 , 1);
+  \draw (-0.5,0) -- (-0.25,0) ;
+
   \foreach \A in {0,2.5,5.0}{
     \draw (-0.25,0)
          (\A-0.25,0)
@@ -21,8 +29,9 @@
       -- ($(\A,0) + (1.75,-1)$) 
       -- ($(\A,0) + (2,0)    $)
       -- ($(\A,0) + (2.25,0) $);
-      \draw (\A-0.25,0) circle [radius=1pt,fill];
+      \draw[fill] (\A-0.25,0) circle [radius=1pt];
     };
+   \draw[fill] (7.25,0) circle [radius=1pt];
 
 
 %  \draw[rounded corners] (-0.25 , 0 ) -- (0,0)   decorate[decoration=zigzag] { (0,0) -- (2.0 ,0)}  -- (2.25,0);
