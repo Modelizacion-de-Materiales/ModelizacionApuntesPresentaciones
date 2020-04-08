@@ -23,7 +23,7 @@ handout.aux: handout.tex figures ${INCLUDES} main.tex lists
 	${PDFLATEX} handout.tex
 
 ##########################################	
-figures: Figura1-Chapa Figura1-Grilla Figura-Tiempos-Escaleo
+figures: Figura1-Chapa Figura1-Grilla Figura-Tiempos-Escaleo 07-CondicionesDeContorno2
 
 Figura1-Chapa: 01-Problema/Figura01-01-Chapa.tikz
 	cd 01-Problema; ${PDFLATEX} Figura01-01-Chapa.tikz ; cd ..
@@ -34,12 +34,17 @@ Figura1-Grilla: 01-Problema/01-Figura-Grilla.tikz
 Figura-Tiempos-Escaleo: DATA/plot-tiempos.gpi
 	cd DATA; gnuplot plot-tiempos.gpi ; ${PDFLATEX} tiempos.tex ; cd ..
 
+07-CondicionesDeContorno2:
+	make -C ./07-CondicionesDeContorno2
+
+
+
 #########################################
 
 clase-lo/clase-lo.pdf: ./clase-lo
 	make -C ./clase-lo
 
-.PHONY: clase-lo/clase-lo.pdf
+.PHONY: clase-lo/clase-lo.pdf   07-CondicionesDeContorno2 
 
 
 lists: 
