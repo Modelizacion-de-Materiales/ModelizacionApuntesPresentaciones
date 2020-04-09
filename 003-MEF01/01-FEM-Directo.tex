@@ -1,17 +1,40 @@
 \mode<article>
 
+Consideremos el problema 1 de la guía, en el que una cadena de tres resortes, empotrada en el
+extremo izquierdo, es solicitada por un desplazamiento en el extremo derecho.
+
+Las condiciones sobre los extremos nombradas anteriormente nos dan las condiciones de contorno
+sobre la cadena de resortes.
+
+Para poder resolver la fuerza necesaria para efectuar el desplazamiento usando el método de
+elementos finitos, dividimos el problema de forma natural en tres elementos. Cada resorte será un
+elemento, y cada elemento tendrá dos nodos, de modo que todos los grados de libertad del problema
+pueden representarse en cuatro nodos. Cada nodo marca un extremo de un resorte. 
+
+Los numeremos los Elementos de 1 a 3 indicados con cajas en la figura, y los nodos de 1 a 4.
+indicados con círculos en la Figura \ref{FiguraNumeracionGL}
+
 
 \mode*
 \begin{frame}[label=FrameNumeracionGL]
   \frametitle<presentation>{Problema de los Resortes}
 
   \begin{figure}
-    \fbox{
     \includegraphics[width=\textwidth,page=2, trim=5cm 7cm 5cm 8cm, clip=true]
     {./Libreoffice/MEF01_2018.pdf}
-  }
+    \mode<article>{
+      \caption { Esquema del problema \protect\label{FiguraNumeracionGL} }
+    }
   \end{figure}
 
 
 \end{frame}
+
+\mode<article>
+
+\subsection{Fuerzas en los Nodos}
+
+Consideremos las fuerzas que cada Elemento o resorte ejerce sobre los nodos, tal cual se hizo en
+la clase teórica.
+
 \mode<all>
