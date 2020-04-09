@@ -1,6 +1,6 @@
 % modo presentación. si se cambia a modo notas se imprimen las notas (creo)
 %\documentclass[xcolor={dvipsnames,x11names,svgnames},aspectratio=169,notes]{beamer}
-\mode<presentation>
+% \mode<presentation>
 %handout de las diapositivas, comentar arriva!
 % handout de la presentacion
 %\documentclass[handout,xcolor={dvipsnames,x11names,svgnames},aspectratio=169,notes]{beamer}
@@ -12,11 +12,11 @@
 
 \include{./PREAMBLE/PACKS}
 % para mostrar las notas en modo presentacion. 
-\setbeameroption{show notes}
+%\setbeameroption{show notes}
 %para ocultar las notas
 %\setbeameroption{hide notes}
 %para dejar las notas en la segunda patnalla
-\setbeameroption{show notes on second screen}
+%\setbeameroption{show notes on second screen}
 %incluyo los paquetes necesarios
 
 % en caso de handouts, ver 2 en 1 o 4 en 
@@ -39,7 +39,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Defino la presentación
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\title{Solucion de Sistemas Lineales Mixtos}
+\title{ 
+\inlcudegraphicx[width = 
+
+
+Solucion de Sistemas Lineales Mixtos}
 \subtitle[Modelización 2019]{ Modelización de Propiedades y Procesos 2019 }
 \author{Ruben Weht\inst{1}\inst{2} \and Mariano Forti\inst{1}\inst{3} }
 \institute{
@@ -57,11 +61,15 @@
 
 % Inicia el documento.
 \begin{document}
-
 % Título de la clase. 
+\mode<presentation>{
 \begin{frame}[plain]
 \titlepage
 \end{frame}
+}
+\mode<article>{
+  \maketitle
+}
 
 \section{Contenido Sencillo}
 \input{./01-FEM-Directo.tex} 
