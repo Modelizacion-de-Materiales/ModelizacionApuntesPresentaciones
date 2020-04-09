@@ -1,0 +1,42 @@
+\mode*
+
+\begin{frame}[label=FrameFuerzasElemento1]
+  \frametitle<presentation>{Fuerzas sobre el Elemento 1}
+
+  \begin{figure}
+    \includegraphics[width=\textwidth,page=3, trim=5cm 8cm 5cm 6cm, clip=true]
+    {./Libreoffice/MEF01_2018.pdf}
+    \mode<article>{
+      \caption{\protect\label{FigureFuerzasElemento1} Fuerzas sobre el elemento 1}
+    }
+  \end{figure}
+
+  \begin{equation} 
+    \label{EqElemento1}
+    \begin{split}
+      f_1^1 &= -k_1 (x_2 - x_1)\\[10pt]
+      f_2^1 &= k_1 (x_2 - x_1)
+    \end{split}
+    \quad \Rightarrow \quad
+     \begin{pmatrix}
+       f_1^1\\[10pt]
+       f_2^1
+     \end{pmatrix}
+     =
+     \underbrace{
+       k_1 
+       \begin{pmatrix}
+	 1 & -1 \\[10pt]
+	 -1 & 1 
+       \end{pmatrix}
+     }_{ \mathbf{ k_1 ^{el} } }
+    \begin{pmatrix}
+      x_1 \\[10pt]
+      x_2
+    \end{pmatrix}
+%    
+  \end{equation}
+          
+\end{frame}
+
+\mode<all>

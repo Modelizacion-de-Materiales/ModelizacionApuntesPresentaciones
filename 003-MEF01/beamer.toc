@@ -1,2 +1,0 @@
-\select@language {spanish}
-\beamer@sectionintoc {1}{Ejemplo: Problema de los Resortes}{2}{0}{1}

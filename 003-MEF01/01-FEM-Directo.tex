@@ -14,7 +14,6 @@ pueden representarse en cuatro nodos. Cada nodo marca un extremo de un resorte.
 Los numeremos los Elementos de 1 a 3 indicados con cajas en la figura, y los nodos de 1 a 4.
 indicados con círculos en la Figura \ref{FiguraNumeracionGL}
 
-
 \mode*
 \begin{frame}[label=FrameNumeracionGL]
   \frametitle<presentation>{Problema de los Resortes}
@@ -35,6 +34,116 @@ indicados con círculos en la Figura \ref{FiguraNumeracionGL}
 \subsection{Fuerzas en los Nodos}
 
 Consideremos las fuerzas que cada Elemento o resorte ejerce sobre los nodos, tal cual se hizo en
-la clase teórica.
+la clase teórica. Agreguemos ahora un poco de detalle sobre cada uno de los resortes.
+
+\subsubsection{Fuerzas sobre el elemento 1}
+
+Como se ilustra en la Figura \ref{FigureFuerzasElemento1} Las fuerza sobre el nodo 1 del Elemento
+1 es $f_1^1$ , mientras que la fuerza sobre el nodo 2 del Elemento 1 es $f_2^1$. Ambas fuerzas
+son de igual módulo pero opuestas, y quedan determinadas por el estiramiento del resorte. Este
+estiramiento será directamente la diferencia de corrimientos entre los nodos que determinan el
+elemento 1 y 2. Si las posiciones de dichos nodos son $x_1$ y $x_2$, se pueden escribir las
+fuerzas como en la ecuación (\ref{EqElemento1}). 
+
+\mode*
+
+\begin{frame}[label=FrameFuerzasElemento1]
+  \frametitle<presentation>{Fuerzas sobre el Elemento 1}
+
+  \begin{figure}
+    \includegraphics[width=\textwidth,page=3, trim=5cm 8cm 5cm 6cm, clip=true]
+    {./Libreoffice/MEF01_2018.pdf}
+    \mode<article>{
+      \caption{\protect\label{FigureFuerzasElemento1} Fuerzas sobre el elemento 1}
+    }
+  \end{figure}
+
+  \begin{equation} 
+    \label{EqElemento1}
+    \begin{split}
+      f_1^1 &= -k_1 (x_2 - x_1)\\[10pt]
+      f_2^1 &= k_1 (x_2 - x_1)
+    \end{split}
+    \quad \Rightarrow \quad
+     \begin{pmatrix}
+       f_1^1\\[10pt]
+       f_2^1
+     \end{pmatrix}
+     =
+     \underbrace{
+       k_1 
+       \begin{pmatrix}
+	 1 & -1 \\[10pt]
+	 -1 & 1 
+       \end{pmatrix}
+     }_{ \mathbf{ k_1 ^{el} } }
+    \begin{pmatrix}
+      x_1 \\[10pt]
+      x_2
+    \end{pmatrix}
+%    
+  \end{equation}
+          
+\end{frame}
+
+\mode<all>
+
+
+%\input{./01-01-FrameElemento1}
+
+\mode<article>
+
+Notar que ha quedado definida la matriz de rigidez elemental del 
+Elemento 1, $\mathbf{k_1 ^{el} }$.
+
+\subsubsection{Elemento 2}
+
+Habiendo introducido la notación para
+el elemento 1, simplemente tenemos aquí las ecuaciones equivalentes para el
+Elemento 2. la diferencia será cuáles son los grados de libertad
+involucrados, porque el Elemento 2 ‘conecta’ o ‘acopla’ a los nodos 2 y 3, y por
+lo tanto son las posiciones de dichos nodos, $x_2$ y $x_3$ , las que determinarán el
+estiramiento del resorte.
+
+\mode*
+
+%\input{./01-02-FrameElemento2}
+\begin{frame}[label=FrameFuerzasElemento2]
+  \frametitle<presentation>{Fuerzas sobre el Elemento 2}
+
+  \begin{figure}
+    \includegraphics[width=\textwidth,page=4, trim=5cm 8cm 5cm 6cm, clip=true]
+    {./Libreoffice/MEF01_2018.pdf}
+    \mode<article>{
+      \caption{\protect\label{FigureFuerzasElemento2} Fuerzas sobre el elemento 2}
+    }
+  \end{figure}
+
+  \begin{equation} 
+    \label{EqElemento2}
+    \begin{split}
+      f_1^2 &= -k_2 (x_3 - x_2)\\[10pt]
+      f_2^2 &= k_2 (x_3 - x_2)
+    \end{split}
+    \quad \Rightarrow \quad
+     \begin{pmatrix}
+       f_1^2\\[10pt]
+       f_2^2
+     \end{pmatrix}
+     =
+     \underbrace{
+       k_2 
+       \begin{pmatrix}
+	 1 & -1 \\[10pt]
+	 -1 & 1 
+       \end{pmatrix}
+     }_{ \mathbf{ k_2 ^{el} } }
+    \begin{pmatrix}
+      x_2 \\[10pt]
+      x_3
+    \end{pmatrix}
+%    
+  \end{equation}
+\end{frame}
 
 \mode<all>

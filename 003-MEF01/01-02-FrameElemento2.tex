@@ -1,0 +1,39 @@
+\begin{frame}[label=FrameFuerzasElemento2]
+  \frametitle<presentation>{Fuerzas sobre el Elemento 2}
+
+  \begin{figure}
+    \includegraphics[width=\textwidth,page=4, trim=5cm 8cm 5cm 6cm, clip=true]
+    {./Libreoffice/MEF01_2018.pdf}
+    \mode<article>{
+      \caption{\protect\label{FigureFuerzasElemento2} Fuerzas sobre el elemento 2}
+    }
+  \end{figure}
+
+  \begin{equation} 
+    \label{EqElemento2}
+    \begin{split}
+      f_1^2 &= -k_2 (x_3 - x_2)\\[10pt]
+      f_2^2 &= k_2 (x_3 - x_2)
+    \end{split}
+    \quad \Rightarrow \quad
+     \begin{pmatrix}
+       f_1^2\\[10pt]
+       f_2^2
+     \end{pmatrix}
+     =
+     \underbrace{
+       k_2 
+       \begin{pmatrix}
+	 1 & -1 \\[10pt]
+	 -1 & 1 
+       \end{pmatrix}
+     }_{ \mathbf{ k_2 ^{el} } }
+    \begin{pmatrix}
+      x_2 \\[10pt]
+      x_3
+    \end{pmatrix}
+%    
+  \end{equation}
+          
+\end{frame}
+

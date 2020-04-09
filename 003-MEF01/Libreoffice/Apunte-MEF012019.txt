@@ -22,7 +22,8 @@ clase teórica.
 
 Elemento 1
 
-Figura 2: Fuerzas sobre el Elemento 1 Las fuerza sobre el nodo 1 del Elemento 1
+Figura 2: Fuerzas sobre el Elemento 1 
+Las fuerza sobre el nodo 1 del Elemento 1
 es , mientras que la fuerza sobre el nodo 2 del Elemento 1 es . Ambas fuerzas
 son de igual módulo pero opuestas, u quedan determinadas por el estiramiento
 del resorte. Este estiramiento será directamente la diferencia de corrimientos
@@ -35,7 +36,8 @@ Elemento 1:
 
 (3) Elemento 2
 
-  Figura 3: Fuerzas sobre el Elemento 2 Habiendo introducido la notación para
+  Figura 3: Fuerzas sobre el Elemento 2 
+  Habiendo introducido la notación para
   el elemento 1, simplemente tenemos aquí las ecuaciones equivalentes para el
   Elemento 2. la diferencia será cuáles son los grados de libertad
   involucrados, porque el Elemento 2 ‘conecta’ o ‘acopla’ a los nodos 2 y 3.  ;
