@@ -1,2 +1,0 @@
-\select@language {spanish}
-\beamer@sectionintoc {1}{Contenido Sencillo}{2}{0}{1}

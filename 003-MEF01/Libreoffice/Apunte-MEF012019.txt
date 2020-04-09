@@ -1,0 +1,140 @@
+﻿
+
+Modelización de Materiales 2020
+Práctica de Elementos Finitos 1
+Método de Elementos Finitos, Resolución de Problemas Lineales Mixtos
+
+
+Mariano Forti – Ruben Weht
+marianodforti@gmail.com – ruweht@cnea.gov.ar
+www.tandar.cnea.gov.ar/~weht/Modelización
+https://mdforti.github.io/Modelizacion/
+Ejemplo: Problema de los Resortes
+Consideremos el problema 1 de la guía, en el que una cadena de tres resortes, empotrada en el extremo izquierdo, es solicitada por un desplazamiento en el extremo derecho. 
+Las condiciones sobre los extremos nombradas anteriormente nos dan las condiciones de contorno sobre la cadena de resortes. 
+Para poder resolver la fuerza necesaria para efectuar el desplazamiento usando el método de elementos finitos, dividimos el problema de forma natural en tres elementos. Cada resorte será un elemento, y cada elemento tendrá dos nodos, de modo que todos los grados de libertad del problema pueden representarse en cuatro nodos. Cada nodo marca un extremo de un resorte.
+Numeremos los Elementos de 1 a 3 indicados con cajas en la figura, y los nodos de 1 a 4. indicados con círculos en la figura.
+
+
+Figura 1: Esquema del Problema Fuerzas en los Nodos Consideremos las fuerzas
+que cada Elemento o resorte ejerce sobre los nodos, tal cual se hizo en la
+clase teórica.
+
+Elemento 1
+
+Figura 2: Fuerzas sobre el Elemento 1 
+Las fuerza sobre el nodo 1 del Elemento 1
+es , mientras que la fuerza sobre el nodo 2 del Elemento 1 es . Ambas fuerzas
+son de igual módulo pero opuestas, u quedan determinadas por el estiramiento
+del resorte. Este estiramiento será directamente la diferencia de corrimientos
+entre los nodos que determinan el elemento 1 y 2. Matemáticamente:
+
+(1) O bien matricialmente:
+
+(2) De manera que ha quedado definida la matriz de rigidez elemental del
+Elemento 1:
+
+(3) Elemento 2
+
+  Figura 3: Fuerzas sobre el Elemento 2 
+  Habiendo introducido la notación para
+  el elemento 1, simplemente tenemos aquí las ecuaciones equivalentes para el
+  Elemento 2. la diferencia será cuáles son los grados de libertad
+  involucrados, porque el Elemento 2 ‘conecta’ o ‘acopla’ a los nodos 2 y 3.  ;
+  ; (4)
+
+  Elemento 3
+
+  Figura 4: Fuerzas sobre el elemento 3 Por útlimo, para el Elemento 3 el
+  estiramiento queda determinado por los nodos 4 y 3, de manera que sus grados
+  de libertad se ‘acoplan’ en la ecuación corespondiente, ;  ; (5) Fuerzas
+  Globales
+
+  Figura 5: Fuerzas globales La fuerza total sobre cada uno de los nodos es la
+  suma de todas las fuerzas que actúa sobre cada uno de ellos. Al escribir
+  estas ecuaciones globales, es posible acoplar a todos los grados de libertad
+  a partir de las ecuaciones locales, expandiendo cada una de ellas de manera
+  que aparezcan en forma explícita todos los grados de libertad del problema
+  x1, x2, x3 y x4. La fuerza global sobre cada nodo puede numerarse F₁ , F₂ ,
+  F₃ y F₄ .
+
+(6) Este sistema de ecuaciones puede pensarse en forma Lineal, donde tenemos un
+vector de Fuerzas  y un vector de desplazamientos .
+
+(7) Donde queda definida nuestra Matriz de Rigidez del problema:
+
+(8) El problema de este sistema lineal es que por las condiciones de contorno
+planteadas al principio, las incógnitas y las condiciones de contorno están
+repartidas en forma arbitraria entre el vector de desplazamientos y el vector
+de fuerzas. Por lo tanto, es necesario extender algo de nuestro desarrollo
+Resolución: Problema de los resortes Sistema Lineal Mixto En principio, el
+sistema lineal encontrado representa un sistema de ecuaciones. Tratemos primero
+las ecuaciones que corresponden con los desplazamientos desconocidos x₂ y x₃ en
+el ejemplo del resorte. La operatoria consiste en expandir las ecuaciones
+correspondientes en todos los grados de libertad, tal y como aparecen en la
+ecuación (17).  Separación de las condiciones de contorno Para las ecuaciones
+de F₂ y F₃ , deben reordenarse los términos de los grados de libertad
+vinculados x₁ y x₄ a la derecha del igual, de manera de dejar del lado
+izquierdo del igual solo a los términos de los grados de libertad incógnita x₂
+y x₃ , 
+
+  (9) Reduccion del sistema lineal Finalmente, pensemos en un vector de
+  incógnitas  y un vector de vínculos . Con estas definiciones, las ecuaciones
+  (9) puede escribirse en forma matricial: ; ; (10) Sobre esta ecuación
+  conviene hacer algunas definiciones. Sea  la matriz de rigidez reducida,
+  mientras que  es la matriz de rigidez vinculada.  Solución de las incógnitas.
+  El sistema lineal reducido puede resolverse ahora en forma limpia simplemente
+  invirtiendo  ya que este nuevo sistema lineal reducido tiene todas las
+  incógnitas en el vector X_r que multiplica a la matriz de rigidez. Puede
+  escribirse entonces que 
+
+(11) Sin embargo el problema no está terminado aún puesto que falta resolver
+las fuerzas F₁ y F₄. Pero, conociendo los desplazamientos a partir de la
+ecuación (11), resulta trivial resolver a partír de las ecuaciones
+correspondientes en el sistema de ecuaciones (6). Aún así, por completitud,
+escribamos la forma matricial de las ecuaciones correspondientes. Tomemos un
+vector de fuerzas de vínculo , el sistema lineal equivalente al subconjunto de
+ecuaciones correspondientes es 
+
+(12) Generalización del problema Lo que se hizo hastá aquí no es ni mas ni
+menos que plantear un sistema lineal de ecuaciones de la forma
+
+(13) En este conjunto de cuaciones existe un subconjunto que corresponden a
+aquellas donde los desplazamientos  son incógnitas y las fuerzas  son dadas.
+Nombremos  al índice que define este subconjunto, de manera que las ecuaciones
+correspondientes son:
+
+(14) Como el índice j recorre todos los grados de libertad, es posible separar
+los vinculados de los libres, de manera que el sistema puede reorderarse de
+manera de separar un término para los vínculos y otro para las incógnitas. 
+
+(15) donde  es un índice ‘copia’ de  y  la lista de índices de los grados de
+libertad vinculados.  Por último, puede reordenarse de manera que solo
+aparezcan los grados de libertad incógnita a la derecha de la ecuación,
+
+  (16) que puede resolverse rápidamente, 
+
+  (17) Una vez resueltos los desplazamientos es posible recuperar las fuerzas
+  de vínculo,
+
+  (18) Programación La ventaja del planteo desarrollado arriba radica en que se
+  puede aplicar fácilmente a cualquier lenguaje de programación moderno,i.e.
+  fortan, python, matlab, o el que se le ocurra.  Es posible entender que cada
+  una de las listas de grados de libertad definidas pueden escribirse como
+  vectores. Cada componente del vector es el índice de un grado de libertad del
+  problema que corresponda. En nuestro ejemplo del resorte,
+
+  (19) Si se ha definido la matriz de rigidez del problema, puede definirse la
+  matriz de rigidez reducida del sistema de la siguiente forma:
+
+(20) y la matriz vinculada,
+
+  (21) De esta forma es posible implementar la ecuación general de la ecuación
+  (17) en forma inmediata,
+
+  (22) Esto resuelve los desplazamientos desconocidos. Para resolver las
+  fuerzas de vínculo, directamente se aplica:
+
+(23)
+
+\mode<all>
