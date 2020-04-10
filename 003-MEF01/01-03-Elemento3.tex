@@ -1,0 +1,50 @@
+\subsubsection{Fuerzas sobre el elemento 3}
+
+\mode<article>
+
+Por útlimo, para el Elemento 3 el estiramiento queda determinado por los nodos 4 y 3, de manera
+que los grados de libertad relevantes son $x_3$ y $x_4$
+
+\mode*
+
+
+\begin{frame}[label=FrameFuerzasElemento3]
+  \frametitle<presentation>{Fuerzas sobre el Elemento 3}
+
+  \begin{figure}
+    \includegraphics[width=\textwidth,page=5, trim=5cm 8cm 5cm 6cm, clip=true]
+    {./Libreoffice/MEF01_2018.pdf}
+    \mode<article>{
+      \caption{\protect\label{FigureFuerzasElemento3} Fuerzas sobre el elemento 3}
+    }
+  \end{figure}
+
+  \begin{equation} 
+    \label{EqElemento2}
+    \begin{split}
+      f_1^3 &= -k_3 (x_4 - x_3)\\[10pt]
+      f_2^3 &= k_3 (x_4 - x_3)
+    \end{split}
+    \quad \Rightarrow \quad
+     \begin{pmatrix}
+       f_1^2\\[10pt]
+       f_2^2
+     \end{pmatrix}
+     =
+     \underbrace{
+       k_3 
+       \begin{pmatrix}
+	 1 & -1 \\[10pt]
+	 -1 & 1 
+       \end{pmatrix}
+     }_{ \mathbf{ k_3 ^{el} } }
+    \begin{pmatrix}
+      x_3 \\[10pt]
+      x_4
+    \end{pmatrix}
+%    
+  \end{equation}
+          
+\end{frame}
+
+\mode<all>

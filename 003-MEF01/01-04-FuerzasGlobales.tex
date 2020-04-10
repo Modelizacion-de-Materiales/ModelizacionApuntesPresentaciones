@@ -1,0 +1,84 @@
+\mode<article>
+
+La fuerza total sobre cada uno de los nodos es la suma de todas las fuerzas que actúa sobre cada
+uno de ellos. Al escribir estas ecuaciones globales, es posible acoplar a todos los grados de
+libertad a partir de las ecuaciones locales, expandiendo cada una de ellas de manera que
+aparezcan en forma explícita todos los grados de libertad del problema $x_1$, $x_2$, $x_3$ y
+$x_4$. La fuerza global sobre cada nodo puede numerarse $F_1$, $F_2$, $F_3$ y $F_4$ .
+
+\mode*
+
+\begin{frame}[label=FrameFuerzasGlobales]
+  \frametitle<presentation>{Fuerzas Globales}
+
+  \begin{figure}
+    \fbox{
+    \includegraphics[width=\textwidth,page=6, trim=5cm 11cm 3cm 7cm, clip=true]
+    {./Libreoffice/MEF01_2018.pdf}
+  }
+    \mode<article>{
+      \caption{\protect\label{FigureFuerzasGlobales} Fuerzas Globales}
+    }
+  \end{figure}
+%
+ \tiny 
+  \begin{equation}\label{EqSistemaLinealExpandido}
+    \begin{aligned}
+      F_1 &= f_1^1  = -k_1( x_2-x_1) =
+                   x_1 (k_1) + x_2(-k_1)+ x_3(0) + x_4(0)\\
+      F_2 &= f_1^2 + f_2^1 = k_1( x_2-x_1) -k_2(x_3 - x_2) = 
+                   x_1 (-k_1) + x_2(k_1+k_2)+ x_3(-k_2) + x_4(0)\\
+      F_3 &= f_2^2 + f_1^3 = k_2( x_3-x_2) - k_3 (x_4 - x_3) = 
+                    x_1 (0) + x_2(-k_2)+ x_3(k_2 + k_3) + x_4(-k_3)\\
+      F_4 &= f_2^3 = k_3( x_4-x_3)=
+                     x_1 (0) + x_2(0)+ x_3(-k_3) + x_4(k_3)
+    \end{aligned}
+  \end{equation}
+%
+\end{frame}
+
+\mode<article>
+
+Este sistema de ecuaciones puede pensarse en forma Lineal, donde tenemos un
+vector de Fuerzas $\mathbf{F}$  y un vector de desplazamientos $\mathbf{x}$. Notar que también
+queda definida la matriz de rigidez global delsistema $\mathbf{M}$
+
+El problema del  sistema lineal de la ecuación (\ref{eqSistemaLineal})
+es que por las condiciones de contorno
+planteadas al principio, las incógnitas y las condiciones de contorno están
+repartidas en forma arbitraria entre el vector de desplazamientos y el vector
+de fuerzas. Por lo tanto, es necesario extender algo de nuestro desarrollo.
+
+
+\mode*
+
+\begin{frame}[label=FrameMatrizRigidez]
+  \frametitle<presentation>{Matriz de Rigidez Global}
+
+  \begin{equation} \label{eqSistemaLineal}
+    \underbrace{
+      \begin{pmatrix}
+	k_1  & -k_1     & 0    & 0 \\
+	-k_1 & k_1 +k_2 & -k_2 & 0 \\
+	0    & -k_2     & k_2 + k_3 & -k3\\
+	0    &  0       & -k_3      & k_3
+      \end{pmatrix}
+    }_{\mathbf{M}}
+    \begin{pmatrix}
+      x_1\\
+      x_2\\
+      x_3\\
+      x_4
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+      F_1\\
+      F_2\\
+      F_3\\
+      F_4
+    \end{pmatrix}
+  \end{equation}
+
+\end{frame}
+
+\mode<all>

@@ -1,6 +1,9 @@
 SECTIONS := 01-FEM-Directo.tex 01-01-FrameElemento1.tex 01-02-FrameElemento2.tex
 
-notes.pdf: handout.aux notes.tex
+notes.pdf: notes.aux
+	pdflatex notes.tex
+
+notes.aux: handout.aux notes.tex
 	pdflatex notes.tex
 
 handout.aux: handout.tex beamer.aux main.tex 
