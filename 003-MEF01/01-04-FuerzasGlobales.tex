@@ -52,18 +52,21 @@ de fuerzas. Por lo tanto, es necesario extender algo de nuestro desarrollo.
 
 \mode*
 
-\begin{frame}[label=FrameMatrizRigidez]
+\begin{frame}<1>[label=FrameMatrizRigidez]
   \frametitle<presentation>{Matriz de Rigidez Global}
+  \frametitle<2->{Separación del Sistema Lineal}
 
   \begin{equation} \label{eqSistemaLineal}
-    \underbrace{
+    \onslide<1> \underbrace{
+      \onslide<1->
       \begin{pmatrix}
 	k_1  & -k_1     & 0    & 0 \\
 	-k_1 & k_1 +k_2 & -k_2 & 0 \\
 	0    & -k_2     & k_2 + k_3 & -k3\\
 	0    &  0       & -k_3      & k_3
       \end{pmatrix}
-    }_{\mathbf{M}}
+    \onslide<1> }_{\mathbf{M}}
+  \onslide<1->
     \begin{pmatrix}
       x_1\\
       x_2\\
@@ -79,6 +82,34 @@ de fuerzas. Por lo tanto, es necesario extender algo de nuestro desarrollo.
     \end{pmatrix}
   \end{equation}
 
+  \only<1>{
+  \mode<presentation>{
+    \begin{columns}
+      \column{0.5\textwidth}
+
+      $x_i$ : desplazamiento del nodo $i$
+
+      $F_i$ : fuerza en el nodo $i$
+
+      \column{0.5\textwidth}
+
+      Vínculos: $x_1$, $x_4$
+
+      Fuerzas conocidas: $F_2$, $F_3$
+
+    \end{columns}
+  }
+
+}
+\onslide<3->
+\tikz[overlay] \draw[->,draw]  (0,2.5) -- 
+  (1,2.5);
+\tikz[overlay]
+  \draw[opacity=0.5,fill=blue] (1.5,2.4)
+  rectangle (2.2, 2.6) ;
+\onslide<4->
+\tikz[overlay] \draw[->,draw]  (0,2) -- 
+  (1,2);
 \end{frame}
 
 \mode<all>
