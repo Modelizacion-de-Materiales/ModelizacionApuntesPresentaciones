@@ -67,12 +67,19 @@ vector de Fuerzas  y un vector de desplazamientos .
 planteadas al principio, las incógnitas y las condiciones de contorno están
 repartidas en forma arbitraria entre el vector de desplazamientos y el vector
 de fuerzas. Por lo tanto, es necesario extender algo de nuestro desarrollo
-Resolución: Problema de los resortes Sistema Lineal Mixto En principio, el
+
+Resolución: Problema de los resortes Sistema Lineal Mixto 
+
+En principio, el
 sistema lineal encontrado representa un sistema de ecuaciones. Tratemos primero
 las ecuaciones que corresponden con los desplazamientos desconocidos x₂ y x₃ en
 el ejemplo del resorte. La operatoria consiste en expandir las ecuaciones
 correspondientes en todos los grados de libertad, tal y como aparecen en la
-ecuación (17).  Separación de las condiciones de contorno Para las ecuaciones
+ecuación (17). 
+
+Separación de las condiciones de contorno 
+
+Para las ecuaciones
 de F₂ y F₃ , deben reordenarse los términos de los grados de libertad
 vinculados x₁ y x₄ a la derecha del igual, de manera de dejar del lado
 izquierdo del igual solo a los términos de los grados de libertad incógnita x₂
@@ -80,7 +87,9 @@ y x₃ ,
 
   (9) Reduccion del sistema lineal Finalmente, pensemos en un vector de
   incógnitas  y un vector de vínculos . Con estas definiciones, las ecuaciones
-  (9) puede escribirse en forma matricial: ; ; (10) Sobre esta ecuación
+  (9) puede escribirse en forma matricial: 
+
+  ; ; (10) Sobre esta ecuación
   conviene hacer algunas definiciones. Sea  la matriz de rigidez reducida,
   mientras que  es la matriz de rigidez vinculada.  Solución de las incógnitas.
   El sistema lineal reducido puede resolverse ahora en forma limpia simplemente

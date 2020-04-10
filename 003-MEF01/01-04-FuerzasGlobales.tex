@@ -22,7 +22,7 @@ $x_4$. La fuerza global sobre cada nodo puede numerarse $F_1$, $F_2$, $F_3$ y $F
   \end{figure}
 %
  \tiny 
-  \begin{equation}
+  \begin{equation}\label{EqSistemaLinealExpandido}
     \begin{aligned}
       F_1 &= f_1^1  = -k_1( x_2-x_1) =
                    x_1 (k_1) + x_2(-k_1)+ x_3(0) + x_4(0)\\
@@ -43,12 +43,19 @@ Este sistema de ecuaciones puede pensarse en forma Lineal, donde tenemos un
 vector de Fuerzas $\mathbf{F}$  y un vector de desplazamientos $\mathbf{x}$. Notar que también
 queda definida la matriz de rigidez global delsistema $\mathbf{M}$
 
+El problema del  sistema lineal de la ecuación (\ref{eqSistemaLineal})
+es que por las condiciones de contorno
+planteadas al principio, las incógnitas y las condiciones de contorno están
+repartidas en forma arbitraria entre el vector de desplazamientos y el vector
+de fuerzas. Por lo tanto, es necesario extender algo de nuestro desarrollo.
+
+
 \mode*
 
 \begin{frame}[label=FrameMatrizRigidez]
   \frametitle<presentation>{Matriz de Rigidez Global}
 
-  \begin{equation}
+  \begin{equation} \label{eqSistemaLineal}
     \underbrace{
       \begin{pmatrix}
 	k_1  & -k_1     & 0    & 0 \\
