@@ -82,34 +82,35 @@ de fuerzas. Por lo tanto, es necesario extender algo de nuestro desarrollo.
     \end{pmatrix}
   \end{equation}
 
-  \only<1>{
   \mode<presentation>{
+  \only<1>{
     \begin{columns}
       \column{0.5\textwidth}
 
       $x_i$ : desplazamiento del nodo $i$
 
       $F_i$ : fuerza en el nodo $i$
-
       \column{0.5\textwidth}
-
       Vínculos: $x_1$, $x_4$
 
       Fuerzas conocidas: $F_2$, $F_3$
-
     \end{columns}
   }
-
+\onslide<2->
+\tikz[overlay] \draw[->,draw]  (0,2.5) --   (1,2.5);
+\tikz[overlay] \draw[->,draw]  (0,2) --   (1,2);
 }
-\onslide<3->
-\tikz[overlay] \draw[->,draw]  (0,2.5) -- 
-  (1,2.5);
-\tikz[overlay]
-  \draw[opacity=0.5,fill=blue] (1.5,2.4)
-  rectangle (2.2, 2.6) ;
-\onslide<4->
-\tikz[overlay] \draw[->,draw]  (0,2) -- 
-  (1,2);
+%\onslide<3-4>
+%  \begin{equation}
+%    \begin{split}
+%      \onslide<3->
+%      x_1 (-k_1) + x_2(k_1+k_2)+ x_3(-k_2) + x_4(0) &= F_2 \\
+%               \Rightarrow \quad x_2(k_1+k_2)+ x_3(-k_2)  &= F_2 - x_1 (-k_1) -  x_4(0) \\
+%      \onslide<4->
+%      x_1 (0) + x_2(-k_2)+ x_3(k_2 + k_3) + x_4(-k_3) &= F_3 \\
+%         \Rightarrow \quad x_2(-k_2)+ x_3(k_2 + k_3)  &= F_3 - x_1 (0) - x_4(-k_3) 
+%    \end{split}
+%  \end{equation}
 \end{frame}
 
 \mode<all>

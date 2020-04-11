@@ -20,17 +20,27 @@ Luego deben ser reordenados los términos de los grados de libertad vinculados
 $x_1$ y $x_4$ a la derecha del igual, de manera de dejar del lado izquierdo del
 igual solo a los términos de los grados de libertad incógnita $x_2$ y $x_3$, 
 
-\begin{equation}
-  \label{EqReordenoIncognitas}
+% \againframe<3-4>{FrameMatrizRigidez}
+\mode*
+
+\againframe<2->{FrameMatrizRigidez}
+
+\begin{frame}[label=FrameReordenarEcuaciones23]
+  \frametitle<presentation>{Reordenando Ecuaciones Para Incógnitas}
+\begin{equation}  \label{EqReordenoIncognitas}
   %\begin{split}
     \begin{aligned}
-        F_2 &= x_1 (-k_1) + x_2(k_1+k_2)+ x_3(-k_2) + x_4(0)\\
-       F_3 &= x_1 (0) + x_2(0)+ x_3(-k_3) + x_4(k_3) \\
+        x_1 (-k_1) + x_2(k_1+k_2)+ x_3(-k_2) + x_4(0) &= F_2\\
+       x_1 (0) + x_2(0)+ x_3(-k_3) + x_4(k_3)         &= F_3 \\
       \quad \Rightarrow \quad & \\
 	 x_2(k_1+k_2)+ x_3(-k_2) &= F_2  - (x_1 (-k_1) +  x_4(0)   )\\
          x_2(0)      + x_3(-k_3) &= F_3  - (x_1 (0)    +  x_4(k_3) )
     \end{aligned}
 \end{equation}
+
+\end{frame}
+
+\mode<article>
 
 Finalmente, pensemos en un vector de incógnitas $X_r = (x_2, x_3)$   y un
 vector de vínculos $X_s  = (x_1, x_4)$ . Con estas definiciones, las
@@ -38,26 +48,26 @@ ecuaciones (\ref{EqReordenoIncognitas})  puede escribirse en forma matricial, de
   quedarán definidas la \textbf{matriz de rigidez reducida} $\mathbf{K_{red} }$ 
   y la \textbf{matriz de coeficientes vínculos} $\mathbf{K_{vin}}$
 
-\begin{equation}
-  \underbrace{
-  \begin{pmatrix} k_1 + k_2 & - k_2 \\ -k_2 & k_1 + k_2 \end{pmatrix}
-  }_{ \mathbf{K_{red} } }
-  \begin{pmatrix}x_2 \\ x_3\end{pmatrix}
-  = 
-  \begin{pmatrix}F_2 \\ F_3\end{pmatrix}
-  -
-  \underbrace{
-  \begin{pmatrix} -k_1 & 0 \\ 0 & -k1 \end{pmatrix}
-  }_{ \mathbf{ K_{vin} } }
-  \begin{pmatrix}x_1 \\ x_4\end{pmatrix}
-\end{equation}
-
-
 \mode*
-%  \begin{frame}<presentation> % [label=FrameSeparacionEcuacion]
 
-    \againframe<2->{FrameMatrizRigidez}
 
-%  \end{frame}
+
+  \begin{frame}<1>[label=FrameSistemaReducido]
+    \frametitle<presentation>{Reducción del Sistema}
+    \begin{equation}\label{EqSistemaReducido}
+      \underbrace{
+	\begin{pmatrix} k_1 + k_2 & - k_2 \\ -k_2 & k_1 + k_2 \end{pmatrix}
+	}_{ \mathbf{K_{red} } }
+	\begin{pmatrix}x_2 \\ x_3\end{pmatrix}
+	  = 
+	  \begin{pmatrix}F_2 \\ F_3\end{pmatrix}
+	    -
+	  \underbrace{
+	      \begin{pmatrix} -k_1 & 0 \\ 0 & -k1 \end{pmatrix}
+	   }_{ \mathbf{ K_{vin} } }
+	\begin{pmatrix}x_1 \\ x_4\end{pmatrix}
+    \end{equation}
+
+  \end{frame}
 
 \mode<all>
