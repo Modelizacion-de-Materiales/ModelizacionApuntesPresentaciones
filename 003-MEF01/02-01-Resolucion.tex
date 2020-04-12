@@ -24,11 +24,10 @@ igual solo a los términos de los grados de libertad incógnita $x_2$ y $x_3$,
 
 \begin{frame}<presentation>[label=FrameSeparacionSistema]
   \frametitle{Separación del sistema lineal}
-
-  \begin{tikzpicture}[
-      overlay,remember picture,
-      inc/.style={fill=red, opacity=0.2},
-      vin/.style={fill=blue, opacity=0.2}
+  \begin{tikzpicture}
+    [      overlay,remember picture
+%      inc/.style={fill=red, opacity=0.2},
+%      vin/.style={fill=blue, opacity=0.2}
     ]
     \coordinate (O) at (1,0);
     \coordinate (E) at (10,-4);
@@ -46,61 +45,72 @@ igual solo a los términos de los grados de libertad incógnita $x_2$ y $x_3$,
     \coordinate (LI) at (1,1);
    % esta es el desplazamiento para el renglon de abajo 
     \coordinate (D) at (0,-0.5); 
-    % este grid lo tengo que sacar despues
-    \draw[gray] (O)  grid (E);
     \onslide<2->
     \draw[vin] (X4) rectangle ($(X4)+(L1)$);
     \draw[vin] (X1) rectangle ($(X1)+(L1)$);
     \draw[inc] (X3) rectangle ($(X3)+(LI)$);
     \onslide<2>
-    \draw[vin] (A)         rectangle ($(A)+(L1)$);
-    \draw[inc] (B)         rectangle ($(B)+(L2)$); 
-    \draw[vin] (C)         rectangle ($(C)+(L1)$);
+    \draw[vin] (A)  rectangle ($(A)+(L1)$);
+    \draw[inc] (B)  rectangle ($(B)+(L2)$); 
+    \draw[vin] (C)  rectangle ($(C)+(L1)$);
     \draw[vin] (F2) rectangle ($(F2)+(L1)$);
     \onslide<3>
     \draw[vin] ($(D)+(A)$) rectangle ($(A)+(L1)+(D)$);
-    \draw[inc]  ($(D)+(B)$) rectangle ($(B)+(L2)+(D)$); 
+    \draw[inc] ($(D)+(B)$) rectangle ($(B)+(L2)+(D)$); 
     \draw[vin] ($(D)+(C)$) rectangle ($(C)+(L1)+(D)$);
     \draw[vin] (F3) rectangle ($(F3)+(L1)$);
-    
-  \end{tikzpicture}
-  \begin{equation} \label{eqSistemaLineal}
+    \node at (0,0) {};
+
+  \end{tikzpicture} %dejar esta parte junta para que coincidan las posiciones.
+  \begin{equation} \label{eqSistemaLineal2}
     \matriz \vectorx  =  \vectorF
   \end{equation}
+
+
 
 \onslide<2->{
 \begin{equation}\begin{aligned}
     \ecuaciona \\ 
-  \onslide<3->{ \ecuacionb }
+  \onslide<3->{
+    \ecuacionb
+  }
 \end{aligned}\end{equation}
 }
 \end{frame}
 
 \begin{frame}[label=FrameReordenarEcuaciones23]
   \frametitle<presentation>{Reordenando Ecuaciones Para Incógnitas}
+
 \begin{equation}  \label{EqReordenoIncognitas}
     \begin{aligned}
-      \ecuaciona \\
-      \ecuacionb \\
+      \ecuaciona \\  \ecuacionb \\
       \quad \Rightarrow \quad & \\
-      \ecuacionao \\
-      \ecuacionbo
+      \ecuacionao \\ \ecuacionbo
     \end{aligned}
 \end{equation}
+\onslide<2>
+  \mode<presentation>{
+  \begin{tikzpicture}[overlay, remember picture]
+    %\draw (0,0) grid (11,4);
+    \draw[inc] (2.5,0.5) rectangle (6.6,1.5);
+    \draw[vin] (7,0.5) rectangle (11,1.5);
+  \end{tikzpicture}
+}
 
 \end{frame}
 
-\mode<article>
+\mode<all>
 
+\subsection{Solución de las incógnitas}
+
+\mode<article>
 Finalmente, pensemos en un vector de incógnitas $X_r = (x_2, x_3)$   y un
 vector de vínculos $X_s  = (x_1, x_4)$ . Con estas definiciones, las
-ecuaciones (\ref{EqReordenoIncognitas})  puede escribirse en forma matricial, de manera que
-  quedarán definidas la \textbf{matriz de rigidez reducida} $\mathbf{K_{red} }$ 
-  y la \textbf{matriz de coeficientes vínculos} $\mathbf{K_{vin}}$
+ecuaciones (\ref{EqReordenoIncognitas})  puede escribirse en forma matricial, 
 
 \mode*
 
-  \begin{frame}<1>[label=FrameSistemaReducido]
+  \begin{frame}[label=FrameSistemaReducido]
     \frametitle<presentation>{Reducción del Sistema}
     \begin{equation}\label{EqSistemaReducido}
       \underbrace{
@@ -116,7 +126,28 @@ ecuaciones (\ref{EqReordenoIncognitas})  puede escribirse en forma matricial, de
 	\begin{pmatrix}x_1 \\ x_4\end{pmatrix}
     \end{equation}
 
+    \onslide<2>
+    \mode<presentation>{    Resolvemos:}
+    \begin{equation} \label{EqSolucionSistema}
+      \begin{pmatrix} x_2 \\ x_3  \end{pmatrix}
+	=
+	\mathbf{K_{red}} ^{-1} 
+	\left[
+      \begin{pmatrix} F_2 \\ F_3  \end{pmatrix}
+	- 
+	\mathbf{ K_{vin} }
+      \begin{pmatrix} x_1 \\ x_4  \end{pmatrix}
+	\right]
+    \end{equation}
+
   \end{frame}
 
+  \mode<article>
+
+de manera que quedarán definidas la \textbf{matriz de rigidez reducida} $\mathbf{K_{red} }$ y la
+\textbf{matriz de coeficientes vínculos} $\mathbf{K_{vin}}$. La solución del sistema puede
+hallarse en forma inmediata como se muestra en la ecuación (\ref{EqSolucionSistema}).
+
+\mode*
 
 \mode<all>

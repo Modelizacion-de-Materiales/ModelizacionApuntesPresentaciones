@@ -6,3 +6,4 @@
 \beamer@subsubsectionintoc {1}{1}{3}{Fuerzas sobre el elemento 3}{6}{0}{1}
 \beamer@subsectionintoc {1}{2}{Fuerzas Globales}{7}{0}{1}
 \beamer@sectionintoc {2}{Solucion de sistemas lineales mixtos}{9}{0}{2}
+\beamer@subsectionintoc {2}{1}{Soluci\IeC {\'o}n de las inc\IeC {\'o}gnitas}{15}{0}{2}

@@ -1,0 +1,54 @@
+\mode<article>
+
+El problema no está terminado aún puesto que falta resolver las fuerzas $F_1$ y
+$F_4$. Pero, conociendo los desplazamientos a partir de la ecuación
+\ref{EqSolucionSistema}, resulta trivial resolver a partír de las ecuaciones
+correspondientes en el sistema de ecuaciones \ref{EqSistemaReducido}. Aún así,
+por completitud, escribamos la forma matricial de las ecuaciones
+correspondientes. Tomemos un vector de fuerzas de vínculo $F_s = (F_1, F_4)$,
+el sistema lineal equivalente al subconjunto de ecuaciones correspondientes es 
+
+\mode*
+\begin{frame}[label=FrameSolveForces]
+  \frametitle<presentation>{Solución de las fuerzas dev vínculo}
+  \mode<presentation>{
+  \begin{equation}    \begin{aligned}
+      \matriz \vectorx = \vectorF
+    \end{aligned}  \end{equation}
+  \begin{tikzpicture}[overlay, remember picture]
+    \draw (0,0) grid (10,2);
+    \coordinate (LX) at (5,0.5);
+    \coordinate (A)  at (1.5,1.7);
+    \coordinate (B)  at (1.5,0.3);
+    \coordinate (C)  at (6.8, 0) ;
+    \coordinate (LY) at (1,2.3) ;
+    \coordinate (F4) at (8.5, 0.3);
+    \coordinate (F1) at (8.5, 1.8);
+    \coordinate (LF) at(0.5, 0.5);
+    \draw[vin]  (A) rectangle ($(A)+(LX)$);
+    \draw[vin]  (B) rectangle ($(B)+(LX)$);
+    \draw[vin]  (C) rectangle ($(C) + (LY)$);
+    \draw[vin]  (F1) rectangle ($(F1)+(LF)$);
+    \draw[vin]  (F4) rectangle ($(F4)+(LF)$);
+  \end{tikzpicture}
+    \onslide<2->
+  \begin{equation}
+    \begin{aligned}
+      \solvefa \\
+      \solvefb
+    \end{aligned}
+  \end{equation}
+}
+  \onslide<3>
+
+    \begin{equation}\label{EqSolucionFuerzasVinc}
+      \begin{pmatrix}F_1 \\ F_4 \end{pmatrix} 
+	= 
+	\begin{pmatrix} k_1  & -k_1 & 0 & 0 \\ 0 & 0 & -k_3 & k_3 \end{pmatrix} 
+      \vectorx
+    \end{equation}
+
+
+\end{frame}
+
+\mode<all>
