@@ -11,7 +11,7 @@ $x_4$. La fuerza global sobre cada nodo puede numerarse $F_1$, $F_2$, $F_3$ y $F
 \begin{frame}[label=FrameFuerzasGlobales]
   \frametitle<presentation>{Fuerzas Globales}
 
-  \begin{figure}
+  \begin{figure}[h]
     \fbox{
     \includegraphics[width=\textwidth,page=6, trim=5cm 11cm 3cm 7cm, clip=true]
     {./Libreoffice/MEF01_2018.pdf}
@@ -52,38 +52,14 @@ de fuerzas. Por lo tanto, es necesario extender algo de nuestro desarrollo.
 
 \mode*
 
-\begin{frame}<1>[label=FrameMatrizRigidez]
+\begin{frame}[label=FrameMatrizRigidez]
   \frametitle<presentation>{Matriz de Rigidez Global}
-  \frametitle<2->{Separación del Sistema Lineal}
 
   \begin{equation} \label{eqSistemaLineal}
-    \onslide<1> \underbrace{
-      \onslide<1->
-      \begin{pmatrix}
-	k_1  & -k_1     & 0    & 0 \\
-	-k_1 & k_1 +k_2 & -k_2 & 0 \\
-	0    & -k_2     & k_2 + k_3 & -k3\\
-	0    &  0       & -k_3      & k_3
-      \end{pmatrix}
-    \onslide<1> }_{\mathbf{M}}
-  \onslide<1->
-    \begin{pmatrix}
-      x_1\\
-      x_2\\
-      x_3\\
-      x_4
-    \end{pmatrix}
-    =
-    \begin{pmatrix}
-      F_1\\
-      F_2\\
-      F_3\\
-      F_4
-    \end{pmatrix}
+    \underbrace{  \matriz }_{\mathbf{M}} \vectorx  =  \vectorF
   \end{equation}
 
   \mode<presentation>{
-  \only<1>{
     \begin{columns}
       \column{0.5\textwidth}
 
@@ -95,22 +71,7 @@ de fuerzas. Por lo tanto, es necesario extender algo de nuestro desarrollo.
 
       Fuerzas conocidas: $F_2$, $F_3$
     \end{columns}
-  }
-\onslide<2->
-\tikz[overlay] \draw[->,draw]  (0,2.5) --   (1,2.5);
-\tikz[overlay] \draw[->,draw]  (0,2) --   (1,2);
 }
-%\onslide<3-4>
-%  \begin{equation}
-%    \begin{split}
-%      \onslide<3->
-%      x_1 (-k_1) + x_2(k_1+k_2)+ x_3(-k_2) + x_4(0) &= F_2 \\
-%               \Rightarrow \quad x_2(k_1+k_2)+ x_3(-k_2)  &= F_2 - x_1 (-k_1) -  x_4(0) \\
-%      \onslide<4->
-%      x_1 (0) + x_2(-k_2)+ x_3(k_2 + k_3) + x_4(-k_3) &= F_3 \\
-%         \Rightarrow \quad x_2(-k_2)+ x_3(k_2 + k_3)  &= F_3 - x_1 (0) - x_4(-k_3) 
-%    \end{split}
-%  \end{equation}
 \end{frame}
 
 \mode<all>

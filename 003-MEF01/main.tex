@@ -34,6 +34,41 @@
 % modifico los temas
 \include{./PREAMBLE/THEMES}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% newcommands
+\newcommand{\ecuaciona}{  x_1 (-k_1) +  x_2(k_1+k_2)+  x_3(-k_2) +  x_4(0) &= F_2   }
+\newcommand{\ecuacionao}{  x_2(k_1+k_2)+ x_3(-k_2)   &= F_2  -  (x_1 (-k_1) +   x_4(0)   )}
+\newcommand{\ecuacionb}{ x_1 (0) +  x_2(0)+  x_3(-k_3) + x_4(k_3)    &= F_3   }
+\newcommand{\ecuacionbo}{  x_2(0)  +  x_3(-k_3)  &= F_3  - (x_1 (0)    +  x_4(k_3) )}
+\newcommand{\matriz}{
+      \begin{pmatrix}
+	k_1  & -k_1     & 0    & 0 \\
+	-k_1 & k_1 +k_2 & -k_2 & 0 \\
+	0    & -k_2     & k_2 + k_3 & -k3\\
+	0    &  0       & -k_3      & k_3
+      \end{pmatrix}
+}
+\newcommand{\vectorx}{
+    \begin{pmatrix}   x_1\\ x_2\\ x_3\\ x_4 \end{pmatrix}
+}
+\newcommand{\vectorF}{
+    \begin{pmatrix} F_1\\ F_2\\ F_3\\ F_4 \end{pmatrix}
+}
+\newcommand{\solvefa}{
+  x_1 k_1 + x_2 (-k_1) + x_3 \cdot (0) +x_4 \cdot (0) &= F_1
+}
+\newcommand{\solvefb}{
+  x_1 \cdot (0) + x_2 \cdot (0) + x_3 \cdot (-k_3) +x_4 \cdot (k_3) &= F_1
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\tikzsets
+%\tikzstyle{every picture}=[remember picture, overlay]
+%\tikzstyle{inc}=[fill=red, opacity=0.2]
+%\tikzstyle{vin}=[fill=blue, opacity=0.2]
+\tikzset{
+      inc/.style={fill=red, opacity=0.2},
+      vin/.style={fill=blue, opacity=0.2}
+}
+
 % defino el template para la diapositiva del título
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -74,6 +109,7 @@
   \maketitle
 }
 
+
 \section{Ejemplo: Problema de los Resortes}
 \input{./01-FEM-Directo} 
 
@@ -90,6 +126,8 @@
 
 \section{Solucion de sistemas lineales mixtos}
 
-\input{./02-Resolucion.tex}
+\input{./02-01-Resolucion}
+
+\input{./02-02-Fuerzas}
 
 \end{document}
