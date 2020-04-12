@@ -1,8 +1,0 @@
-\select@language {spanish}
-\beamer@sectionintoc {1}{Ejemplo: Problema de los Resortes}{2}{0}{1}
-\beamer@subsectionintoc {1}{1}{Fuerzas en los Nodos}{4}{0}{1}
-\beamer@subsubsectionintoc {1}{1}{1}{Fuerzas sobre el elemento 1}{4}{0}{1}
-\beamer@subsubsectionintoc {1}{1}{2}{Fuerzas sobre el Elemento 2}{5}{0}{1}
-\beamer@subsubsectionintoc {1}{1}{3}{Fuerzas sobre el elemento 3}{6}{0}{1}
-\beamer@subsectionintoc {1}{2}{Fuerzas Globales}{7}{0}{1}
-\beamer@sectionintoc {2}{Solucion de sistemas lineales mixtos}{9}{0}{2}
