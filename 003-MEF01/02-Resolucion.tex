@@ -20,21 +20,71 @@ Luego deben ser reordenados los términos de los grados de libertad vinculados
 $x_1$ y $x_4$ a la derecha del igual, de manera de dejar del lado izquierdo del
 igual solo a los términos de los grados de libertad incógnita $x_2$ y $x_3$, 
 
-% \againframe<3-4>{FrameMatrizRigidez}
 \mode*
 
-\againframe<2->{FrameMatrizRigidez}
+\begin{frame}<presentation>[label=FrameSeparacionSistema]
+  \frametitle{Separación del sistema lineal}
+
+  \begin{tikzpicture}[
+      overlay,remember picture,
+      inc/.style={fill=red, opacity=0.2},
+      vin/.style={fill=blue, opacity=0.2}
+    ]
+    \coordinate (O) at (1,0);
+    \coordinate (E) at (10,-4);
+    \coordinate (L1) at (1,0.5);
+    \coordinate (L2) at (3,0.5);
+    \coordinate (A) at (1.5,-1 );
+    \coordinate (B) at (2.5,-1);
+    \coordinate (C) at (5.5, -1);
+    % las coordenadas de xvin y xinc
+    \coordinate (X4) at (7,-2);
+    \coordinate (X1) at (7,-0.5);
+    \coordinate (X3) at ($(X4)+(0,0.5)$);
+    \coordinate (F3) at (8.5,-1.5);
+    \coordinate (F2) at ($(F3)+(0,0.5)$);
+    \coordinate (LI) at (1,1);
+   % esta es el desplazamiento para el renglon de abajo 
+    \coordinate (D) at (0,-0.5); 
+    % este grid lo tengo que sacar despues
+    \draw[gray] (O)  grid (E);
+    \onslide<2->
+    \draw[vin] (X4) rectangle ($(X4)+(L1)$);
+    \draw[vin] (X1) rectangle ($(X1)+(L1)$);
+    \draw[inc] (X3) rectangle ($(X3)+(LI)$);
+    \onslide<2>
+    \draw[vin] (A)         rectangle ($(A)+(L1)$);
+    \draw[inc] (B)         rectangle ($(B)+(L2)$); 
+    \draw[vin] (C)         rectangle ($(C)+(L1)$);
+    \draw[vin] (F2) rectangle ($(F2)+(L1)$);
+    \onslide<3>
+    \draw[vin] ($(D)+(A)$) rectangle ($(A)+(L1)+(D)$);
+    \draw[inc]  ($(D)+(B)$) rectangle ($(B)+(L2)+(D)$); 
+    \draw[vin] ($(D)+(C)$) rectangle ($(C)+(L1)+(D)$);
+    \draw[vin] (F3) rectangle ($(F3)+(L1)$);
+    
+  \end{tikzpicture}
+  \begin{equation} \label{eqSistemaLineal}
+    \matriz \vectorx  =  \vectorF
+  \end{equation}
+
+\onslide<2->{
+\begin{equation}\begin{aligned}
+    \ecuaciona \\ 
+  \onslide<3->{ \ecuacionb }
+\end{aligned}\end{equation}
+}
+\end{frame}
 
 \begin{frame}[label=FrameReordenarEcuaciones23]
   \frametitle<presentation>{Reordenando Ecuaciones Para Incógnitas}
 \begin{equation}  \label{EqReordenoIncognitas}
-  %\begin{split}
     \begin{aligned}
-        x_1 (-k_1) + x_2(k_1+k_2)+ x_3(-k_2) + x_4(0) &= F_2\\
-       x_1 (0) + x_2(0)+ x_3(-k_3) + x_4(k_3)         &= F_3 \\
+      \ecuaciona \\
+      \ecuacionb \\
       \quad \Rightarrow \quad & \\
-	 x_2(k_1+k_2)+ x_3(-k_2) &= F_2  - (x_1 (-k_1) +  x_4(0)   )\\
-         x_2(0)      + x_3(-k_3) &= F_3  - (x_1 (0)    +  x_4(k_3) )
+      \ecuacionao \\
+      \ecuacionbo
     \end{aligned}
 \end{equation}
 
@@ -49,8 +99,6 @@ ecuaciones (\ref{EqReordenoIncognitas})  puede escribirse en forma matricial, de
   y la \textbf{matriz de coeficientes vínculos} $\mathbf{K_{vin}}$
 
 \mode*
-
-
 
   \begin{frame}<1>[label=FrameSistemaReducido]
     \frametitle<presentation>{Reducción del Sistema}
@@ -69,5 +117,6 @@ ecuaciones (\ref{EqReordenoIncognitas})  puede escribirse en forma matricial, de
     \end{equation}
 
   \end{frame}
+
 
 \mode<all>
