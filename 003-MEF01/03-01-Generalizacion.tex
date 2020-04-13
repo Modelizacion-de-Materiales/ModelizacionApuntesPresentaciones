@@ -1,0 +1,85 @@
+\mode<article>
+
+Lo que se hizo hastá aquí no es ni mas ni menos que plantear un sistema lineal
+de ecuaciones de la forma
+
+\mode*
+\begin{frame}<1>[label=FrameNotacionGeneral]
+  \frametitle<presentation>{Generalización del Problema}
+
+  \mode<presentation>{Sistema de ecuaciones:}
+  \begin{equation}
+    K_{i,j} u_j  = f_i
+  \end{equation}
+
+\onslide<2->
+
+  \mode<presentation>{
+  \small consideramos las las ecuaciones correspondientes a los desplazamientos ingógnita
+}
+  \begin{equation}
+    K_{r,j} u_j  = f_r
+  \end{equation}
+
+  \onslide<3->
+
+  \mode<presentation>{ \small Donde $r$  es un índice que recorre dichos grados de libertad
+  (incógnitas). Como j recorre todos los grados de libertad, podemos separar aquellos vinculados
+  de los libres (incógnitas). Tomemos $r'$ recorriendo las incógnitas, $s$ recorriendo los
+  vínculos, }
+
+  \begin{equation}
+    K_{r, r'} u_{r'}  + K_{r,s} u_s = F_r
+  \end{equation}
+
+\end{frame}
+
+\mode<article>
+
+En este conjunto de cuaciones existe un subconjunto que corresponden a
+aquellas donde los desplazamientos  $u$  son incógnitas y las fuerzas $F$  son dadas.
+Nombremos $r$ al índice que define este subconjunto, de manera que las ecuaciones
+pueden reescribirse Como
+
+\mode*
+
+\againframe<2>{FrameNotacionGeneral}
+
+\mode<article>
+
+ Como el índice j recorre todos los grados de libertad, es posible separar o particionar este
+ índice entre los grados de libertad vinculados $s$ y las incógnitas $r'$, 
+ de manera que el sistema puede reorderarse de
+manera de separar un término para los vínculos y otro para las incógnitas, 
+
+\mode*
+
+\againframe<3>{FrameNotacionGeneral}
+
+ Por último, puede reordenarse de manera que solo
+aparezcan los grados de libertad incógnita a la derecha de la ecuación,
+
+\begin{frame}[label=FrameSolveGeneral]
+  \frametitle<presentation>{Solución General}
+
+  \mode<presentation>{ Por último }
+  \begin{equation}\label{EqReordenoGeneral}
+    K_{r,r'} u_{r'} = F_r - K_{r,s} u_s
+  \end{equation}
+
+  que se resuelve rápidamente:
+
+  \begin{equation}
+    u_{r'} = K_{r',r} \left[ F_r - K_{r,s} u_s \right]
+  \end{equation}
+
+  Una vez que se conocen todos los $u_r$a se pueden recuerar las fuerzas de vínculo
+
+  \begin{equation}
+    F_s = K_{s,j} u_j
+  \end{equation}
+
+\end{frame}
+
+
+

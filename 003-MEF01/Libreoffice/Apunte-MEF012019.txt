@@ -105,7 +105,8 @@ escribamos la forma matricial de las ecuaciones correspondientes. Tomemos un
 vector de fuerzas de vínculo , el sistema lineal equivalente al subconjunto de
 ecuaciones correspondientes es 
 
-(12) Generalización del problema Lo que se hizo hastá aquí no es ni mas ni
+(12) Generalización del problema 
+Lo que se hizo hastá aquí no es ni mas ni
 menos que plantear un sistema lineal de ecuaciones de la forma
 
 (13) En este conjunto de cuaciones existe un subconjunto que corresponden a
@@ -126,7 +127,8 @@ aparezcan los grados de libertad incógnita a la derecha de la ecuación,
   (17) Una vez resueltos los desplazamientos es posible recuperar las fuerzas
   de vínculo,
 
-  (18) Programación La ventaja del planteo desarrollado arriba radica en que se
+  (18) Programación 
+  La ventaja del planteo desarrollado arriba radica en que se
   puede aplicar fácilmente a cualquier lenguaje de programación moderno,i.e.
   fortan, python, matlab, o el que se le ocurra.  Es posible entender que cada
   una de las listas de grados de libertad definidas pueden escribirse como
