@@ -1,0 +1,50 @@
+\mode<article>
+
+La ventaja del planteo desarrollado arriba radica en que se
+puede aplicar fácilmente a cualquier lenguaje de programación moderno,i.e.
+fortan, python, matlab, o el que se le ocurra.  Es posible entender que cada
+una de las listas de grados de libertad definidas pueden escribirse como
+vectores. Cada componente del vector es el índice de un grado de libertad del
+problema que corresponda. En nuestro ejemplo del resorte
+
+\mode*
+
+\begin{frame}[label=FrameIndicesProblema]
+  \frametitle<presentation>{Problema del Resorte}
+
+  \mode<Presentación>{
+   \includegraphics[width=\textwidth,page=2, trim=5cm 8cm 5cm 6cm, clip=true]
+   {./Libreoffice/MEF01_2018.pdf}
+  }
+
+  \begin{equation}
+    \begin{split}
+    i, j = ( 1, 2, 3, 4) \\
+    r = ( 2, 3) ; s = (1 , 4) 
+    \end{split}
+  \end{equation}
+
+\end{frame}
+
+Si se ha definido la matriz de rigidez del problema, puede definirse la
+\emph{matriz de rigidez reducida}
+del sistema de la siguiente forma:
+
+\begin{frame}<presentation>[label=FrameMatricesProgramadas]
+  \frametitle{}
+
+\end{frame}
+
+y la matriz vinculada,
+
+De esta forma es posible implementar la ecuación general de la ecuación
+
+en forma inmediata,
+
+Esto resuelve los desplazamientos desconocidos. Para resolver las
+fuerzas de vínculo, directamente se aplica:
+
+
+\mode*
+
+\mode<all>
