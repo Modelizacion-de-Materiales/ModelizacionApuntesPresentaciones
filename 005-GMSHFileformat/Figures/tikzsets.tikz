@@ -1,0 +1,3 @@
+\tikzset{filebox/.style={thick, fill=DarkGray}}
+\tikzset{blockbox/.style={thick, fill=Cerulean}}
+

@@ -1,0 +1,18 @@
+\documentclass{standalone}
+\usepackage[svgnames,x11names,dvipsnames]{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\input{./tikzsets.tikz}
+\begin{document}
+
+  \begin{tikzpicture}
+    \draw[filebox] (6,7.5) rectangle (15,1) node[pos=0.1, anchor=west] {\textbf{archivo.msh}} ;
+    % \node[anchor=west] at (5, 6) {\textbf{archivo.msh}};
+    \draw[blockbox] (11,6) rectangle (14, 7) node[pos=0.5] {Encabezado};
+    \draw[blockbox] (11,4.8) rectangle (14, 5.8) node[pos=0.5] {Nodos};
+    \draw[blockbox] (11,3.6) rectangle (14, 4.6) node[pos=0.5] {Elementos};
+    \draw[blockbox] (11,2.4) rectangle (14, 3.4) node[pos=0.5] {Datos 1};
+    \draw[blockbox] (11,1.2) rectangle (14, 2.2) node[pos=0.5] {Datos 2};
+  \end{tikzpicture}
+
+\end{document}

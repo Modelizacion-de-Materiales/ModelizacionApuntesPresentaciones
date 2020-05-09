@@ -22,16 +22,19 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{./PREAMBLE/MATERIA}
 \title{
-  \mode<article>{
+\mode<article>{
 \includegraphics[height=1cm]{./PREAMBLE/logo-isabt25.png}
 \hfill
 \includegraphics[height=1cm]{./PREAMBLE/ISOLOGOCNEA.png}
 \hfill
 \includegraphics[height=1cm]{./PREAMBLE/logo-unsam.png}
-\\}  Formato Gmsh}
+\\}    Formato Gmsh}
 \subject{Introducción al formato de Gmsh}
-\keywords{Matlab, Modelizacion 2019, Programación,gmsh}
+\keywords{Matlab, Modelizacion 2020, Programación,gmsh}
 % Inicia el documento.
+
+\input{Figures/tikzsets.tikz}
+
 \begin{document}
 
 % Título de la clase. 
@@ -46,8 +49,6 @@
 }
 
 
-\mode<all>
-
 \section{Nuevas Herramientas}
 \input{./01-NuevasHerramientas/01-01-NE}
 \input{./01-NuevasHerramientas/02-01-Uso}
@@ -57,8 +58,8 @@
 \input{./02-FormatoGmsh/01-02-Geometrias}
 \subsection{Mallados}
 \input{./02-FormatoGmsh/02-02-EstructuraMallados}
-
-\section{Resultados}
-\input{./03-FormatoResultados/01-03-DatosNodos.tex}
+%
+%\section{Resultados}
+%\input{./03-FormatoResultados/01-03-DatosNodos.tex}
 \end{document}
 

@@ -3,7 +3,7 @@
 
 Recuerde que todo problema puede separarse en las etapas de 
 Preproceso, proceso y Post Proceso. Hasta ahora las únicas 
-herramientas usadas fueron papel y lápiz para el pre-proces
+herramientas usadas fueron papel y lápiz para el pre-proceso
 y su lenguaje de programación para el Proceso y Post Proceso. 
 A partir de ahora se suma la necesidad de usar un software
 que nos permita generar los mallados (matriz de nodos y de 
@@ -12,17 +12,17 @@ arbitraria para cualquiera de los problemas. Utilizaremos
 Gmsh para las etapas de Preproceso y Post Proceso.
 
 Esto implica que deberemos ser capaces de generar la 
-comunicación entre nuestro programa de proceso o solver
+comunicación entre nuestro programa de proceso o \emph{solver}
 y la herramienta de pre y post proceso. Con ese 
-fin utilizaremos arhivos de texto plano con formato. 
+fin utilizaremos archivos de texto plano con formato. 
 Por lo tanto es necesario que recuerde las sentencias para
 lectura y escritura de archivos, introducidas anteriormente en
 la Clase Práctica de Introducción a la Programación. Este 
-concepto se esquematiza en la \ref{FiguraComunicarHerramientas}
-Nuestro programa solver Deberá ser capaz de leer las 
+concepto se esquematiza en la Figura \ref{FiguraComunicarHerramientas}
+Nuestro programa \emph{solver} Deberá ser capaz de leer las 
 matrices de conectividad y de nodos de las mallas generadas
 por Gmsh, y de escribir los resultados en un formato que 
-pueda ser usado en esta útlima herramienta para visualizarlos.
+pueda ser usado en esta última herramienta para visualizarlos.
 Estas relaciones se esquematizan en la Figura 
 \ref{FiguraFlujoTrabajo} .
 Nuestro Mallador generará la matriz de nodos y 
@@ -35,7 +35,7 @@ Nuestro Mallador generará la matriz de nodos y
 
 \begin{figure}
   \includeslide[width=\textwidth]{FrameComunicarHerramientas}
-  \caption{Escquema de la relación entre las herramientas 
+  \caption{Esquema de la relación entre las herramientas 
   usadas. Usaremos Archivos de texto plano para intercambiar
   información. \label{FiguraComunicarHerramientas} }
 
@@ -52,17 +52,29 @@ Nuestro Mallador generará la matriz de nodos y
 \mode*
 \begin{frame}<presentation>[label=FrameUsoHerramientas]
   \frametitle{Uso De Herramientas}
-  \includegraphics[width=\textwidth,page=3,bb=0cm 1cm 28cm 16cm,clip]{./GMSH_fileformat_2019.pdf}
+  \includegraphics[width=\textwidth,page=3,bb=0cm 1cm 28cm 16cm,clip]{./Libreoffice/GMSH_fileformat.pdf}
 \end{frame}
 
 \begin{frame}<presentation>[label=FrameComunicarHerramientas]
   \frametitle{Comunicación entre Herramientas}
-  \includegraphics[width=\textwidth,page=4,bb=0cm 1cm 28cm 16cm,clip]{./GMSH_fileformat_2019.pdf}
+  \includegraphics[width=\textwidth,page=4,bb=0cm 1cm 28cm 16cm,clip]{./Libreoffice/GMSH_fileformat.pdf}
 \end{frame}
 
 \begin{frame}<presentation>[label=FrameFlujoTrabajo]
   \frametitle{Flujo de trabajo}
-  \includegraphics[width=\textwidth,page=5,bb=0cm 1cm 28cm 16cm,clip]{./GMSH_fileformat_2019.pdf}
+  \begin{columns}
+    \column{0.3\textwidth}
+    \begin{codeblock}
+      \verbatiminput{./Ejemplos/Puente.geo}
+    \end{codeblock}
+    \column{0.4\textwidth}
+    \includegraphics[width=\textwidth,page=5,trim=7cm 0cm 5cm 5cm,clip]{./Libreoffice/GMSH_fileformat.pdf}
+    \column{0.3\textwidth}
+    \begin{codeblock}
+      \verbatiminput{./Ejemplos/Puente.msh}
+    \end{codeblock}
+  \end{columns}
+
 
 \end{frame}
 \mode<all>
