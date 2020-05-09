@@ -18,11 +18,18 @@ matriz de conectividad refleja siempre estas estructuras jerárquicas.
 Las instrucciones siempre se terminan con un punto y coma (\texttt{;}).
 
 \subsubsection{Factores de escala}
-La definición de los puntos se realiza mediante la instrucción 
+La definición de los puntos se realiza mediante la instrucción
 
-$$ Points( i ) = { x_i, y_i , z_i , fe } ; $$
+\begin{figure}[h]
+  \center
+\begin{codeblock}
+  \begin{BVerbatim}[fontfamily=courier]
+Point( i ) = { x, y , z , fe } ;
+\end{BVerbatim}
+\end{codeblock}
+\end{figure}
 
-donde los tres primeros valores corresponden a las coordenadas
+\noindent donde los tres primeros valores corresponden a las coordenadas
 cartesianas del punto, y el cuarto valor corresponde al 
 \emph{factor de escala}. Este número será de gran utilidad
 en el momento de mallar los recintos de integración, i.e. al 

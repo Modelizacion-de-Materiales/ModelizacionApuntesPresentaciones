@@ -1,0 +1,50 @@
+% \documentclass{standalone}
+\documentclass[xcolor={svgnames,x11names,dvipsnames},aspectratio=169]{beamer}
+\usepackage[utf8]{inputenc}
+%\usepackage[svgnames,x11names,dvipsnames]{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\input{tikzsets.tikz}
+% \input{../PREAMBLE/PACKS}
+\usepackage{verbatim}
+\input{../PREAMBLE/BEAMERCOLORS}
+\input{../PREAMBLE/BEAMERTHEME}
+
+\begin{document}
+\begin{frame}[plain]
+
+
+% 	 \begin{codeblock}
+% 	   lalala
+% 	   %\verbatiminput{./Ejemplos/HeadAndNodes.msh}
+% 	 \end{codeblock}
+  \begin{columns}
+    \column{0.2\textwidth}
+    \begin{tikzpicture}[overlay]
+      \draw[blockbox] (0,1.0) rectangle (3,2) node[pos=0.5] { Encabezado };	
+      \draw[blockbox] (0,-0.5) rectangle (3,0.5) node[pos=0.5] { Nodos };	
+    \end{tikzpicture}
+    \column{0.4\textwidth}
+    \begin{codeblock}
+      \verbatiminput{../Ejemplos/HeadAndNodes.msh}
+    \end{codeblock}
+    \column{0.4\textwidth}
+    \tikz[baseline, remember picture] \node (W) {\small ¡ Chequear versión de mallado !};
+
+    Inmediatamente despues del encabezado:
+
+    \tikz[baseline, remember picture] \node (A) {Número de Nodos};
+
+    \tikz[baseline, remember picture] \node (B) {Nodos};
+
+
+  \end{columns}
+	 
+      \begin{tikzpicture}[remember picture, overlay]
+	\path[->=latex, draw, thick] (W.west) -- ($(W) + ( -6 ,0.5)$);
+	\path[->=latex, draw, thick] (A.west) -- ($(A) + ( -7 ,0.8)$);
+	\path[->=latex, draw, thick] (B.west) -- ($(B) + ( -5.3,0.8 )$);
+      \end{tikzpicture}
+\end{frame}
+
+\end{document}

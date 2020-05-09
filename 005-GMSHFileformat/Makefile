@@ -1,28 +1,33 @@
 # INCLUDES=./FRAMES/title.tex ./FRAMES/01-WHOIAM.tex 
 INCLUDES=*/*.tex 
 
+SRCS=main.tex ${INCLUDES}  libreoffice Figures
+
 all: beamer.pdf handout.pdf notes.pdf
 
 beamer.pdf: beamer.aux
 	pdflatex beamer.tex
 
-beamer.aux: beamer.tex main.tex ${INCLUDES}  libreoffice
+beamer.aux: beamer.tex ${SRCS} 
 	pdflatex beamer.tex
 
 handout.pdf: handout.aux
 	pdflatex handout.tex
 
-handout.aux:  handout.tex ${INCLUDES} main.tex  libreoffice
+handout.aux:  handout.tex ${SRCS}
 	pdflatex handout.tex
 	
 notes.pdf: handout.aux notes.aux
 	pdflatex notes.tex 
 
-notes.aux: handout.aux ${INCLUDES} main.tex notes.tex  libreoffice
+notes.aux: handout.aux ${SRCS}
 	pdflatex notes.tex
 
 libreoffice: ./Libreoffice 
 	make -C ./Libreoffice
+
+Figures: Figures/
+	make -C Figures/
 
 clean: 
 	find -iname \*.log \
@@ -34,4 +39,4 @@ clean:
 	  -o -iname \*.nav \
 	  | xargs rm
 
-.PHONY: libreoffice
+.PHONY: libreoffice Figures

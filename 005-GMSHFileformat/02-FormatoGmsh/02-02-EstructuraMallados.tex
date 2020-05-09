@@ -72,54 +72,45 @@ el elemento de la fila en tratamiento.
 \begin{frame}<presentation>[label=FrameEstructuraMallados]
   \frametitle{Estructura de los Mallados}
   \hfill
-  \begin{tikzpicture}
-    \draw[filebox] (6,7.5) rectangle (15,1) node[pos=0.1, anchor=west] {\textbf{archivo.msh}} ;
-    % \node[anchor=west] at (5, 6) {\textbf{archivo.msh}};
-    \draw[blockbox] (11,6) rectangle (14, 7) node[pos=0.5] {Encabezado};
-    \draw[blockbox] (11,4.8) rectangle (14, 5.8) node[pos=0.5] {Nodos};
-    \draw[blockbox] (11,3.6) rectangle (14, 4.6) node[pos=0.5] {Elementos};
-    \draw[blockbox] (11,2.4) rectangle (14, 3.4) node[pos=0.5] {Datos 1};
-    \draw[blockbox] (11,1.2) rectangle (14, 2.2) node[pos=0.5] {Datos 2};
-  \end{tikzpicture}
+  \includegraphics[height=0.8\textheight]{Figures/Figure-MSHBlocks.pdf}
 \end{frame}
-% \begin{frame}<presentation>[label=FrameEstructuraMallados]
-%   \frametitle{Estructura de los Mallados.}
-%    \includegraphics[width=\textwidth,page=7,
-%    bb=0cm 0cm 28cm 16.5cm,clip]{./Libreoffice/GMSH_fileformat.pdf}
-% \end{frame}
 
 \begin{frame}<presentation>[label=FrameEncabezado]
   \frametitle{Encabezado del archivo de mallado}
 
+  \fbox{
+  \includegraphics[width=\textwidth, trim=0.5cm 3cm 1cm 2cm, clip ]{Figures/Figure-HeadNodes.pdf}
+}
+
 %    \column{0.5\textwidth}
       
-      \begin{columns}
-	\column{0.2\textwidth}
-	\begin{tikzpicture}[overlay]
-	  \draw[blockbox] (0,1.0) rectangle (3,2) node[pos=0.5] { Encabezado };	
-	  \draw[blockbox] (0,-0.5) rectangle (3,0.5) node[pos=0.5] { Nodos };	
-  %	\node at (4,1) {\verbatiminput{./Ejemplos/HeadAndNodes.msh}};
-	\end{tikzpicture}
-      \column{0.4\textwidth}
-	 \begin{codeblock}
-	   \verbatiminput{./Ejemplos/HeadAndNodes.msh}
-	 \end{codeblock}
-	 \column{0.4\textwidth}
-	 Inmediatamente despues del encabezado:
-
-	 \tikz[baseline, remember picture] \node (A) {Numero de Nodos};
-
-	 \tikz[baseline, remember picture] \node (B) {Nodos};
-
-
-	 ¡ Chequear versión de mallado !
-
-      \end{columns}
-
-      \begin{tikzpicture}[remember picture, overlay]
-	\path[->=latex, draw, thick] (A) -- ($(A) + ( -7.3,0.4 )$);
-	\path[->=latex, draw, thick] (B) -- ($(B) + ( -5.3,0.4 )$);
-      \end{tikzpicture}
+%       \begin{columns}
+% 	\column{0.2\textwidth}
+% 	\begin{tikzpicture}[overlay]
+% 	  \draw[blockbox] (0,1.0) rectangle (3,2) node[pos=0.5] { Encabezado };	
+% 	  \draw[blockbox] (0,-0.5) rectangle (3,0.5) node[pos=0.5] { Nodos };	
+%   %	\node at (4,1) {\verbatiminput{./Ejemplos/HeadAndNodes.msh}};
+% 	\end{tikzpicture}
+%       \column{0.4\textwidth}
+% 	 \begin{codeblock}
+% 	   \verbatiminput{./Ejemplos/HeadAndNodes.msh}
+% 	 \end{codeblock}
+% 	 \column{0.4\textwidth}
+% 	 Inmediatamente despues del encabezado:
+% 
+% 	 \tikz[baseline, remember picture] \node (A) {Numero de Nodos};
+% 
+% 	 \tikz[baseline, remember picture] \node (B) {Nodos};
+% 
+% 
+% 	 ¡ Chequear versión de mallado !
+% 
+%       \end{columns}
+% 
+%       \begin{tikzpicture}[remember picture, overlay]
+% 	\path[->=latex, draw, thick] (A) -- ($(A) + ( -7.3,0.4 )$);
+% 	\path[->=latex, draw, thick] (B) -- ($(B) + ( -5.3,0.4 )$);
+%       \end{tikzpicture}
 \end{frame}
 
 %\begin{frame}<presentation>[label=FrameEncabezado]
