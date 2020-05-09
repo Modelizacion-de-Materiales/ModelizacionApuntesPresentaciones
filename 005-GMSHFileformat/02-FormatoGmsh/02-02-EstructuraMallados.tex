@@ -41,19 +41,19 @@ elementos, que se delimita por las etiquetas
 \texttt{\$Elements} y \texttt{\$EndElements} como se 
 esquematiza en la Figura \ref{FiguraDefinicionElementos}. En
 primera instancia debe indicarse el número total de elementos 
-a considerar. Debe notarse que s posible tomar definiciones
-de elementos de disntinas naturalezas. De hecho, al guardar
+a considerar. Debe notar que es posible tomar definiciones
+de elementos de distintas naturalezas. De hecho, al guardar
 un mallado cualquiera desde la interfaz de gmsh puede 
-encontrarse que los puntos, líneas y demas elementos 
-geométricos de menor gerarquía forman elementos en 
+encontrarse que los puntos, líneas y demás elementos 
+geométricos de menor jerarquía forman elementos en 
 el archivo. Por esta razón se indica luego del numero de
 elemento (columna 1) el \texttt{tipo} de elemento. La
-codificación para el tipo de elemento puede encotrarse 
+codificación para el tipo de elemento puede encontrarse 
 en el manual de gmsh. 
 
 Luego del tipo de elemento, debe indicarse el número de 
 etiquetas descriptivas que siguen. estas etiquetas indican
-pertenencia  a elementos geométricos de mayor gerarquía 
+pertenencia  a elementos geométricos de mayor jerarquía 
 (por ejemplo superficies). En los archivos
 que han sido guardados en gmsh se guardan siempre dos 
 etiquetas. 
@@ -63,33 +63,75 @@ el elemento de la fila en tratamiento.
 
 \begin{figure}
   \includeslide[width=\textwidth]{FrameDefinicionElementos}
-  \caption{Esqema del contenido del bloque de elementos
+  \caption{Esquema del contenido del bloque de elementos
   \label{FiguraDefinicionElementos} }
   
 \end{figure}
 
 \mode*
-
 \begin{frame}<presentation>[label=FrameEstructuraMallados]
-  \frametitle{Estructura de los Mallados.}
-
-  \includegraphics[width=\textwidth,page=7,
-  bb=0cm 0cm 28cm 16.5cm,clip]{./GMSH_fileformat_2019.pdf}
-
+  \frametitle{Estructura de los Mallados}
+  \hfill
+  \begin{tikzpicture}
+    \draw[filebox] (6,7.5) rectangle (15,1) node[pos=0.1, anchor=west] {\textbf{archivo.msh}} ;
+    % \node[anchor=west] at (5, 6) {\textbf{archivo.msh}};
+    \draw[blockbox] (11,6) rectangle (14, 7) node[pos=0.5] {Encabezado};
+    \draw[blockbox] (11,4.8) rectangle (14, 5.8) node[pos=0.5] {Nodos};
+    \draw[blockbox] (11,3.6) rectangle (14, 4.6) node[pos=0.5] {Elementos};
+    \draw[blockbox] (11,2.4) rectangle (14, 3.4) node[pos=0.5] {Datos 1};
+    \draw[blockbox] (11,1.2) rectangle (14, 2.2) node[pos=0.5] {Datos 2};
+  \end{tikzpicture}
 \end{frame}
+% \begin{frame}<presentation>[label=FrameEstructuraMallados]
+%   \frametitle{Estructura de los Mallados.}
+%    \includegraphics[width=\textwidth,page=7,
+%    bb=0cm 0cm 28cm 16.5cm,clip]{./Libreoffice/GMSH_fileformat.pdf}
+% \end{frame}
 
 \begin{frame}<presentation>[label=FrameEncabezado]
   \frametitle{Encabezado del archivo de mallado}
 
-  \includegraphics[width=\textwidth,page=8,
-  bb=0cm 0cm 28cm 16.5cm,clip]{./GMSH_fileformat_2019.pdf}
+%    \column{0.5\textwidth}
+      
+      \begin{columns}
+	\column{0.2\textwidth}
+	\begin{tikzpicture}[overlay]
+	  \draw[blockbox] (0,1.0) rectangle (3,2) node[pos=0.5] { Encabezado };	
+	  \draw[blockbox] (0,-0.5) rectangle (3,0.5) node[pos=0.5] { Nodos };	
+  %	\node at (4,1) {\verbatiminput{./Ejemplos/HeadAndNodes.msh}};
+	\end{tikzpicture}
+      \column{0.4\textwidth}
+	 \begin{codeblock}
+	   \verbatiminput{./Ejemplos/HeadAndNodes.msh}
+	 \end{codeblock}
+	 \column{0.4\textwidth}
+	 Inmediatamente despues del encabezado:
 
+	 \tikz[baseline, remember picture] \node (A) {Numero de Nodos};
+
+	 \tikz[baseline, remember picture] \node (B) {Nodos};
+
+
+	 ¡ Chequear versión de mallado !
+
+      \end{columns}
+
+      \begin{tikzpicture}[remember picture, overlay]
+	\path[->=latex, draw, thick] (A) -- ($(A) + ( -7.3,0.4 )$);
+	\path[->=latex, draw, thick] (B) -- ($(B) + ( -5.3,0.4 )$);
+      \end{tikzpicture}
 \end{frame}
+
+%\begin{frame}<presentation>[label=FrameEncabezado]
+%  \frametitle{Encabezado del archivo de mallado}
+%  \includegraphics[width=\textwidth,page=8,
+%  bb=0cm 0cm 28cm 16.5cm,clip]{./Libreoffice/GMSH_fileformat.pdf}
+%\end{frame}
 
 \begin{frame}<presentation>[label=FrameDefinicionElementos]
   \frametitle{Definición de Elementos}
   \includegraphics[width=\textwidth,page=9,
-  bb=0cm 0cm 28cm 16.5cm,clip]{./GMSH_fileformat_2019.pdf}
-
+  bb=0cm 0cm 28cm 16.5cm,clip]{./Libreoffice/GMSH_fileformat.pdf}
 \end{frame}
+
 \mode<all>
