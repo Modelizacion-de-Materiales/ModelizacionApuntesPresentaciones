@@ -87,10 +87,39 @@ de ecuaciones diferenciales.
 
 En la utilización de las distintas herramientas de control de flujo conviene tener a mano
 las tablas de verdad. Estas constituyen una serie de operaciones lógicas que pueden servir
-para combinar condiciones de ejecución.
+para combinar condiciones de ejecución. En la \autoref{FiguraTablaVerdad} tenemos una 
+versión reducida de esta con las combinaciones básicas entre dos sentencias con algunos
+ejemplos en \texttt{Matlab}
+
+\begin{figure}
+  \includeslide[width=\textwidth]{FrameTablaVerdad}
+  \caption{Ejemplo de operaciones lógicas y tabla de verdad sencilla.
+  \protect\label{FiguraTablaVerdad}}
+\end{figure}
+
+\mode*
 
 \begin{frame}<presentation>[label=FrameTablaVerdad]
-  \frametitle{Tabla de verdad:}
+  \frametitle{Tabla de verdad}
+
+  \begin{columns}[t]
+    \column{0.5\textwidth}
+    \flushright
+    \rowcolors{2}{Green!70}{green!70}
+    \begin{tabular}{cccc}
+      A & B & A \& B  & A  $\vert$ B \\
+      \hline
+      T & T & T & T \\
+      T & F & F & T \\
+      F & T & F & T \\
+      F & F & F & F \\
+    \end{tabular}
+    \column{0.5\textwidth}
+      \begin{codeblock}
+	\verbatiminput{CODEXAMPLES/TRUTH.m}
+      \end{codeblock}
+  \end{columns}
 
 \end{frame}
+
 \mode<all>

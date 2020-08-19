@@ -1,5 +1,7 @@
 \subsection{Operadores básicos}
 
+\mode<article>
+
 Cualquier lenguaje de programación con orientación a cálculo numérico soporta 
 las operaciones artiméticas básicas \texttt{+}, \texttt{-}, \texttt{/} (división) 
 y \texttt{*} (multiplicación).
@@ -18,33 +20,66 @@ multiplicacion matricial).
 
 \begin{figure}
 
+  \includeslide[width=\textwidth]{FrameOperators}
+
 \end{figure}
 
 \mode*
-\begin{frame}<presentation>[label=FrameOperators]
-  \frametitle{New Frame}
 
+\begin{frame}<presentation>[label=FrameOperators]
+  \frametitle{Operadores Básicos}
+  \begin{columns}
+    \column{0.5\textwidth}
+
+    \texttt{Operaciones entre matrices}
+
+    \flushright
+      \rowcolors{1}{Green!70}{green!70}
+      \begin{tabular}{ l c } 
+	suma & \texttt{+}  \\
+	resta & \texttt{-}  \\
+	multiplicacion & \texttt{*} \\
+	división & \texttt{/} \\
+	exponente & \texttt{\^} \\
+	menor & \texttt{<}  \\
+	mayor & \texttt{>}   \\
+	menor o igual & \texttt{<=} \\
+	mayor o igual & \texttt{>=} \\
+	distinto & \texttt{\textasciitilde{}= }
+      \end{tabular}
+
+    \column{0.5\textwidth}
+
+    \begin{codeblock}
+      \verbatiminput{CODEXAMPLES/BasicOperators.m}
+    \end{codeblock}
+
+  \end{columns}
 \end{frame}
 
-\mode<article>
+\mode<all>
 
 \subsubsection{Operadores comparativos}
+
+\mode<article>
 
 Los operadores de comparación básicos también son soportados en 
 programación los símbolos típicos, \texttt{>}, \texttt{<}, \texttt{==},
 \texttt{<=}, \texttt{>=} con significado obvio, mientras que el 
-operador distinto puede tener distintas sintaxis, por ejemplo \texttt{!=}
-en \texttt{Matlab} o \texttt{~=} en \texttt{Python}. 
+operador distinto puede tener distintas sintaxis, por ejemplo \texttt{\textasciitilde{}=}
+en \texttt{Matlab} o \texttt{!=} en \texttt{Python}. 
 
 Los operadores comparativos serán importantes para la evaluación 
 de condiciones que por ejemplo condionen la ejecución de alguna instrucción.
 Se verán ejemplos de uso al introducir los condicionales.
 
-\subsubsection{Opradores Lógicos}
+
+\subsubsection{Operadores Lógicos}
+
 
 Los operadores lógicos son útiles para conjugar o combinar varias sentencias de 
 comparación a la hora de condicionar la ejecución de un segmento de código. 
-Típicamente las sentencias \texttt{&}(and), \texttt{|} (or), y la negación \texttt{!} en matlab 
+Típicamente las sentencias \texttt{\&}(and), \texttt{|} (or), y la negación \texttt{!} en matlab 
 o \texttt{not} en python se utilizan para su funcion obvia, pero tamvién estan sus 
 valores excluyentes. Su uso quedará aclarado al introducir las sentencias de control de flujo.
 Para un uso avanzado de los operadores lógicos le aconsejamos investigar y consultar
@@ -55,3 +90,6 @@ En genral también encontrará disponibles las variables lógicas \texttt{verdad
 \texttt{True}, \texttt{False}. Con ellas podrá incluso generar vectores que 
 muchas veces serán útiles según la aplicación.
 
+\mode*
+
+\mode<all>

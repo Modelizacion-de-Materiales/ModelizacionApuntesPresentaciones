@@ -1,8 +1,12 @@
 % modo presentación. si se cambia a modo notas se imprimen las notas (creo)
-\documentclass[presentation,xcolor={dvipsnames,x11names,svgnames},aspectratio=169]{beamer}
+%\PassOptionsToPackage{table,table,dvipsnames,x11names,svgnames}{xcolor}
+\documentclass[presentation,aspectratio=169]{beamer}
+\usepackage[table, dvipsnames, x11names, svgnames]{xcolor}
+\usepackage{colortbl}
 %\setbeameroption{show notes}
 % en forma arbitraria decido que los parrafos no llevan indentación.
 \setlength{\parindent}{0cm}
+
 
 \mode<presentation>
 \input{main}

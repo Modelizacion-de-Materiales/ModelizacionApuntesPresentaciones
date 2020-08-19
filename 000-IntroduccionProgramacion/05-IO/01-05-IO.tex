@@ -7,7 +7,7 @@ importante como la trazabilidad de los datos
 que se tuvieron en cuenta para resolverlo. Por lo tanto, 
 en general se guardan ambos tipos de datos en archivos, 
 que serán escritos y leídos por nuestra herramienta 
-informática oportunamente. notar entonces que la legibilidad
+informática oportunamente. Notar entonces que la legibilidad
 y la compatibilidad con otras herramientas 
 serán características obligadas de los archivos
 de entrada y salida generados.
@@ -16,7 +16,8 @@ La secuencia de comandos que deben usarse para estos
 fines responden al diagrama de flujo de la 
 \autoref{FigFlujoIO}. Siempre habrá un comando para 
 abrir el archivo, habrá comandos para leer (o 
-escribir) en forma secuencial  el archivo de entrada
+escribir) en forma secuencial o en bloque 
+el archivo de entrada
 (o de salida), y por último se ejecutará un comando 
 para cerrar el archivo.
 
@@ -31,36 +32,41 @@ y de datos de entrada \label{FigFlujoIO}.}
 
 
 \begin{frame}<presentation>[label=FrameEstructuraIO]
-\frametitle{Input-Output / Entrada-Salida de Datos}
-\tikzstyle{every node}=[draw, line width=2pt,
+  \frametitle{Input-Output / Entrada-Salida de Datos}
+  \tikzstyle{every node}=[draw, line width=2pt,
   outer sep=0.1cm, align=center,text height=8pt]
-\tikzstyle{every path}=[line width=2pt, >=latex]
-\begin{tikzpicture}
-\node [ minimum width=\textwidth, fill=Purple, draw, 
-line width=2pt, text=white] (title)  { Estructura IO};
-\node [ minimum width=0.5\textwidth, fill=BrickRed, 
-below=1cm of title, text=white ]
-(abrir) {ABRIR};
-\node [ text width=0.35\textwidth, fill=Khaki, 
-below=0.5cm of abrir.south east ] (leer) 
-{Leer en forma secuencial 
-\\
-\tiny \texttt{linea = read(archivo)}
-};
-\node [text width=0.35\textwidth, fill=Khaki, 
-below=0.5cm of abrir.south west ] 
-(escribir) 
-{Escribir en forma secuencial 
-\\
-\tiny \texttt{fprintf(archivo, linea de texto, formato)}};
-\node [ fill=BrickRed, minimum width=0.5\textwidth, 
-below=2.5cm of abrir,  text=white]
-(cerrar) {CERRAR};
-\draw [->] (abrir.south) -- (escribir.north); 
-\draw [->] (abrir.south) -- (leer.north); 
-\draw [->] (escribir.south) -- (cerrar.north); 
-\draw [->] (leer.south) -- (cerrar.north); 
-\end{tikzpicture}
+  \tikzstyle{every path}=[line width=2pt, >=latex]
+  \begin{tikzpicture}
+    \node [ minimum width=\textwidth, fill=Purple, draw, 
+    line width=2pt, text=white] (title)  { Estructura IO};
+    \node [ minimum width=0.5\textwidth, fill=BrickRed, 
+    below=1cm of title, text=white ]
+    (abrir) {ABRIR};
+    \node [ text width=0.35\textwidth, fill=Khaki, 
+    below=0.5cm of abrir.south east ] (leer) 
+    {Leer en forma secuencial\\
+
+    \vspace{0.5cm}
+
+    \tiny \texttt{linea = read(archivo)}\\
+    \tiny \texttt{A = load('A.txt')}
+    };
+    \node [text width=0.35\textwidth, fill=Khaki, 
+    below=0.5cm of abrir.south west ]  (escribir) 
+    {
+      Escribir en forma secuencial\\
+      \vspace{0.5cm}
+    \tiny \texttt{fprintf(archivo, linea de texto, formato)}\\
+    \tiny \texttt{save('B.txt','B','-ascii')}
+    };
+    \node [ fill=BrickRed, minimum width=0.5\textwidth, 
+    below=3cm of abrir,  text=white]
+    (cerrar) {CERRAR};
+    \draw [->] (abrir.south) -- (escribir.north); 
+    \draw [->] (abrir.south) -- (leer.north); 
+    \draw [->] (escribir.south) -- (cerrar.north); 
+    \draw [->] (leer.south) -- (cerrar.north); 
+  \end{tikzpicture}
 
 \end{frame}
 
