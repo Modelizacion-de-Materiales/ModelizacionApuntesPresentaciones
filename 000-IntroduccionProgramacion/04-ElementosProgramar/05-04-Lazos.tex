@@ -1,0 +1,83 @@
+\subsection{Sentencias de Control de Flujo: Lazos}
+
+\mode<article>
+
+Frecuentemente se encontrará con la necesidad de repetir una serie de 
+comandos un número fintio de veces o bien hasta que se cumpla alguna 
+condición lógica. Las Sentencias de Control de flujo que se usan en esas 
+ocaciones son el \textbf{for} y el \textbf{while}, respectivamente, 
+cuyas sintaxis se muestran en la \autoref{FigMatlabForWhile}. A la pieza de
+código que forman estas sentencias se las conoce como
+lazos o bucles (loop).
+
+\begin{figure}
+  \includeslide[width=\textwidth]{FrameMatlabForWhile}
+  \caption{
+    Sintaxis para las sentencias for y while
+  para el control de flujo de ejecución \label{FigMatlabForWhile}
+}
+\end{figure}
+
+En el caso de usar la sentencia \textbf{for}, los valores que debe tomar
+el iterador se dan en un rango de la forma  $[ i_{min} :  \Delta i : i_{max} ]$, 
+estos valores enteros positivos. Nuevamente se ha dado la sintaxis en matlab
+pero pueden encontrarse formas equivalentes en otros lenguajes. 
+
+Luego, en el caso de utilizar la sentencia \textbf{while}, el criterio 
+de ejecución se da con una sentencia lógica, por ejemplo la comparación
+entre dos números reales, o simplemente la evaluación de una 
+variable tipo lógico. Si se necesita un contador, en estos casos
+debe actualizarse el valor del mismo en forma manual. Es buena
+práctica poner además una condicón que fuerce la terminación  
+del lazo en caso de que la condición lógica no se cumpla 
+en una cantidad de iteraciones razonable. 
+
+\mode*
+
+\begin{frame}<presentation>[label=FrameMatlabForWhile]{Control de Flujo}
+  \begin{columns}
+    \column{0.2\textwidth}
+    \hfill
+
+    \column{0.4\textwidth}
+    \center{ \textbf{Matlab} }
+
+    \column{0.4\textwidth}
+    \center{\textbf{Python}}
+  \end{columns}
+
+  \begin{columns}[T]
+    \column{0.2\textwidth}
+      \flushright \large\texttt{for}
+
+    \column{0.4\textwidth}
+      \begin{codeblock}
+	\verbatiminput{./CODEXAMPLES/suma_for.m}
+      \end{codeblock}
+
+    \column{0.4\textwidth}
+      \begin{codeblock}
+	\verbatiminput{./CODEXAMPLES/suma_for.py}
+
+      \end{codeblock}
+
+  \end{columns}
+
+  \begin{columns}[T]
+    \column{0.2\textwidth}
+    \flushright \large\texttt{while}
+
+    \column{0.4\textwidth}
+      \begin{codeblock}
+	\verbatiminput{./CODEXAMPLES/suma_while.m}
+      \end{codeblock}
+
+    \column{0.4\textwidth}
+      \begin{codeblock}
+	\verbatiminput{./CODEXAMPLES/suma_while.py}
+      \end{codeblock}
+
+  \end{columns}
+\end{frame}
+
+\mode<all>

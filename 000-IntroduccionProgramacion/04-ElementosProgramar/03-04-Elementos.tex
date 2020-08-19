@@ -1,7 +1,32 @@
 
 \subsection{Asignación de Variables}
 
-\mode*
+\mode<article>
+  En cualquier lenguaje de programación, la asignación 
+  de variables es la operación básica que debe aprender.
+  A partir de las variables asignadas usted podrá generalizar sus
+  programas para maximizar el número de casos de uso. 
+
+  La asignación de variables se lleva a cabo mediante
+  el operador \texttt{ = } de la siguente como se muestra
+  en la \autoref{FigAsignacionVariables}. notar el uso 
+  del punto y coma al final de la orden en la línea de 
+  comandos. cuando no se usa, matlab muestra en pantalla
+  el valor asignado a la variable.
+
+\begin{figure}
+  \includeslide[width=\textwidth]{FrameAsignacionVariables} 
+\caption{Asignación y operaciones básicas en MATLAB\label{FigAsignacionVariables}}
+\end{figure}
+
+\begin{figure}
+  \includeslide[width=\textwidth]{FrameAsignacionesPython} 
+\caption{Asignación y operaciones básicas en Python. Observe la importación del 
+        módulo \protect\emph{Numpy} para el tratamiento de Matrices. \protect\label{FigAsignacionVariablesPython}}
+\end{figure}
+
+\mode* 
+
 \begin{frame}<presentation>[fragile,label=FrameAsignacionVariables]{Asignación de Variables .m}
 
 \mode<trans>{
@@ -50,11 +75,9 @@
 
 \hfill \texttt{Transponer},
 
-\vspace{2cm}
+\vspace{1cm}
 
-  \hfill \texttt{Referencia a un elemento de la matriz (indexación).}
-
-\vspace{0.8cm}
+\hfill \texttt{Referencia a un elemento de la matriz (indexación).}
 
 \hfill \texttt{prompt.}
 
@@ -67,33 +90,41 @@
 
 \end{frame}
 
+\mode<all>
+
+\subsubsection{Indexación de Variables}
+
 \mode<article>
-  En cualquier lenguaje de programación, la asignación 
-  de variables es la operación básica que debe aprender.
-  A partir de las variables asignadas usted podrá generalizar sus
-  programas para maximizar el número de casos de uso. 
 
-  La asignación de variables se lleva a cabo mediante
-  el operador \texttt{ = } de la siguente como se muestra
-  en la \autoref{FigAsignacionVariables}. notar el uso 
-  del punto y coma al final de la orden en la línea de 
-  comandos. cuando no se usa, matlab muestra en pantalla
-  el valor asignado a la variable.
+Una vez asignada la matriz, es posible indexar sus componentes. 
+Pueden referirse individualmente el elemento de la fila \texttt{i} y la
+columna \texttt{j} pidiendo el elemento \texttt{A(i,j)}. Sin 
+embargo, es posible realizar operaciones más complejas. Por ejemplo,
+puede refirerse a un \emph{slice} de la matriz indicando un rango 
+de índices en un vector, como se muestra en la
+\autoref{FigMatlabIndexacion}. La idea de los slices de arrays de una o 
+más dimensiones persiste en otros lenguajes, y será particularmente
+útil más adelante en esta materia, por lo que se sugiere que
+verifique su implementación en el lenguaje de programación 
+que elija. 
+
+Observe en el ejemplo de la \autoref{FigMatlabIndexacion} para \emph{Python}
+la necesidad de usar la función \texttt{ Numpy.ix\_ } para generar todas las 
+combinaciones de índices dadas por los índices de las columnas 
+\texttt{ ( i\textsubscript{1} , i \textsubscript{2} ) }
+y de las columnas \texttt{ ( j\textsubscript{1} , j \textsubscript{2} ) }, 
+mientras que en matlab no es necesario
+una función extra. Verifique en su lenguaje de programación cómo debe indexar 
+las filas y las columnas para obtener el resultado del ejeplo. 
+
 
 \begin{figure}
-  \includeslide[width=\textwidth]{FrameAsignacionVariables} 
-\caption{Asignación y operaciones básicas en MATLAB\label{FigAsignacionVariables}}
+  \includeslide[width=\textwidth]{FrameMatlabIndexacion}
+  \caption{ Indexación de Matrices con utilización de lístas de índices para
+ obtener un slice de la matriz \label{FigMatlabIndexacion} }
 \end{figure}
 
-\begin{figure}
-  \includeslide[width=\textwidth]{FrameAsignacionesPython} 
-\caption{Asignación y operaciones básicas en Python. Observe la importación del 
-        módulo \protect\emph{Numpy} para el tratamiento de Matrices. \protect\label{FigAsignacionVariablesPython}}
-\end{figure}
-
-\mode* 
-
-\subsection{Indexación de Variables}
+\mode*
 
 \begin{frame}<presentation>[fragile,label=FrameMatlabIndexacion]{Indexación de Variables}
 
@@ -133,200 +164,6 @@
 \end{columns}
 \end{frame}
 
-\mode<article>
-Una vez asignada la matriz, es posible indexar sus componentes. 
-Pueden referirse individualmente el elemento de la fila \texttt{i} y la
-columna \texttt{j} pidiendo el elemento \texttt{A(i,j)}. Sin 
-embargo, es posible realizar operaciones más complejas. Por ejemplo,
-puede refirerse a un \emph{slice} de la matriz indicando un rango 
-de índices en un vector, como se muestra en la
-\autoref{FigMatlabIndexacion}. La idea de los slices de arrays de una o 
-más dimensiones persiste en otros lenguajes, y será particularmente
-útil más adelante en esta materia, por lo que se sugiere que
-verifique su implementación en el lenguaje de programación 
-que elija. 
+\mode<all>
 
-Observe en el ejemplo de la \autoref{FigMatlabIndexacion} para \emph{Python}
-la necesidad de usar la función \texttt{ Numpy.ix\_ } para generar todas las 
-combinaciones de índices dadas por los índices de las columnas 
-\texttt{ ( i\textsubscript{1} , i \textsubscript{2} ) }
-y de las columnas \texttt{ ( j\textsubscript{1} , j \textsubscript{2} ) }, 
-mientras que en matlab no es necesario
-una función extra. Verifique en su lenguaje de programación cómo debe indexar 
-las filas y las columnas para obtener el resultado del ejeplo. 
 
-\mode*
-
-\begin{figure}
-  \includeslide[width=\textwidth]{FrameMatlabIndexacion}
-  \caption{ Indexación de Matrices con utilización de lístas de índices para
- obtener un slice de la matriz \label{FigMatlabIndexacion} }
-\end{figure}
-
-\mode*
-
-\subsection{Sentencias de Control de Flujo: Lazos}
-
-\begin{frame}<presentation>[label=FrameMatlabForWhile]{Control de Flujo}
-  \begin{columns}
-    \column{0.2\textwidth}
-    \hfill
-
-    \column{0.4\textwidth}
-    \center{ \textbf{Matlab} }
-
-    \column{0.4\textwidth}
-    \center{\textbf{Python}}
-  \end{columns}
-
-  \begin{columns}[T]
-    \column{0.2\textwidth}
-      \flushright \large\texttt{for}
-
-    \column{0.4\textwidth}
-      \begin{codeblock}
-	\verbatiminput{./CODEXAMPLES/suma_for.m}
-      \end{codeblock}
-
-    \column{0.4\textwidth}
-      \begin{codeblock}
-	\verbatiminput{./CODEXAMPLES/suma_for.py}
-
-      \end{codeblock}
-
-  \end{columns}
-
-  \begin{columns}[T]
-    \column{0.2\textwidth}
-    \flushright \large\texttt{while}
-
-    \column{0.4\textwidth}
-      \begin{codeblock}
-	\verbatiminput{./CODEXAMPLES/suma_while.m}
-      \end{codeblock}
-
-    \column{0.4\textwidth}
-      \begin{codeblock}
-	\verbatiminput{./CODEXAMPLES/suma_while.py}
-      \end{codeblock}
-
-  \end{columns}
-\end{frame}
-
-\mode<article>
-
-Frecuentemente se encontrará con la necesidad de repetir una serie de 
-comandos un número fintio de veces o bien hasta que se cumpla alguna 
-condición lógica. Las Sentencias de Control de flujo que se usan en esas 
-ocaciones son el \textbf{for} y el \textbf{while}, respectivamente, 
-cuyas sintaxis se muestran en la \autoref{FigMatlabForWhile}. A la pieza de
-código que forman estas sentencias se las conoce como
-lazos o bucles (loop).
-
-\begin{figure}
-  \includeslide[width=\textwidth]{FrameMatlabForWhile}
-  \caption{
-    Sintaxis para las sentencias for y while
-  para el control de flujo de ejecución \label{FigMatlabForWhile}
-}
-\end{figure}
-
-En el caso de usar la sentencia \textbf{for}, los valores que debe tomar
-el iterador se dan en un rango de la forma  $[ i_{min} :  \Delta i : i_{max} ]$, 
-estos valores enteros positivos. Nuevamente se ha dado la sintaxis en matlab
-pero pueden encontrarse formas equivalentes en otros lenguajes. 
-
-Luego, en el caso de utilizar la sentencia \textbf{while}, el criterio 
-de ejecución se da con una sentencia lógica, por ejemplo la comparación
-entre dos números reales, o simplemente la evaluación de una 
-variable tipo lógico. Si se necesita un contador, en estos casos
-debe actualizarse el valor del mismo en forma manual. Es buena
-práctica poner además una condicón que fuerce la terminación  
-del lazo en caso de que la condición lógica no se cumpla 
-en una cantidad de iteraciones razonable. 
-
-\mode*
-
-\subsection{Control de Flujo: Condicionales}
-
-\begin{frame}<presentation>[label=FrameMatlabIf]{Control de flujo: Condicionales} 
-\begin{columns}[T]
-\column{0.2\textwidth}
-\hfill \large\texttt{if}
-
-\column{0.4\textwidth}
-\begin{codeblock}
-\verbatiminput{./CODEXAMPLES/suma.m}
-\end{codeblock}
-
-\column{0.4\textwidth}
-\begin{codeblock}
-\verbatiminput{./CODEXAMPLES/suma_continue.m}
-\end{codeblock}
-
-\end{columns}
-\end{frame}
-
-\mode<article>
-
-Otro caso de trabajo frecuente es el de tener 
-la necesidad de condicionar la ejecución de 
-una pieza de código a la ocurrencia de una 
-condición lógica. Para esto se usa la sentencia
-\textbf{if}. La estructura más general \textbf{if},
-\textbf{else if}, \textbf{else} , \textbf{end} evalúa
-una serie de condiciones en forma posicional  y 
-excluyente, como se esquematiza en la 
-\autoref{FigMatlabIf}. Las sentencias \textbf{else if} y 
-\textbf{else} son opcionales. Si la condición 
-de argunento en \textbf{if} se cumple, se ejecuta
-la serie de comandos hasta \textbf{else} o 
-\textbf{end}, lo que se encuentre primero. Al 
-terminarse la serie de comandos, no se evalúan 
-las condiciones que son argumento de los 
-siguientes \textbf{else if}, sino que se
-prosigue a partir de end. 
-
-\begin{figure}
-  \includeslide[width=\textwidth]{FrameMatlabIf}
-  
-  \caption{Esquema de la aplicación de los condicionales   para 
-  evaluar piezas de código sujetas a condiciones 
-  particulares o generales. Notar el uso de los comandos 
-  \protect\textbf{continue} y \protect\textbf{break} para forzar la 
-  omisión en un lazo o la salida del mismo
-  \label{FigMatlabIf}
-  }
-
-\end{figure}
-
-Si la condición lógica que es argumento de \textbf{if}
-no se cumple, se evalúa 
-la condición lógica que es argunmento del 
-primer \textbf{else if}, si ésta no se cumple 
-se siguen evaluendo los argumentos de las
-sentencias \textbf{else if} hasta que se encuentra 
-una condición verdadera. En ese caso ocurre lo 
-mismo que se explicó antes: cuando se termina
-de ejecutar la serie de comandos habilitados
-por esta instancia de \textbf{else if}, se
-prosigue a partir de \textbf{end}.
-
-La sentencia \textbf{else} da lugar a una serie de
-comandos que se ejecutarán solo si ninguna de las 
-condiciones lógicas evaluadas es verdadera. 
-Podría decirse que marca lo que debe ejecutarse por 
-descarte de las condiciones evaluadas. 
-
-En forma general, puede tenerse en cuenta que las 
-condiciones sobre las sentencias \textbf{if}, 
-\textbf{else if} \emph{ detectan} casos especiales
-mientras que \textbf{else} da lugar a la ejecución
-sobre el caso más general pero en forma 
-excluyente de los casos particulares. Este 
-concepto nos será de utilidad en la separación
-de las condiciones de contorno sobre un 
-recinto de integración para la solución
-de ecuaciones diferenciales. 
-
-\mode*

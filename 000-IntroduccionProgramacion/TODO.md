@@ -1,6 +1,6 @@
 # asignacion e indexacion
 
-- referencia a 1 elemento
+- referencia a 1 elemento [x]
 
 # Control de flujo
 
