@@ -7,7 +7,7 @@ secuencial, por ejemplo si se quiere recuperar
 un archivo de metadatos complejo. En estos casos
 el procedimiento se hace un poco más engorroso pero 
 es posible familiarizarse rápidamente. El problema
-es que muchas veces es necesario usar más de un comando.
+es qe muchas veces es necesario usar más de un comando.
 
 primero se usa un comando para lectura, en \texttt{Matlab}
 es \texttt{fgetl}, que lee una línea del archivo y entrega un 
@@ -20,7 +20,7 @@ si se ha llegado al final del archivo.
 
 En la \autoref{FigReadSequential} se muestra un ejemplo (bastante sobreactuado)
 de la lectura de un archivo con toda la informción en una sola columna, separando
-con etiquetas las distintas variables guardadas.
+con etiquetas las distintas variabels guardadas.
 
 \begin{figure}
 
@@ -28,7 +28,7 @@ con etiquetas las distintas variables guardadas.
   \caption{
     \protect\label{FigReadSequential}
       Ejemplo de lectura secuencial de un archivo complejo implementada 
-      en \texttt{Matlab}. Sobre el gráfico se observan distintas secciones
+      en \texttt{Matlab}. Sobre el gráfico se observan distintas seccines
       del archivo \texttt{tablesincos.dat} con los números de lína a la
       izquierda de los cuadros.
     }

@@ -8,20 +8,20 @@
   programas para maximizar el número de casos de uso. 
 
   La asignación de variables se lleva a cabo mediante
-  el operador \texttt{ = } de la siguiente como se muestra
+  el operador \texttt{ = } de la siguente como se muestra
   en la \autoref{FigAsignacionVariables}. notar el uso 
   del punto y coma al final de la orden en la línea de 
-  comandos. cuando no se usa, \texttt{Matlab} muestra en pantalla
+  comandos. cuando no se usa, matlab muestra en pantalla
   el valor asignado a la variable.
 
 \begin{figure}
   \includeslide[width=\textwidth]{FrameAsignacionVariables} 
-\caption{Asignación y operaciones básicas en \texttt{Matlab}\label{FigAsignacionVariables}}
+\caption{Asignación y operaciones básicas en MATLAB\label{FigAsignacionVariables}}
 \end{figure}
 
 \begin{figure}
   \includeslide[width=\textwidth]{FrameAsignacionesPython} 
-\caption{Asignación y operaciones básicas en \texttt{Python}. Observe la importación del 
+\caption{Asignación y operaciones básicas en Python. Observe la importación del 
         módulo \protect\emph{Numpy} para el tratamiento de Matrices. \protect\label{FigAsignacionVariablesPython}}
 \end{figure}
 
@@ -100,9 +100,9 @@ Una vez asignada la matriz, es posible indexar sus componentes.
 Pueden referirse individualmente el elemento de la fila \texttt{i} y la
 columna \texttt{j} pidiendo el elemento \texttt{A(i,j)}. Sin 
 embargo, es posible realizar operaciones más complejas. Por ejemplo,
-puede referirse a un \emph{slice} de la matriz indicando un rango 
+puede refirerse a un \emph{slice} de la matriz indicando un rango 
 de índices en un vector, como se muestra en la
-\autoref{FigMatlabIndexacion}. La idea de los \emph{slices} de \emph{arrays} de una o 
+\autoref{FigMatlabIndexacion}. La idea de los slices de arrays de una o 
 más dimensiones persiste en otros lenguajes, y será particularmente
 útil más adelante en esta materia, por lo que se sugiere que
 verifique su implementación en el lenguaje de programación 
@@ -113,15 +113,15 @@ la necesidad de usar la función \texttt{ Numpy.ix\_ } para generar todas las
 combinaciones de índices dadas por los índices de las columnas 
 \texttt{ ( i\textsubscript{1} , i \textsubscript{2} ) }
 y de las columnas \texttt{ ( j\textsubscript{1} , j \textsubscript{2} ) }, 
-mientras que en \texttt{Matlab} no es necesario
+mientras que en matlab no es necesario
 una función extra. Verifique en su lenguaje de programación cómo debe indexar 
-las filas y las columnas para obtener el resultado del ejemplo. 
+las filas y las columnas para obtener el resultado del ejeplo. 
 
 
 \begin{figure}
   \includeslide[width=\textwidth]{FrameMatlabIndexacion}
-  \caption{ Indexación de Matrices con utilización de listas de índices para
- obtener un \emph{slice} de la matriz \label{FigMatlabIndexacion} }
+  \caption{ Indexación de Matrices con utilización de lístas de índices para
+ obtener un slice de la matriz \label{FigMatlabIndexacion} }
 \end{figure}
 
 \mode*

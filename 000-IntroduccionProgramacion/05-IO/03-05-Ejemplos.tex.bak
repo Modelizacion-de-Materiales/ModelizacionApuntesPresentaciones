@@ -74,8 +74,8 @@ claro enseguida.
 
 \mode<article>
 
-Una estrategia para registrar los datos en un archivo es 
-escribir en el mismo línea por línea, o en forma \emph{secuencial}.
+Una estrategia para registar los datos en un archivo es 
+escribir en el mísmo lína por línea, o en forma \emph{secuencial}.
 Una vez abierto el archivo con permisos para escritura, 
 se escriben los datos con el comando \textbf{fprintf}. 
 El mismo acepta como argumentos el indicador de archivo, 
@@ -83,16 +83,16 @@ un \emph{string} de formato y la lista de variables
 que se guardan. El mecanismo se ilustra en la 
 \autoref{FigIOEscribir}.
 
-El \texttt{string} de formato suele usar caracteres especiales para indicar
-la posición y el formato (punto flotante con precisión dada, números enteros,
+El string de formato suele usar caracteres especiales para indicar
+la posición y el formato (punto flotante con precision dada, numeros enteros,
 texto, etc) en la que la lista de variables debe 
 imprimirse. No daremos detalle aquí, pero puede
 buscar en los manuales el uso de los \emph{format 
 identifiers, indicadores de formato}, ya que serán 
 de suma utilidad. la correspondencia entre el 
 indicador de formato y la variable que se escribe
-es posicional, y en general para escribir un número 
-real se usa el indicador \textbf{\%f} con algún 
+es posicional, y en general para esribir un número 
+real se usa el indicador \textbf{\%f} con algun 
 indicador extra para la precisión. 
 Observe la necesidad de imprimir los cambios de línea
 o \emph{retornos de carro} para indicar los fines de línea. 

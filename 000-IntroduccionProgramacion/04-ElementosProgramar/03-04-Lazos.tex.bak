@@ -3,9 +3,9 @@
 \mode<article>
 
 Frecuentemente se encontrará con la necesidad de repetir una serie de 
-comandos un número finito de veces o bien hasta que se cumpla alguna 
+comandos un número fintio de veces o bien hasta que se cumpla alguna 
 condición lógica. Las Sentencias de Control de flujo que se usan en esas 
-ocasiones son el \textbf{for} y el \textbf{while}, respectivamente, 
+ocaciones son el \textbf{for} y el \textbf{while}, respectivamente, 
 cuyas sintaxis se muestran en la \autoref{FigMatlabForWhile}. A la pieza de
 código que forman estas sentencias se las conoce como
 lazos o bucles (loop).
@@ -20,7 +20,7 @@ lazos o bucles (loop).
 
 En el caso de usar la sentencia \textbf{for}, los valores que debe tomar
 el iterador se dan en un rango de la forma  $[ i_{min} :  \Delta i : i_{max} ]$, 
-estos valores enteros positivos. Nuevamente se ha dado la sintaxis en \texttt{Matlab}
+estos valores enteros positivos. Nuevamente se ha dado la sintaxis en matlab
 pero pueden encontrarse formas equivalentes en otros lenguajes. 
 
 Luego, en el caso de utilizar la sentencia \textbf{while}, el criterio 
@@ -28,7 +28,7 @@ de ejecución se da con una sentencia lógica, por ejemplo la comparación
 entre dos números reales, o simplemente la evaluación de una 
 variable tipo lógico. Si se necesita un contador, en estos casos
 debe actualizarse el valor del mismo en forma manual. Es buena
-práctica poner además una condición que fuerce la terminación  
+práctica poner además una condicón que fuerce la terminación  
 del lazo en caso de que la condición lógica no se cumpla 
 en una cantidad de iteraciones razonable. 
 

@@ -13,15 +13,15 @@ Como \emph{proceso} del problema, podemos ubicar
 la etapa de implementación del modelo
 matemático. Cuando se usen computadoras
 para resolver esta parte del problema,
-la discretización y matricialización de 
+la discreitzación y matricialización de 
 las funciones de estado y de las variables
 independientes pueden ubicarse en esta 
-etapa. La resolución, i.e. la ejecución
+etapa. La resolución, i.e. la ejecucion
 del comando final , y el registro de los
 resultados pueden ubicarse aquí.
 
 Por último, en la etapa de 
-\emph{post proceso} podemos ubicar todas
+\emph{postproceso} podemos ubicar todas
 las tareas de medición y análisis sobre 
 los resultados obtenidos en la etapa
 anterior. 

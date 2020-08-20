@@ -8,10 +8,10 @@ En lo que sigue daremos una revisión
 de los elementos de programación 
 mínimos necesarios para esta materia.
 Como lenguaje oficial elegimos 
-\texttt{Matlab}
+\texttt{MATLAB}
 \footnote{
 Esto puede estar en cambio. Recientemente hemos
-ampliado nuestro interés en \texttt{Python} debido a la
+ampliado nuestro interes en Python debido a la
 amplia disponibilidad de entornos libres y de código 
 abierto, sino también por el alto grado de incorporación
 en el ambiente profesional durante los últimos tiempos.
@@ -39,7 +39,7 @@ en otros lenguajes de uso corriente en la material
 \item[\minilogo] MATrix LABoratory
 \item[\minilogo] Multiplataforma
 \item[\minilogo] \url{http://www.mathworks.com/products/matlab}
-\item[\minilogo] Lenguaje de programación, consola progrmable, ejecución y redacción de scripts (guiones).
+\item[\minilogo] Lenguaje de programación, consola progrmable, ejecucion y redacción de scripts (guiones).
 \end{itemize}
 \end{frame}
 
@@ -58,8 +58,8 @@ en otros lenguajes de uso corriente en la material
 \end{scope}
 \end{tikzpicture}
 \mode<article>{
- \caption{Ventana de \texttt{Matlab}. se observan 
- el árbol de archivos del directorio
+ \caption{Ventana de Matlab. se observan 
+ el arbol de archivos del directorio
  de trabajo, el editor de guiones
  y la línea de comandos. 
  \label{FigMatlabInicio}
@@ -73,10 +73,10 @@ en otros lenguajes de uso corriente en la material
 
 \mode<article>
 {
-Busque en su PC el icono de inicio de \texttt{Matlab}, o bien inicie el programa
+Busque en su pc el ícono de inicio de MATLAB, o bien inicie el programa
 desde la línea de comandos. 
 
- Al iniciar \texttt{Matlab} en cualquier plataforma, se observan las ventanas de la 
+ Al inicar MATLAB en cualquier plataforma, se observan las ventanas de la 
  \autoref{FigMatlabInicio}. Revise las configuraciones para obtener
 el escritorio que le sea cómodo. Sin embargo, puede encontrar de 
  utilidad un escritorio como el que se muestra. 

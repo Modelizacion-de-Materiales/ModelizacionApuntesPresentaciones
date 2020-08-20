@@ -2,7 +2,7 @@
 
 \mode<article>
 
-Cuando solo se quiere guardar una matriz o lista de datos de igual tipo (números reales, etc)
+Cuando solo se quiere guardar una matriz o lista de datos de igual tipo (numeros reales, etc)
 se puede usar la escritura en bloque como muestra la \autoref{FigWriteBlock} para \texttt{Matlab}. 
 
 \begin{figure}

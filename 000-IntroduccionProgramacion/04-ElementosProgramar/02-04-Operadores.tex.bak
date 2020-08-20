@@ -3,7 +3,7 @@
 \mode<article>
 
 Cualquier lenguaje de programación con orientación a cálculo numérico soporta 
-las operaciones aritméticas básicas \texttt{+}, \texttt{-}, \texttt{/} (división) 
+las operaciones artiméticas básicas \texttt{+}, \texttt{-}, \texttt{/} (división) 
 y \texttt{*} (multiplicación).
 No pretendemos aquí dar una lista exhaustiva
 de todas ellas pero puede consultar las tablas al final 
@@ -12,11 +12,11 @@ de este apunte para consultas.
 Quizá sea útil a esta altura hacer alguna diferencia entre las operaciones 
 aritméticas y las operaciones \emph{elemento a elemento}. Por ejemplo en \texttt{Matlab}
 para operar los elementos de matrices elemento a elemento puede usar los operadores 
-básicos precedidos por un punto (\texttt{.}), mientras que los operadores 
-comunes se utilizan como operaciones matriciales. En otros lenguajes como \texttt{Python} 
+básicos precesidos por un punto (\texttt{.}), mientras que los operadores 
+comunes se utilizan como operaciones matriciales. En otros lenguages como Python 
 las operaciones aritméticas implican operar por elemento y para realizar operaciones 
 matriciales debe recurrir a funciones especiales como \texttt{matmul} (para 
-multiplicación matricial).
+multiplicacion matricial).
 
 \begin{figure}
 
@@ -38,7 +38,7 @@ multiplicación matricial).
       \begin{tabular}{ l c } 
 	suma & \texttt{+}  \\
 	resta & \texttt{-}  \\
-	multiplicación & \texttt{*} \\
+	multiplicacion & \texttt{*} \\
 	división & \texttt{/} \\
 	exponente & \texttt{\^} \\
 	menor & \texttt{<}  \\
@@ -70,7 +70,7 @@ operador distinto puede tener distintas sintaxis, por ejemplo \texttt{\textascii
 en \texttt{Matlab} o \texttt{!=} en \texttt{Python}. 
 
 Los operadores comparativos serán importantes para la evaluación 
-de condiciones que por ejemplo condicionen la ejecución de alguna instrucción.
+de condiciones que por ejemplo condionen la ejecución de alguna instrucción.
 Se verán ejemplos de uso al introducir los condicionales.
 
 
@@ -79,14 +79,14 @@ Se verán ejemplos de uso al introducir los condicionales.
 
 Los operadores lógicos son útiles para conjugar o combinar varias sentencias de 
 comparación a la hora de condicionar la ejecución de un segmento de código. 
-Típicamente las sentencias \texttt{\&}(and), \texttt{|} (or), y la negación \texttt{!} en \texttt{Matlab} 
-o \texttt{not} en \texttt{Python} se utilizan para su función obvia, pero también están sus 
+Típicamente las sentencias \texttt{\&}(and), \texttt{|} (or), y la negación \texttt{!} en matlab 
+o \texttt{not} en python se utilizan para su funcion obvia, pero tamvién estan sus 
 valores excluyentes. Su uso quedará aclarado al introducir las sentencias de control de flujo.
 Para un uso avanzado de los operadores lógicos le aconsejamos investigar y consultar
 sobre las reglas de \texttt{De Morgan} y las tablas de verdad.
 
-En general también encontrará disponibles las variables lógicas \texttt{verdadero} y 
-\texttt{falso}, en \texttt{Matlab} \texttt{true}, \texttt{false} o en \texttt{Python} 
+En genral también encontrará disponibles las variables lógicas \texttt{verdadero} y 
+\texttt{falso}, en \texttt{Matlab} \texttt{true}, \texttt{false} o en python 
 \texttt{True}, \texttt{False}. Con ellas podrá incluso generar vectores que 
 muchas veces serán útiles según la aplicación.
 
