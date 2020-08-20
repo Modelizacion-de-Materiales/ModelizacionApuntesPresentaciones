@@ -12,14 +12,33 @@ y la compatibilidad con otras herramientas
 serán características obligadas de los archivos
 de entrada y salida generados.
 
+Dependiendo de si los datos que se guardarán son de
+estructura compleja o no se puede utilizar distintas
+estrategias para guardar los datos. Por ejemplo si se necesita
+guardar una lista o una matriz de datos nos alcanzará con 
+volcar la matriz a un archivo (binario o de texto). En
+cambio para guardar un archivo estructurado por ejemplo
+mezclando texto y números reales y separados por secciones,
+típicamente archivos de metadatos, necesitaremos guardar secuencialmente
+las distintas partes del mismo.
+
+\mode<all>
+
+
+\subsubsection{Escritura y lectura secuencial}
+
+\mode<article>
+
+Para la escritura o lectura secuencial, 
 La secuencia de comandos que deben usarse para estos
 fines responden al diagrama de flujo de la 
 \autoref{FigFlujoIO}. Siempre habrá un comando para 
 abrir el archivo, habrá comandos para leer (o 
-escribir) en forma secuencial o en bloque 
-el archivo de entrada
-(o de salida), y por último se ejecutará un comando 
+escribir) en forma secuencial y por último se ejecutará un comando 
 para cerrar el archivo.
+
+La escritura o lectura en bloque con los comandos \texttt{load} o \texttt{save} 
+en \texttt{Matlab} se hace cargo de todos estos pasos.
 
 \begin{figure}
   \includeslide[width=\textwidth]{FrameEstructuraIO}
@@ -29,7 +48,6 @@ y de datos de entrada \label{FigFlujoIO}.}
 \end{figure}
 
 \mode*
-
 
 \begin{frame}<presentation>[label=FrameEstructuraIO]
   \frametitle{Input-Output / Entrada-Salida de Datos}
@@ -48,16 +66,14 @@ y de datos de entrada \label{FigFlujoIO}.}
 
     \vspace{0.5cm}
 
-    \tiny \texttt{linea = read(archivo)}\\
-    \tiny \texttt{A = load('A.txt')}
+    \texttt{linea = read(archivo)}\\
     };
     \node [text width=0.35\textwidth, fill=Khaki, 
     below=0.5cm of abrir.south west ]  (escribir) 
     {
       Escribir en forma secuencial\\
       \vspace{0.5cm}
-    \tiny \texttt{fprintf(archivo, linea de texto, formato)}\\
-    \tiny \texttt{save('B.txt','B','-ascii')}
+    \texttt{fprintf(archivo, linea de texto, formato)}\\
     };
     \node [ fill=BrickRed, minimum width=0.5\textwidth, 
     below=3cm of abrir,  text=white]
@@ -66,6 +82,13 @@ y de datos de entrada \label{FigFlujoIO}.}
     \draw [->] (abrir.south) -- (leer.north); 
     \draw [->] (escribir.south) -- (cerrar.north); 
     \draw [->] (leer.south) -- (cerrar.north); 
+
+    \node[text width=0.45\textwidth, fill=Khaki, 
+    below=0.5cm of cerrar.south west] (save) {\texttt{save('B.txt','B','-ascii')}};
+
+    \node[text width=0.45\textwidth, fill=Khaki, 
+    below=0.5cm of cerrar.south east] (save) {\texttt{save('B.txt','B','-ascii')}};
+
   \end{tikzpicture}
 
 \end{frame}

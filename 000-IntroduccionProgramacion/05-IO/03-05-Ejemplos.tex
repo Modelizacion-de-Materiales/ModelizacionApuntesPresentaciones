@@ -1,3 +1,75 @@
+\subsubsection{Apertura y cierre de archivos}
+
+\mode<article>
+
+En todos los lenguajes de programación se utiliza algún comando
+para abrir los archivos, por ejemplo \textbf{fopen} en matlab.
+Este comando suele aceptar un argumento para indicar el
+nombre de archivo a abrir, que puede ser una variable 
+de tipo string o cadena de caracteres. Otro argumento
+que se le da a \textbf{fopen} es el permiso con el 
+que el archivo debe ser abierto, por ejemplo
+de escritura generalmente \textbf{w}, solo lectura \textbf{r}
+, o para agregar contenido al final o \emph{append} \textbf{a}. 
+En la  \autoref{FigIOAbrirArchivos} se esquematiza
+la utilización de estos comandos. 
+
+Es necesario notar que el comando \textbf{open} devuelve
+una variable de salida que en el ejemplo se asigna 
+en la variable \textbf{fid}. 
+La importancia de la misma radica en que a partir
+de la asignación \textbf{fid} se convierte en 
+un \emph{indicador del archivo}, una especie de puntero
+a la primer línea disponible del archivo. En caso
+de haberlo abierto con permisos de escritura, 
+el puntero indica la primer línea del 
+archivo que debe escribirse. Por el contrario
+al abrir el archivo con permisos de lectura
+el puntero apunta a la primer
+línea que puede leerse. El concepto quedará 
+claro enseguida. 
+
+\begin{figure}
+  \includeslide[width=\textwidth]{FrameIOAbrirArchivos}
+  \caption{Comandos básicos para la apertura de un archivo\label{FigIOAbrirArchivos}}
+\end{figure}
+
+\mode*
+
+\begin{frame}<presentation>[label=FrameIOAbrirArchivos]
+  \frametitle{Apertura y cierre de archivos}
+
+  \begin{columns}[T]
+    \column{0.5\textwidth}
+    \hfill Abrir archivo existente para lectura:
+    \column{0.5\textwidth}
+    \begin{codeblock}
+      \verbatiminput{./CODEXAMPLES/open_file.m}
+    \end{codeblock}
+  \end{columns}
+
+  \begin{columns}[T]
+    \column{0.5\textwidth}
+    \hfill Abrir archivo \emph{inexistente} para lectura:
+    \column{0.5\textwidth}
+    \begin{codeblock}
+      \verbatiminput{./CODEXAMPLES/open_file_noex.m}
+    \end{codeblock}
+  \end{columns}
+
+  \begin{columns}[T]
+    \column{0.5\textwidth}
+    \hfill Abrir otro archivo  para \emph{escritura}:
+    \column{0.5\textwidth}
+    \begin{codeblock}
+      \verbatiminput{./CODEXAMPLES/open_otherfile.m}
+    \end{codeblock}
+  \end{columns}
+
+\end{frame}
+
+\mode<all>
+
 \subsubsection{Escritura Secuencial}
 
 \mode<article>
@@ -12,7 +84,8 @@ que se guardan. El mecanismo se ilustra en la
 \autoref{FigIOEscribir}.
 
 El string de formato suele usar caracteres especiales para indicar
-la posición en la que la lista de variables debe 
+la posición y el formato (punto flotante con precision dada, numeros enteros,
+texto, etc) en la que la lista de variables debe 
 imprimirse. No daremos detalle aquí, pero puede
 buscar en los manuales el uso de los \emph{format 
 identifiers, indicadores de formato}, ya que serán 
@@ -31,6 +104,7 @@ de escritura o lectura.
   \includeslide[width=\textwidth]{FrameIOEscribir}
   \caption{Algunos ejemplos de escritura secuencial con formato\label{FigIOEscribir}}
 \end{figure}
+
 \mode*
 
 \begin{frame}<presentation>[label=FrameIOEscribir]
@@ -82,34 +156,3 @@ de escritura o lectura.
 
 \mode<all>
 
-\subsubsection{Escritura y Lectura en Bloque}
-
-\mode<article>
-Otra paradigma puede consistir en escribir las variables como bloques de datos, por ejemplo escribir
-toda una matriz en un archivo de una vez. 
-
-\begin{figure}
-  \includeslide[width=\textwidth]{FrameWriteBlock}
-  \caption{\protect\label{FigWriteBlock} Escritura y lectura de archivos de listas o matrices}
-\end{figure}
-
-\mode*
-
-\begin{frame}<presentation>[label=FrameWriteBlock]
-  \frametitle{Escribir y leer en Bloque}
-
-  \begin{columns}[t]
-    \column{0.5\textwidth}
-    \begin{codeblock}
-      \verbatiminput{CODEXAMPLES/writeblock.m}
-    \end{codeblock}
-    \column{0.5\textwidth}
-
-    \tiny
-
-    \verbatiminput{CODEXAMPLES/table.dat}
-  \end{columns}
-
-\end{frame}
-
-\mode<all>

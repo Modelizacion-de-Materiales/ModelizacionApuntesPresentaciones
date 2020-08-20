@@ -1,0 +1,64 @@
+\subsubsection{Lectura secuencial}
+
+\mode<article>
+
+Muchas veces es necesario leer un archivo en forma 
+secuencial, por ejemplo si se quiere recuperar 
+un archivo de metadatos complejo. En estos casos
+el procedimiento se hace un poco más engorroso pero 
+es posible familiarizarse rápidamente. El problema
+es qe muchas veces es necesario usar más de un comando.
+
+primero se usa un comando para lectura, en \texttt{Matlab}
+es \texttt{fgetl}, que lee una línea del archivo y entrega un 
+\emph{string}, luego es necesario usar otro comando para 
+transformar ese texto en las variables numéricas (punto flotante 
+etc), en \texttt{Matlab} utilizamos \texttt{strread}. 
+
+Son útiles otros comandos como el \texttt{feof} que detectan 
+si se ha llegado al final del archivo.
+
+En la \autoref{FigReadSequential} se muestra un ejemplo (bastante sobreactuado)
+de la lectura de un archivo con toda la informción en una sola columna, separando
+con etiquetas las distintas variabels guardadas.
+
+\begin{figure}
+
+  \includeslide[width=\textwidth]{FrameReadSequential}
+  \caption{
+    \protect\label{FigReadSequential}
+      Ejemplo de lectura secuencial de un archivo complejo implementada 
+      en \texttt{Matlab}. Sobre el gráfico se observan distintas seccines
+      del archivo \texttt{tablesincos.dat} con los números de lína a la
+      izquierda de los cuadros.
+    }
+  
+\end{figure}
+
+\mode*
+
+\begin{frame}<presentation>[label=FrameReadSequential]
+  \frametitle{Lectura secuencial}
+
+  \begin{columns}
+    \column{0.4\textwidth}
+    \begin{codeblock}
+      \VerbatimInput[fontsize=\tiny]{CODEXAMPLES/readcomplex.m}
+    \end{codeblock}
+    \column{0.6\textwidth}
+    \scriptsize\texttt{tablesincos.dat}
+    \begin{columns}
+      \column{0.2\textwidth}
+      \VerbatimInput[fontsize=\tiny, lastline=5, numbers=left,frame=single]{CODEXAMPLES/tablesincos.dat}
+      \column{0.2\textwidth}
+      \VerbatimInput[fontsize=\tiny, firstline=101, lastline=105, numbers=left, frame=single]{CODEXAMPLES/tablesincos.dat}
+      \column{0.2\textwidth}
+      \VerbatimInput[fontsize=\tiny, firstline=203, lastline=207, numbers=left, frame=single]{CODEXAMPLES/tablesincos.dat}
+    \end{columns}
+    \center
+    \includegraphics[width=0.8\textwidth]{CODEXAMPLES/sincos.png}
+  \end{columns}
+
+\end{frame}
+
+\mode<all>
