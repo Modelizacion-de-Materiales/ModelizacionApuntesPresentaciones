@@ -2,13 +2,49 @@ Vamos a implementar la solución de la ecuación diferencial de movimiento
 (a.k.a. segunda ley de Newton) para resolver un porblema muy conocido para 
 nosotros. 
 
-Tomemos un Paracaidista que se arroja en caída libre desde una altura inicial (supongamos 2000m).
+Tomemos un Paracaidista que se arroja en caída libre desde una altura inicial $y_0$.
 El rozamiento del paracaídas con el aire le imrpime una fuerza de rozamiento proporcional 
-a la velocidad, de manera que la ecuación diferencial que gobierna su movimiento es
+a la velocidad $f = \gamma (v)$, de manera que la ecuación diferencial que gobierna su movimiento es
 
-\begin{equation}
-  \dfrac{ d v }{dt} = g - \dfrac{\gamma}{m} v
-  \label{EqnEDO1}
+\begin{equation}\label{EqnNewtonParac}
+  \dfrac{ d v }{dt} = g - \dfrac{\gamma (v)}{m} v
 \end{equation}
 
+donde $v$ y $m$ son la velocidad y la masa del paracaidista, $g$ es la aceleración de la gravedad.
+Recordamos que debemos identificar la función característica de la ecuación diferencial, 
 
+\begin{equation}
+  \begin{aligned}
+    \dfrac{d v}{d t} &= f(t, v) \\
+    f(t, v) &= g - \gamma (v)
+  \end{aligned}
+\end{equation}
+
+Si consideramos que el coeficiente de rozamiento depende de la velocidad como $\gamma (v) = k $
+podemos obtener la solución exacta con facilidad.
+
+\begin{equation}
+  v = \frac{m g}{k} \Big[ \exp\Big( - \frac{k}{m} t \Big) -1 \Big]
+\end{equation}
+
+Tomemos la ecuación como de orden 1 en velocidad. 
+Para hallar la solución de las velocidades en forma discreta, 
+identificamos primero a la función característica a un tiempo $i$ cualquiera,
+
+\begin{equation}\label{EqnFuncParac}
+  f(t_i, v_i) = g-\frac{k}{m} v_{i-1}
+\end{equation}
+
+\noindent con lo cual podemos escribir los pasos para resolver con los métodos de 
+Euler y de Runge Kutta. 
+
+Si quisieramos tomar la ecuación como de orden dos en altura, debemos hacer el cambio
+de variables
+
+\begin{equation}\label{EqnParacAltura}
+  \begin{aligned}
+    h &= y
+    v &= y',
+    F(t, h, v) = \begin{pmatrix} v\\ f(t, v)    \end{pmatrix}
+  \end{aligned}
+\end{equation}
