@@ -1,0 +1,38 @@
+\subsection{Ecuación Diferencial}
+
+Nos concentraremos en las ecuaciones diferenciales de la forma
+
+\begin{equation}\label{EqnEDO}
+  y' = f(x, y)
+\end{equation}
+
+\noindent lo que nos dice que la derivada de la funicón depende tanto del valor de la misma función
+$y$ como de la variable independiente $x$.
+
+Para resolver esta ecuación en forma numérica, debemos discretizar la derivada, 
+
+\begin{equation}\label{EqnDeltayDeltax}
+  \begin{aligned}
+    y' &= \drac{y_{i+1} - y_i}{x_{i+1} - x_i}\\
+    y' &= \drac{y_{i+1} - y_i}{dx}
+  \end{aligned}
+\end{equation}
+
+
+\subsubsection{Problemas de condición inicial}
+
+La ecuación \ref{EqnDeltayDeltax}  hace evidente la naturaleza iterativa de la solución numérica. 
+Necesitamos una condición inicial, es decir el valor de la función $y$ para algún valor $x_0$ 
+que luego propagaremos a todos los valores posibles de $x$ con algúm método adecuado.
+
+\begin{equation}\label{EqnCondicionInicail}
+  y_0 = y(x_0)
+\end{equation}
+
+Este tipo de razonamiento generalmente se aplica cuando la variable independiente es el tiempo, 
+y la condición inicial se propaga utilizando la \autoref{
+
+\subsection{Método de Euler}
+
+Podemos pensar en hacer una sustitución de la expresión de la ecuación \ref{EqnDeltayDeltax} en la
+\autoref{EqnEDO1} para despejar el el valor de la función a un 

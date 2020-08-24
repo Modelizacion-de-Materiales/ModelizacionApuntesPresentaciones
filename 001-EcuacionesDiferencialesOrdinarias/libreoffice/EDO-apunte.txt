@@ -1,0 +1,92 @@
+﻿
+Instituto Sabato 
+Maestría en Materiales.
+Modelización de Materiales y Procesos 2020
+
+Ecuaciones Diferenciales Ordinarias
+Ecuación Diferencial: 
+
+
+(1)
+
+Para resolver numéricamente, discretizamos: 
+
+
+(2)
+
+Problemas de Condición inicial
+Generalmente se trata de problemas dependientes del tiempo, y necesitamos que parte de la solución se conozca a tiempo cero.
+
+
+(3)
+
+Los métodos que usaremos para resolver este tipo de problemas son el de Euler y el de Runge-Kutta de orden 4. 
+Método de Euler
+Método de Runge Kutta
+
+
+
+Cuando la ecuación es lineal de segundo orden puede llevarse a una ecuación de orden uno en variable vectorial. Considere por ejemplo la ecuación
+
+
+(4)
+
+Realizando la sustitución (posición) y  (velocidad) y tomando , la ecuación puede reescribirse como:
+
+
+(5)
+
+Resulta entonces que se pueden aplicar los mismos métodos para resolver la variable . Por ejemplo aplicando el método de Euler:
+
+(6)
+
+Vemos que basta identificar la función  para poder aplicar cualquiera de los métodos vistos.
+Problema del Paracaidista
+Ecuación diferencial
+
+
+(7)
+
+Lo pensamos como 
+
+
+(8)
+
+Consideramos que el coeficiente de rozamiento depende de la velocidad como:  para poder tener la solución exacta con cierta facilidad:
+
+
+(9)
+
+Para hallar la solución discreta, tomamos  con lo cual se puede obtener los pasos para resolver los métodos de Euler y de Runge Kutta. Notar que estamos tomando la ecuación como de orden 1 en la velocidad. Si la tomásemos de orden dos en la altura , debemos hacer el cambio de variables, , , y tomar . Por ejemplo entonces para Euler tendremos
+
+
+(10)
+
+Considere 
+
+
+
+
+Ejercicio del Péndulo.
+Considere un péndulo sin rozamiento, oscilando en un plano. Calcule el período para ángulos grandes. Cuándo deja de valer la aproximación de ángulos pequeños?
+Ecuación del Péndulo
+
+Ecuación Diferencial:
+
+
+
+
+
+
+Vemos que este problema se diferencia del anterior porque es una ecuación de segundo orden en . tomamos entonces:
+
+
+(11)
+
+La ecuación se puede reescribir como:
+
+
+(12)
+
+Luego, la ecuación se puede discretizar y resolver por cualquiera de los métodos. Observe como el período se diferencia del valor para ángulos pequeños. 
+
