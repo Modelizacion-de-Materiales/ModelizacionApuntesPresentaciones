@@ -48,3 +48,15 @@ de variables
     F(t, h, v) = \begin{pmatrix} v\\ f(t, v)    \end{pmatrix}
   \end{aligned}
 \end{equation}
+
+Por ejemplo entonces aplicando Euler,
+
+\begin{equation}\label{EqnEulerOnHeight}
+  \begin{pmatrix}  y \\   y '  \end{pmatrix}_i = 
+    \begin{pmatrix}  y \\   y '  \end{pmatrix}_{i-1} +
+      dt F \Big( t_{i-1} , h_{i-1}, v_{i-1} \Big)=
+      \begin{pmatrix}  y \\   y '  \end{pmatrix}_{i-1} +
+	dt \begin{pmatrix} v_{i-1} \\ f(t_{i-1} , v_{i-1} ) \end{pmatrix}
+\end{equation}
+
+
