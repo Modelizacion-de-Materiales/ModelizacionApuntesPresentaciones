@@ -13,7 +13,7 @@ ans =
   1x3 logical array
    0   1   1
 
->> A/B  % = B'\A' = A*INV(B)
+>> A/B  % = B'\A' = A*pinv(B)
 ans =
     0.4286
 
