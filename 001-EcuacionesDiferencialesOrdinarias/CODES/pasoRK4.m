@@ -20,9 +20,7 @@
 
 
 
-function [t_siguiente,Y_siguiente] = pasoRK4(t_anterior,Y_anterior,dt)
-
-F = @dfparac
+function [t_siguiente,Y_siguiente] = pasoRK4(t_anterior,Y_anterior,dt, F)
 
 t_siguiente = t_anterior + dt ; 
 
