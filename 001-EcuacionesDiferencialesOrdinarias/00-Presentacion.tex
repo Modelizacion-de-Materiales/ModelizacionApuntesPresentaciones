@@ -52,18 +52,24 @@ Podemos pensar que en cada paso aproximamos la función por su expansión de Tay
 término. 
 
 \mode*
-\begin{frame}[label=FrameIteraciones]
+\begin{frame}<presentation:2|article:1>[label=FrameIteraciones]
   \frametitle<presentation>{Naturaleza Iterativa del método}
-
-\begin{equation}\label{EqnItera}
-  \begin{aligned}
-    y_1 &= y_0 + y'_0 \Delta x\\
-    y_2 &= y_1 + y'_1 \Delta x\\
-    \vdots \\
-    y_{i+1} &= y_i + y'_i \Delta x
-    \vdots \\
-  \end{aligned}
-\end{equation}
+  \onslide<1->
+  \begin{minipage}{0.4\textwidth}
+    \begin{equation}\label{EqnItera}
+      \begin{aligned}
+	y_1 &= y_0 + y'_0 \Delta x\\
+	y_2 &= y_1 + y'_1 \Delta x\\
+	\vdots \\
+	y_{i+1} &= y_i + y'_i \Delta x
+	\vdots \\
+      \end{aligned}
+    \end{equation}
+  \end{minipage}
+  \onslide<2>
+  \begin{minipage}{0.4\textwidth}
+    \includegraphics[width=\textwidth]{libreoffice/propagacion.png}
+  \end{minipage}
 
 \end{frame}
 \mode<all>
@@ -79,11 +85,19 @@ En este método aproximamos a la función en $x_{i+1}$ por su recta tangente en 
 
 \mode*
 
-\begin{frame}[label=FrameMetodoEuler]
+\begin{frame}<presentation:2|article:1>[label=FrameMetodoEuler]
   \frametitle<presentation>{Método de Euler}
+  \center
+  \onslide<1->
+  \begin{minipage}{0.4\textwidth}
   \begin{equation}
     y_{i+1} = y_i + f(x_i, y_i ) \Delta x
   \end{equation}
+  \end{minipage}
+  \onslide<2>
+  \begin{minipage}{0.4\textwidth}
+    \includegraphics[width=\textwidth]{libreoffice/prediccion_Euler.png}
+  \end{minipage}
 \end{frame}
 \mode<all>
 
@@ -96,17 +110,25 @@ realizan correcciones sucesivas a la derivada de manera que necesitamos definir
 cuatro constantes, que de penden de las anteriores, hasta poder aproximar la
 derivada. 
 \mode*
-\begin{frame}[label=FrameMethodRungeKutta]
+\begin{frame}<presentation:2|article:1>[label=FrameMethodRungeKutta]
   \frametitle<presentation>{Método de Runge Kutta de orden 4}
-\begin{equation}
-  \begin{aligned}
-    k_1 &= f(x_i, y_i)\\
-    k_2 &= f \Big( x_i + \frac{1}{2} \Delta x, y_i + \frac{1}{2} k_1 \Delta x \Big)\\
-    k_3 &= f \Big( x_i + \frac{1}{2} \Delta x, y_i + \frac{1}{2} k_2 \Delta x \Big)\\
-    k_4 &= f \Big( x_i \Delta x, y_i + k_3 \Delta x \Big)\\
-    y_{i+1} &= y_i+\frac{1}{6} \Big( k_1 + 2 k_2 + 2 k_3 + k_4 \Big) \Delta x
-  \end{aligned}
-\end{equation}
+  \center
+  \onslide<1->
+  \begin{minipage}{0.4\textwidth}
+    \begin{equation}
+      \begin{aligned}
+	k_1 &= f(x_i, y_i)\\
+	k_2 &= f \Big( x_i + \frac{1}{2} \Delta x, y_i + \frac{1}{2} k_1 \Delta x \Big)\\
+	k_3 &= f \Big( x_i + \frac{1}{2} \Delta x, y_i + \frac{1}{2} k_2 \Delta x \Big)\\
+	k_4 &= f \Big( x_i \Delta x, y_i + k_3 \Delta x \Big)\\
+	y_{i+1} &= y_i+\frac{1}{6} \Big( k_1 + 2 k_2 + 2 k_3 + k_4 \Big) \Delta x
+      \end{aligned}
+    \end{equation}
+  \end{minipage}
+  \onslide<2>
+  \begin{minipage}{0.4\textwidth}
+    \includegraphics[width=\textwidth]{libreoffice/propagacion-RungeKutta.png}
+  \end{minipage}
 \end{frame}
 \mode<all>
 \mode<article>
