@@ -1,6 +1,7 @@
 \mode<all>
 % Incluyo los paquetes necesarios.
 \include{./PREAMBLE/PACKS}
+\usepackage{float}
 %\mode<presentation>{
 % para ver las notas con la presentacion.  
 %\setbeameroption{hide notes}
@@ -47,10 +48,12 @@
 }
 
 
+%\mode<article>
+%En este apunte no pretendemos realizar una revisión exhaustiva de los conceptos involucrados, 
+%simplemente debe tomarlo como una guía para implementar los métodos en un programa. Puede consultar
+%las teóricas para tener la descripción de los conceptos.
+
 \mode<all>
-En este apunte no pretendemos realizar una revisión exhaustiva de los conceptos involucrados, 
-simplemente debe tomarlo como una guía para implementar los métodos en un programa. Puede consultar
-las teóricas para tener la descripción de los conceptos.
 
 \section{Introducción}
 \input{00-Presentacion}
@@ -58,24 +61,15 @@ las teóricas para tener la descripción de los conceptos.
 \section{Problema del Paracaidista}
 \input{01-Enunciado}
 %
-\subsection{Solución}
+\section{Solución}
 \input{02-solucion}
 
 \subsection{Iteraciones}
 \input{03-iteracion}
 
-%\section{Discretización del Problema}
-%\subsection{Ecuación de orden 1 en velocidad}
-%\subsubsection{Solución de Euler}
-%\subsubsection{Solución de Runge Kutta de orden 4}
-%\subsection{Ecuación de orden 2 en altura}
-%
-%\section{Funciones}
-%\subsection{Método de Euler}
-%\subsection{Método de Runge Kutta}
-%\section{Soluciones}
-%\subsection{resolver ``a mano''}
-%\subsection{Resolviendo todo el probelma}
-%\subsection{Paso óptimo}
+\subsection{Parámetros Óptimos}
+\input{04-PasoOptimo}
 
+\section{Ejercicio del Pendulo}
+\input{05-Ejercicio}
 \end{document}

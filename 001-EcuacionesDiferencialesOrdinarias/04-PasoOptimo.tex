@@ -1,0 +1,30 @@
+\mode<article>
+
+Una pregunta que estamos en condiciones de responder es cuáles son los parámetros 
+de cáclulo más adecuados. En este caso podemos explorar distintos tamaños de paso
+e intentar tomar conclusiones.
+
+Por ejemplo midiendo el error como el valor de la velocidad al final de la caída 
+respecto de la solución teórica, y variando el tamaño de paso para barrer varios 
+órdenes de magnitud, podemos construir el gráfico de la \autoref{FiguraErrorEsfuerzo}.
+En esta medida tomamos el esfuerzo de cálculo como la cantidad de veces que se evalúa la 
+función $F$ para cada solución. Tenemos entonces que para el método de Runge-Kutta de orden 
+4 la función se evalúa cuatro veces en cada iteración, pero el error de truncamiento 
+cometido disminuye rápidamente hasta competir con el error de redondeo.
+
+\begin{figure}[H]
+  \includeslide[width=\textwidth]{FrameErroresEsfuerzo}
+  \caption{\protect\label{FiguraErrorEsfuerzo} 
+  Error cometido por cada método en función del esfuerzo de cálculo, que es proporcional 
+  al tamaño de paso.}
+\end{figure}
+
+\mode*
+
+\begin{frame}<presentation>[label=FrameErroresEsfuerzo]
+  \frametitle{Buscando el paso óptimo}
+  \center
+  \includegraphics[height=7cm, trim=0cm 6cm 0cm 6cm, clip]{RESULTS/errores.pdf}
+\end{frame}
+
+\mode<all>

@@ -1,4 +1,4 @@
-SRC=0*.tex equation*.tex CODES/*.m
+SRC=0*.tex Equation*.tex CODES/*.m main.tex
 
 notes.pdf: handout.pdf notes.aux
 	pdflatex notes.tex

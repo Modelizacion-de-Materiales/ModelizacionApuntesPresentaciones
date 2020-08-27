@@ -8,34 +8,58 @@ Tomemos un Paracaidista que se arroja en caída libre desde una altura inicial $
 El rozamiento del paracaídas con el aire le imrpime una fuerza de rozamiento proporcional 
 a la velocidad $f = \gamma (v)$, de manera que la ecuación diferencial que gobierna su movimiento es
 
-\begin{equation}\label{EqnNewtonParac}
-  \dfrac{ d v }{dt} = g - \dfrac{\gamma (v)}{m} v
-\end{equation}
+\mode*
+
+\begin{frame}[label=FrameEcuacionParacaidista]
+  \frametitle<presentation>{Ecuación para el problema}
+  \begin{equation}\label{EqnNewtonParac}
+    \dfrac{ d v }{dt} = g - \dfrac{\gamma (v)}{m} v
+  \end{equation}
+\end{frame}
 
 donde $v$ y $m$ son la velocidad y la masa del paracaidista, $g$ es la aceleración de la gravedad.
 Recordamos que debemos identificar la función característica de la ecuación diferencial, 
 
-\begin{equation}
-  \begin{aligned}
-    \dfrac{d v}{d t} &= f(t, v) \\
-    f(t, v) &= g - \gamma (v)
-  \end{aligned}
-\end{equation}
+\mode*
+\begin{frame}<presentation>[label=FrameFuncionParacaidista]
+  \frametitle{Función Característica}
+  \begin{equation}
+    \begin{aligned}
+      \dfrac{d v}{d t} &= f(t, v) \\
+      f(t, v) &= g - \gamma (v)
+    \end{aligned}
+  \end{equation}
+\end{frame}
 
+\mode<all>
+\mode<article>
 Si consideramos que el coeficiente de rozamiento depende de la velocidad como $\gamma (v) = k $
 podemos obtener la solución exacta con facilidad.
 
-\begin{equation}
-  v = \frac{m g}{k} \Big[ \exp\Big( - \frac{k}{m} t \Big) -1 \Big]
-\end{equation}
+\mode*
+\begin{frame}[label=FrameSolucionTeorica]
+  \frametitle<presentation>{Solución teórica para la velocidad}
+  \begin{equation}
+    v = \frac{m g}{k} \Big[ \exp\Big( - \frac{k}{m} t \Big) -1 \Big]
+  \end{equation}
+\end{frame}
+
+\mode<all>
+\mode<article>
 
 Tomemos la ecuación como de orden 1 en velocidad. 
 Para hallar la solución de las velocidades en forma discreta, 
 identificamos primero a la función característica a un tiempo $i$ cualquiera,
 
-\begin{equation}\label{EqnFuncParac}
-  f(t_i, v_i) = g-\frac{k}{m} v_{i-1}
-\end{equation}
+\mode*
+\begin{frame}[label=FramePasoF]
+  \frametitle<presentation>{Paso de la Función}
+  \begin{equation}\label{EqnFuncParac}
+    f(t_i, v_i) = g-\frac{k}{m} v_{i-1}
+  \end{equation}
+\end{frame}
+\mode<all>
+\mode<article>
 
 \noindent con lo cual podemos escribir los pasos para resolver con los métodos de 
 Euler y de Runge Kutta. 
@@ -43,24 +67,34 @@ Euler y de Runge Kutta.
 Si quisieramos tomar la ecuación como de orden dos en altura, debemos hacer el cambio
 de variables
 
-\begin{equation}\label{EqnParacAltura}
-  \begin{aligned}
-    h &= y
-    v &= y',
-    F(t, h, v) = \begin{pmatrix} v\\ f(t, v)    \end{pmatrix}
-  \end{aligned}
-\end{equation}
+\mode*
+\begin{frame}[label=FrameCambioVariable]
+  \frametitle<presentation>{Ecuaciones de mayor orden: Cambio de variables}
+  \begin{equation}\label{EqnParacAltura}
+    \begin{aligned}
+      h &= y\\
+      v &= y'\\
+      F(t, h, v) &= \begin{pmatrix} v\\ f(t,h, v)    \end{pmatrix}
+    \end{aligned}
+  \end{equation}
+\end{frame}
+\mode<all>
+\mode<article>
 
 Por ejemplo entonces aplicando Euler,
 
-\begin{equation}\label{EqnEulerOnHeight}
-  \begin{pmatrix}  y \\   y '  \end{pmatrix}_i = 
-    \begin{pmatrix}  y \\   y '  \end{pmatrix}_{i-1} +
-      dt F \Big( t_{i-1} , h_{i-1}, v_{i-1} \Big)=
-      \begin{pmatrix}  y \\   y '  \end{pmatrix}_{i-1} +
-	dt \begin{pmatrix} v_{i-1} \\ f(t_{i-1} , v_{i-1} ) \end{pmatrix}
-\end{equation}
-
 \mode*
+
+\begin{frame}[label=FrameCambioEuler]
+  \frametitle<presentation>{Cambiod de variables para Euler}
+  \begin{equation}\label{EqnEulerOnHeight}
+    \begin{pmatrix}  y \\   y '  \end{pmatrix}_i = 
+    \begin{pmatrix}  y \\   y '  \end{pmatrix}_{i-1} +
+	dt F \Big( t_{i-1} , h_{i-1}, v_{i-1} \Big)=
+    \begin{pmatrix}  y \\   y '  \end{pmatrix}_{i-1} +
+      dt \begin{pmatrix} v_{i-1} \\ f(t_{i-1} ,h_{i-1}, v_{i-1} ) \end{pmatrix}
+  \end{equation}
+\end{frame}
+
 
 \mode<all>

@@ -3,16 +3,23 @@
 Para resolver el problema vamos a implementar la iteración de la \autoref{EqnItera}
 pero con la aproximación a la derivada del método elegido. 
 Las funciones \texttt{pasoEU} y \texttt{pasoRK} que pueden verse
-en las  \autoref{FigPasoEU} u \autoref{FigPasoRK} 
+en la \autoref{FigPasoRK}.
 
-\begin{figure}
+\begin{figure}[H]
   \includeslide[width=\textwidth]{FramePasoEU}
-  \caption{\protect\label{FigPasoEu}}
+  \caption{\protect\label{FigPasoEu} 
+  Paso de propagación para el método de Euler. se provee una función que devuelve los valores en el paso
+  siguiente a partir del paso previo.}
 \end{figure}
 
 \begin{figure}
   \includeslide[width=\textwidth]{FramePasoRK}
-  \caption{\protect\label{FigPasoRK}}
+
+  \includeslide[width=\textwidth]{FramePasoRKCode}
+
+  \caption{\protect\label{FigPasoRK}
+  Paso de propagación para el método de Runge-Kutta
+  }
 \end{figure}
 
 \mode*
