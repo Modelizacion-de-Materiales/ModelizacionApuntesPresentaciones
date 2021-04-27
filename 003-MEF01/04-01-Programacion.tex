@@ -5,7 +5,8 @@ puede aplicar fácilmente a cualquier lenguaje de programación moderno,i.e.
 fortan, python, matlab, o el que se le ocurra.  Es posible entender que cada
 una de las listas de grados de libertad definidas pueden escribirse como
 vectores. Cada componente del vector es el índice de un grado de libertad del
-problema que corresponda. En nuestro ejemplo del resorte
+problema que corresponda.
+
 
 \mode*
 
@@ -26,25 +27,39 @@ problema que corresponda. En nuestro ejemplo del resorte
 
 \end{frame}
 
-Si se ha definido la matriz de rigidez del problema, puede definirse la
-\emph{matriz de rigidez reducida}
-del sistema de la siguiente forma:
+\mode<all>
 
-\begin{frame}<presentation>[label=FrameMatricesProgramadas]
-  \frametitle{}
+\mode<article> 
 
-\end{frame}
+De esta forma es posible implementar la ecuación general de la ecuación. 
+Para eso debemos hacer uso de los llamados \emph{slice} de un vector o array. 
+En \emph{python} deberemos hacer uso de la función \texttt{numpy.ix\_} que nos permitirá
+tomar un \emph{slice} bidimensional de una matriz dados los vectores de índices \texttt{r}
+y \texttt{ s}, como se ilustra en la Figura \ref{FiguraProgramarMatrices}
 
-y la matriz vinculada,
+\begin{figure}
+  \includeslide[width=\textwidth]{FrameMatricesProgramadas}
+  \mode<article>{
+  \caption{\protect\label{FiguraProgramarMatrices} Códgio para representar la solución del sistema mixto 
+  por reducción de matrices}
+}
 
-De esta forma es posible implementar la ecuación general de la ecuación
 
-en forma inmediata,
+\end{figure}
 
-Esto resuelve los desplazamientos desconocidos. Para resolver las
-fuerzas de vínculo, directamente se aplica:
-
+\mode<all>
 
 \mode*
+
+\begin{frame}<presentation>[label=FrameMatricesProgramadas]
+  \frametitle{Programacion de la solución}
+
+%    \begin{codeblock}
+  \ttfamily
+  \lstinputlisting[language=Python, style=codeblock]{codesolve.txt}
+      %\verbatiminput{codesolve.txt}
+%    \end{codeblock}
+
+\end{frame}
 
 \mode<all>
