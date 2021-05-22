@@ -1,0 +1,57 @@
+% \documentclass{standalone}
+\documentclass[xcolor={svgnames,x11names,dvipsnames},aspectratio=169]{beamer}
+\usepackage[utf8]{inputenc}
+%\usepackage[svgnames,x11names,dvipsnames]{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\input{tikzsets.tikz}
+% \input{../PREAMBLE/PACKS}
+\usepackage{verbatim}
+\input{../PREAMBLE/BEAMERCOLORS}
+\input{../PREAMBLE/BEAMERTHEME}
+\input{../PREAMBLE/PACKS}
+\usetikzlibrary{decorations.markings}
+\begin{document}
+\begin{frame}[plain]
+
+  \vspace{1cm} 
+  \begin{columns}
+    \column{0.25\textwidth}
+    \begin{tikzpicture}[overlay]
+      \draw[blockbox] (0,0) rectangle (3,1.5) node[pos=0.5] {Elementos};	
+    \end{tikzpicture}
+    \column{0.4\textwidth}
+     \lstinputlisting[style=codeblock, linerange=11-18]{../Ejemplos/Puente.msh}
+    \column{0.4\textwidth}
+    Inmediatamente despues de los Nodos
+
+    \tikz[baseline, remember picture] \node (A) {Número de Elementos};
+
+    \tikz[baseline, remember picture] \node (B) {Tipo de elemento};
+
+
+    \tikz[baseline, remember picture] \node (D) {MC};
+
+    \tikz[baseline, remember picture] \node (C) {Tags de info};
+
+  \end{columns}
+	 
+      \begin{tikzpicture}[remember picture, overlay]
+	\node (NE) at (3.2, 2.7) {};
+	\node (MC) at (6.2, 0.5) {};
+	\node (ET) at (3.5, 2.6) {};
+	\node (TI) at (5.0, 0.5) {};
+	\path[dashed, draw=Firebrick4, thick] (MC) rectangle ($(MC)+(-1.,2.1)$)  {} ;
+
+	\path[->=latex, draw, thick] (NE) .. controls +(2cm, 2cm) and +(left:0.5cm) .. (A.west);
+	\path[->=latex, draw, thick] (MC) -- (D.west);
+	\path[->=latex, draw, thick] (ET) .. controls +(2cm, 1cm) and +(left:0.5cm) .. (B.west);
+	\path[dashed, draw=Firebrick4, thick] (TI) rectangle ($(TI)+(-0.7,2.1)$)  {} ;
+	\path[->=latex, draw, thick] (TI) .. controls +(0, -2cm) and +(-1cm, 0) .. (C.west);
+
+%	\path[->=latex, draw, thick] (A.west) -- ($(A) + ( -7 ,0.8)$);
+%	\path[->=latex, draw, thick] (B.west) -- ($(B) + ( -5.3,0.8 )$);
+      \end{tikzpicture}
+\end{frame}
+
+\end{document}
