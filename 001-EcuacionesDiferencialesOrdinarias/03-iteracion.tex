@@ -1,0 +1,83 @@
+\mode<article>
+
+Las funciones \texttt{pasoEU} y \texttt{pasoRK} resuelven un paso de propagación de los métodos
+de Euler y de Runge Kutta de orden 4, respectivamente. El objetivo es \emph{iterar} para resolver
+varios pasos de tiempo. Luego, podremos comparar las soluciones propagadas a la solución 
+teórica. 	
+
+En la \autoref{FigSolucionAMano} vemos la diferencia entre los métodos para 
+$\Delta t = 2s$. 
+Debemos notar que la solución para Runge Kutta es prácticamente indistinguible frente a la solución teórica. 
+Por otro lado, la solución por Euler se separa desde el primer paso y ese error se propaga en toda la 
+solución.
+
+
+\begin{figure}[h]
+
+  \includeslide[width=\textwidth]{FrameSolucionAMano}
+  \caption{\protect\label{FigSolucionAMano}
+  Solución a mano para unas pocas iteraciones con los métodos vistos para un $\Delta t=2s$}
+\end{figure}
+
+Pensemos ahora cómo obtener una solución completa del movimiento del paracaidista. 
+La iteración debe seguir dentro de los límites con sentido físico, por ejemplo 
+hasta que el objeto halla llegado al piso (altura cero). 
+Este resultado se aprecia en la \autoref{FiguraVelocidades} donde se aprecia también
+que el móvil alcanza su velocidad límite
+
+\begin{figure}[h]
+
+  \includeslide[width=\textwidth]{FrameResolucionVelocidades}
+
+  \caption{\protect\label{FiguraVelocidades} 
+  Solución de las velocidades en todo el movimiento (hasta el piso)
+  }
+
+\end{figure}
+\mode*
+
+\begin{frame}<presentation>[label=FrameIteracion]
+  \frametitle{Iteraciones}
+\center
+  \begin{tikzpicture}[every line/.style={line width=1pt}]
+    \coordinate (Lx) at (3,0);
+    \coordinate (Ly) at (-3,0);
+    \coordinate (entrance) at (-9,0);
+    \node[circle, radius=1pt, draw=black!50,  minimum width=0pt] 
+    (itera) at ($(entrance)+(Lx)$) {};
+    \node[rectangle, draw, line width=2pt,  minimum width=2cm, minimum height=1cm]
+    (method) at ($(itera)+(Lx)$) {pasoEU};
+    \path[draw, ->] (entrance) -- (itera.west) node[midway, above] {$x_0, y_0, t_0, t_{max}$};
+    \path[draw, ->] (itera.east) -- (method.west) node[midway, above] {$x_{i}, y_{i}, t_{i}$} ;
+    \node[diamond, shape aspect=2, draw] (decide) at ($(method)+(3,0)$) {\tiny $t_i<t_{max}$};
+    \path[draw, ->] (method.east) -- (decide.west) ;
+    \path[draw, ->] (decide.south)
+    -- ($(decide)+ (0, -3)$)  node[midway, left] {no}
+    -- ($(itera) + (0, -3)$) node[midway, below] { $x_{i-1}, y_{i-1}, t_{i-1}$ }
+    -- (itera.south);
+    \path[draw, ->] (decide.east) -- ($(decide.east)+(1,0)$) 
+    node[midway, above] {si} 
+    node[anchor=west, draw] {\texttt{termina}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}<presentation>[label=FrameSolucionAMano]
+  \frametitle{Iteramos a mano unas pocos pasos}
+  \begin{columns}
+    \column{0.5\textwidth}
+    \begin{codeblock}
+	\VerbatimInput{CODES/Table_A_Mano.dat}
+    \end{codeblock}
+    \column{0.5\textwidth}
+    \includegraphics[width=\textwidth]{RESULTS/comparacion.pdf}
+  \end{columns}
+
+\end{frame}
+
+\begin{frame}<presentation>[label=FrameResolucionVelocidades]
+  \frametitle{Velocidades en todo el rango}
+\center
+  \includegraphics[height=5cm, trim=0cm 9cm 0cm 8cm]{RESULTS/velocidades-paso_200.pdf}
+
+\end{frame}
+\mode<all>

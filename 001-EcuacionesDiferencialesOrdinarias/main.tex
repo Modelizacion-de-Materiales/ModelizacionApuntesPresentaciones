@@ -1,0 +1,67 @@
+\mode<all>
+% Incluyo los paquetes necesarios.
+\include{./PREAMBLE/PACKS}
+\lstloadlanguages{Python}
+\usepackage{float}
+
+% incluyo los beamercolors
+\include{./PREAMBLE/BEAMERCOLORS}
+
+%incluyo el tema y modificaciones
+\include{./PREAMBLE/BEAMERTHEME}
+
+% modifico los temas
+\include{./PREAMBLE/THEMES}
+% defino el template para la diapositiva del título
+
+\input{./PREAMBLE/MATERIA}
+\title{
+  \mode<article>{
+    \includegraphics[height=1cm]{./PREAMBLE/logo-isabt25.png}
+\hfill
+\includegraphics[height=1cm]{./PREAMBLE/ISOLOGOCNEA.png}
+\hfill
+\includegraphics[height=1cm]{./PREAMBLE/logo-unsam.png}
+\\} Solución de Ecuaciones Diferenciales Ordinarias }
+\subject{ Métodos de Euler y de Runge-Kutta}
+\keywords{Ecuaciones Diferenciales Ordinarias, Modelizacion 2020, Euler, Runge-Kutta}
+% Inicia el documento.
+\begin{document}
+
+% Título de la clase. 
+\mode<presentation>{
+\begin{frame}[plain]
+\titlepage
+\end{frame}
+}
+
+\mode<article>{
+\maketitle
+}
+
+
+%\mode<article>
+%En este apunte no pretendemos realizar una revisión exhaustiva de los conceptos involucrados, 
+%simplemente debe tomarlo como una guía para implementar los métodos en un programa. Puede consultar
+%las teóricas para tener la descripción de los conceptos.
+
+\mode<all>
+
+\section{Introducción}
+\input{00-Presentacion}
+
+\section{Problema del Paracaidista}
+\input{01-Enunciado}
+%
+\section{Solución}
+\input{02-solucion}
+
+\subsection{Iteraciones}
+\input{03-iteracion}
+
+\subsection{Parámetros Óptimos}
+\input{04-PasoOptimo}
+
+\section{Ejercicio del Pendulo}
+\input{05-Ejercicio}
+\end{document}

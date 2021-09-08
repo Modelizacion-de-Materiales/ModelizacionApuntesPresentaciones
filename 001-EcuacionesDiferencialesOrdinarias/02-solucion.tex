@@ -1,0 +1,80 @@
+\mode<article>
+
+Para resolver el problema vamos a implementar la iteración de la \autoref{EqnItera}
+pero con la aproximación a la derivada del método elegido. 
+Las funciones \texttt{pasoEU} y \texttt{pasoRK} que pueden verse
+en la \autoref{FigPasoRK}.
+
+\begin{figure}[H]
+  \includeslide[width=\textwidth]{FramePasoEU}
+  \caption{\protect\label{FigPasoEu} 
+  Paso de propagación para el método de Euler. se provee una función que devuelve los valores en el paso
+  siguiente a partir del paso previo.}
+\end{figure}
+
+\begin{figure}
+  \includeslide[width=\textwidth]{FramePasoRK}
+
+  \includeslide[width=\textwidth]{FramePasoRKCode}
+
+  \caption{\protect\label{FigPasoRK}
+  Paso de propagación para el método de Runge-Kutta
+  }
+\end{figure}
+
+\mode*
+
+\begin{frame}<presentation>[label=FramePasoEU]
+  \frametitle{Paso para Euler}
+    \center
+    \begin{tikzpicture}[every path/.style={line width=2pt}]
+      \draw[->] (-8,0) -- (-1, 0) node[midway, above] {$[x_{i-1}, v_{i-1}], t_{i-1}$, \texttt{@dfparac} };
+      %\path[draw] (-1, -0.5) rectangle (1, 0.5) node[midway] (funcion) {\texttt{pasoEU}};
+      \node[draw, minimum width=2cm, minimum height=1cm] (funcion) {\texttt{pasoEU}};
+
+      \draw[->] (1,0) -- (5, 0) node[midway, above] {$[x_{i}, v_{i}], t_{i}$ };
+      \node[below=1cm of funcion,draw, rounded corners] (detail)  {
+	$ Y_i = Y_{i-1} + dt F \Big( t_{i-1}, [x_{i-1}, v_{i-1}] \Big)$
+	};
+	\draw (funcion.south) -- (detail.north);
+    \end{tikzpicture}
+
+    \begin{codeblock}
+%      \VerbatimInput[frame=lines]{CODES/pasoEU.py}
+      \lstinputlisting[frame=lines]{CODES/pasoEU.py}
+
+    \end{codeblock}
+
+\end{frame}
+
+\begin{frame}<presentation>[label=FramePasoRK]
+  \frametitle{Paso para Runge-Kutta}
+  \center
+      \begin{tikzpicture}[every path/.style={line width=2pt}]
+	\draw[->] (-8,0) -- (-1, 0) node[midway, above] {$[x_{i-1}, v_{i-1}], t_{i-1}$, \texttt{@dfparac} };
+	%\path[draw] (-1, -0.5) rectangle (1, 0.5) node[midway] (funcion) {\texttt{pasoEU}};
+	\node[draw, minimum width=2cm, minimum height=1cm] (funcion) {\texttt{pasoRK}};
+	\draw[->] (1,0) -- (5, 0) node[midway, above] {$[x_{i}, v_{i}], t_{i}$ };
+	\node[below=1cm of funcion,draw, rounded corners] (detail)  {
+	  $ 
+	    \begin{aligned}
+	      k_1 &= F (x_i, X_i, Y_i)\\
+	      k_2 &= F \Big( X_i + \frac{1}{2} \Delta x, Y_i + \frac{1}{2} k_1 \Delta x \Big)\\
+	      k_3 &= F \Big( X_i + \frac{1}{2} \Delta x, y_i + \frac{1}{2} k_2 \Delta x \Big)\\
+	      k_4 &= F \Big( X_i \Delta x, Y_i + k_3 \Delta x \Big) \\
+	      Y_{i+1} &= Y_i+\frac{1}{6} \Big( k_1 + 2 k_2 + 2 k_3 + k_4 \Big) \Delta x
+	    \end{aligned}
+	  $
+	  };
+	  \draw (funcion.south) -- (detail.north);
+      \end{tikzpicture}
+\end{frame}
+
+\begin{frame}<presentation>[label=FramePasoRKCode]
+  \frametitle{Código Paso Runge Kutta}
+  \begin{codeblock}
+    \lstinputlisting[frame=lines]{CODES/pasoRK4.py}
+  \end{codeblock}
+
+\end{frame}
+\mode<all>
