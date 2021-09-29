@@ -37,8 +37,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% newcommands
 \newcommand{\ecuaciona}{  x_1 (-k_1) +  x_2(k_1+k_2)+  x_3(-k_2) +  x_4(0) &= F_2   }
 \newcommand{\ecuacionao}{  x_2(k_1+k_2)+ x_3(-k_2)   &= F_2  -  (x_1 (-k_1) +   x_4(0)   )}
-\newcommand{\ecuacionb}{ x_1 (0) +  x_2(0)+  x_3(-k_3) + x_4(k_3)    &= F_3   }
-\newcommand{\ecuacionbo}{  x_2(0)  +  x_3(-k_3)  &= F_3  - (x_1 (0)    +  x_4(k_3) )}
+\newcommand{\ecuacionb}{ x_1 (0) +  x_2(-k_2)+  x_3(k_2 + k_3) + x_4(-k_3)    &= F_3   }
+\newcommand{\ecuacionbo}{  x_2(-k_2)  +  x_3(k_2 + k_3)  &= F_3  - (x_1 (0)    +  x_4(k_3) )}
 \newcommand{\matriz}{
       \begin{pmatrix}
 	k_1  & -k_1     & 0    & 0 \\
@@ -57,7 +57,7 @@
   x_1 k_1 + x_2 (-k_1) + x_3 \cdot (0) +x_4 \cdot (0) &= F_1
 }
 \newcommand{\solvefb}{
-  x_1 \cdot (0) + x_2 \cdot (0) + x_3 \cdot (-k_3) +x_4 \cdot (k_3) &= F_1
+  x_1 \cdot (0) + x_2 \cdot (0) + x_3 \cdot (-k_3) +x_4 \cdot (k_3) &= F_4
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\tikzsets
