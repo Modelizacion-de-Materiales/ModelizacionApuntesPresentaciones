@@ -1,0 +1,718 @@
+% This file was converted to LaTeX by Writer2LaTeX ver. 1.6.1
+% see http://writer2latex.sourceforge.net for more info
+\documentclass[a4paper]{article}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb,amsfonts,textcomp}
+\usepackage[T1]{fontenc}
+\usepackage[english,spanish]{babel}
+\usepackage{color}
+\usepackage{array}
+\usepackage{supertabular}
+\usepackage{hhline}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, linkcolor=blue, citecolor=blue, filecolor=blue, urlcolor=blue}
+\usepackage{graphicx}
+\providecommand\textsubscript[1]{\ensuremath{{}_{\text{#1}}}}
+% Outline numbering
+\setcounter{secnumdepth}{0}
+\makeatletter
+\newcommand\arraybslash{\let\\\@arraycr}
+\makeatother
+% Page layout (geometry)
+\setlength\voffset{-1in}
+\setlength\hoffset{-1in}
+\setlength\topmargin{1cm}
+\setlength\oddsidemargin{2cm}
+\setlength\textheight{26.203001cm}
+\setlength\textwidth{18.001cm}
+\setlength\footskip{0.0cm}
+\setlength\headheight{0.998cm}
+\setlength\headsep{0.499cm}
+% Footnote rule
+\setlength{\skip\footins}{0.119cm}
+\renewcommand\footnoterule{\vspace*{-0.018cm}\setlength\leftskip{0pt}\setlength\rightskip{0pt plus 1fil}\noindent\textcolor{black}{\rule{0.25\columnwidth}{0.018cm}}\vspace*{0.101cm}}
+% Pages styles
+\makeatletter
+\newcommand\ps@Standard{
+  \renewcommand\@oddhead{Modelización de Materiales 2020\ {}-- Método de Elementos Finitos, Ensamble de Matrices Elementales}
+  \renewcommand\@evenhead{\@oddhead}
+  \renewcommand\@oddfoot{}
+  \renewcommand\@evenfoot{}
+  \renewcommand\thepage{\arabic{page}}
+}
+\newcommand\ps@FirstPage{
+  \renewcommand\@oddhead{}
+  \renewcommand\@evenhead{}
+  \renewcommand\@oddfoot{}
+  \renewcommand\@evenfoot{}
+  \renewcommand\thepage{\arabic{page}}
+}
+\makeatother
+\pagestyle{Standard}
+\setlength\tabcolsep{1mm}
+\renewcommand\arraystretch{1.3}
+\newcounter{Figura}
+\renewcommand\theFigura{\arabic{Figura}}
+\newcounter{Tabla}
+\renewcommand\theTabla{\arabic{Tabla}}
+\newcounter{Text}
+\renewcommand\theText{\arabic{Text}}
+\title{Modelización De Materiales: Ensamble de Matrices}
+\author{Mariano Forti}
+\date{2021-08-29}
+\begin{document}
+\clearpage\setcounter{page}{1}\pagestyle{Standard}
+\thispagestyle{FirstPage}
+{\centering \begin{minipage}{28cm}
+{\centering\sffamily
+Instituto Jorge Sabato
+\par}
+
+ [Warning: Image ignored] % Unhandled or unsupported graphics:
+%\includegraphics{ApunteMEF022020-img/ApunteMEF022020-img001.png}
+{\centering\sffamily
+Comisión Nacional de Energía Atómica
+\par}
+\end{minipage}\par}
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+
+\bigskip
+
+{\centering\sffamily
+\label{ref:Materia}Modelización de Materiales 2021
+\par}
+
+{\centering\sffamily\upshape
+Práctica de Elementos Finitos 2
+\par}
+
+\section{Método de Elementos Finitos, Ensamble de Matrices Elementales}
+
+\bigskip
+
+
+\bigskip
+
+{\centering\sffamily
+Mariano Forti -- Ruben Weht
+\par}
+
+{\centering\sffamily\upshape
+\href{mailto:marianodforti@gmail.com}{marianodforti@gmail.com} -- \href{mailto:ruweht@cnea.gov.ar}{ruweht@cnea.gov.ar}
+\par}
+
+{\centering\sffamily
+\href{http://www.tandar.cnea.gov.ar/~weht/Modelización}{www.tandar.cnea.gov.ar/\~{}weht/Modelización}
+\par}
+
+{\centering\sffamily
+\url{https://mdforti.github.io/Modelizacion/}
+\par}
+
+\clearpage\subsection{Ejemplo: Problema de la Ménsula.}
+{\sffamily
+Consideremos el problema de la ménsula que se mostró en la clase teórica, que se vuelve a reproducir en la
+Figura~\ref{seq:refFigura0}. Para resolver el problema mediante el método de elementos finitos, identificamos que cada
+barra de la ménsula constituye un elemento lineal, y las soldaduras serán los nodos para los que resolveremos sus
+desplazamientos. Cada nodo tiene dos grados de libertad, ya que deben ser considerados sus desplazamientos en el plano
+que contiene a la ménsula. Antes de escribir los desplazamientos nodales, es conveniente numerar los nodos y sus grados
+de libertad. }
+
+{\centering\sffamily\upshape
+(a)[Warning: Draw object ignored](b)[Warning: Draw object ignored]
+\par}
+
+{\centering\sffamily
+Figura {\refstepcounter{Figura}\theFigura\label{seq:refFigura0}}: Ménsula , (a) Condiciones de Contorno (b) Numeración
+de Nodos , Elementos y grados de libertad.
+\par}
+
+\subsubsection{Indexación de los Grados de Libertad}
+{\sffamily
+De esta manera, podemos inicializar nuestras variables. Los desplazamientos nodales quedarán descritos por un vector de
+desplazamientos en el que se ubicarán los grados de libertad del sistema con la numeración global. Lo mismo ocurre con
+las fuerzas sobre los nodos. En la Tabla~\ref{seq:refTabla0}\ se muestra la correspondencia entre los grados de
+libertad globales u los nodales}
+
+{\centering\sffamily\upshape
+Tabla {\refstepcounter{Tabla}\theTabla\label{seq:refTabla0}}: Numeración de grados de libertad de la ménsula
+\par}
+
+\begin{center}
+\tablefirsthead{}
+\tablehead{}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{|m{2.825cm}|m{2.825cm}|m{2.825cm}|}
+\hline
+\centering{\sffamily Nodo} &
+\multicolumn{2}{m{5.8500004cm}|}{\centering{\sffamily Grados de libertad}}\\\hline
+~
+ &
+\centering{\sffamily X} &
+\centering\arraybslash{\sffamily Y}\\\hline
+\centering{\sffamily 1} &
+\centering  $u_{1,}F_1$  &
+\centering\arraybslash  $u_{2,}F_2$ \\\hline
+\centering{\sffamily 2} &
+\centering  $u_{3,}F_3$  &
+\centering\arraybslash  $u_{4,}F_4$ \\\hline
+\centering{\sffamily 3} &
+\centering  $u_{5,}F_5$  &
+\centering\arraybslash  $u_{6,}F_6$ \\\hline
+\end{supertabular}
+\end{center}
+
+\bigskip
+
+{\sffamily
+De esta manera, podemos definir los vectores de fuerza y desplazamientos como las siguientes columnas,}
+
+\begin{center}
+\tablefirsthead{\centering  $F=\left(\begin{matrix}F_1\\F_2\\F_3\\F_4\\F_5\\F_6\end{matrix}\right)$ 
+$U=\left(\begin{matrix}U_1\\U_2\\U_3\\U_4\\U_5\\U_6\end{matrix}\right)$  &
+\raggedleft\arraybslash{\sffamily (\stepcounter{Text}{\theText})}\\}
+\tablehead{\centering  $F=\left(\begin{matrix}F_1\\F_2\\F_3\\F_4\\F_5\\F_6\end{matrix}\right)$ 
+$U=\left(\begin{matrix}U_1\\U_2\\U_3\\U_4\\U_5\\U_6\end{matrix}\right)$  &
+\raggedleft\arraybslash{\sffamily (\stepcounter{Text}{\theText})}\\}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{m{15.8cm}m{1.8cm}}
+
+\end{supertabular}
+\end{center}
+\subsection{Matrices Descriptivas del Sistema}
+{\sffamily
+Para proseguir con la construcción del problema es conveniente definir algunas variables que nos serán de suma
+utilidad.}
+
+\subsubsection{Matriz de Nodos}
+{\sffamily
+\ En primera instancia vamos a definir la \textbf{Matriz de Nodos }del sistema con una fila para cada nodo, y en las
+columnas se alojarán las coordenadas \textit{x y z} de cada uno. Si la longitud de las barras más cortas de nuestro
+ejemplo es L, la matriz de nodos puede escribirse rápidamente,}
+
+\begin{equation}
+\mathit{MN}=\left(\begin{matrix}0&0&0\\L&0&0\\L&L&0\end{matrix}\right)
+\end{equation}
+{\sffamily
+Para introducir la indexación general que usaremos en adelante diremos que en forma general en la fila i-ésima de la
+matriz de nodos se alojan las coordenadas \textit{x y z} del nodo i-ésimo, y el número de filas será igual al número de
+nodos \textbf{N} del sistema}
+
+\begin{center}
+\tablefirsthead{\centering{\sffamily  $\mathit{MN}(i,:)=\left(x_i,y_i,z_i\right)$,  $\text{size}(\mathit{MN})=N\times
+3$} &
+\raggedleft\arraybslash{\sffamily (\stepcounter{Text}{\theText})}\\}
+\tablehead{\centering{\sffamily  $\mathit{MN}(i,:)=\left(x_i,y_i,z_i\right)$,  $\text{size}(\mathit{MN})=N\times 3$} &
+\raggedleft\arraybslash{\sffamily (\stepcounter{Text}{\theText})}\\}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{m{15.8cm}m{1.8cm}}
+
+\end{supertabular}
+\end{center}
+\subsubsection{Dimensionalidad y grados de libertad por nodo}
+{\sffamily
+Debe notarse que el número de columnas de la matriz de nodos corresponde con la dimensionalidad del problema en el
+espacio real. Sin embargo, este número no necesariamente coincide con la cantidad de grados de libertad que aporta cada
+nodo al sistema global. Por ejemplo en un problema de una barra con torsión, puede identificarse una dimensionalidad 1
+ya que solo se describen desplazamientos verticales. Sin embargo, el número de grados de libertad por nodo es dos, ya
+que se resuelven los ángulos de rotación local de las secciones transversales de la barra en las posiciones nodales.
+Queda entonces evidenciado que es necesario definir la variable \textbf{grados de libertad por nodo (glxn)}. En el caso
+de nuestra ménsula tenemos 2 grados de libertad por nodo, }
+
+\begin{equation}
+\mathit{glxn}=2
+\end{equation}
+\subsubsection{Matriz de Conectividad}
+{\sffamily
+Por otro lado conviene definir la \textbf{Matriz de Conectividad MC}. Esta matriz tendrá una fila por elemento, y para
+cada elemento la lista de nodos que lo conforman. }
+
+{\sffamily
+En forma general, para el elemento \textbf{e} se tienen \textbf{nodos por elemento} (\textbf{nxe)} nodos. Por lo tanto,
+para NE elementos, la matriz de concetividad tiene dimensiones}
+
+\begin{equation}
+\text{size}(\mathit{MC})=\mathit{NE}\times \mathit{nxe}
+\end{equation}
+{\sffamily
+y la estructura general de la misma es}
+
+\begin{center}
+\tablefirsthead{\centering  $\mathit{MC}(e,:)=[n_1,n_2,...,n_{\mathit{nxe}}]$ &
+\raggedleft\arraybslash{\sffamily
+\label{ref:DefinicionGeneraldelamatrizdeconectividad}(\stepcounter{Text}{\theText})}\\}
+\tablehead{\centering  $\mathit{MC}(e,:)=[n_1,n_2,...,n_{\mathit{nxe}}]$ &
+\raggedleft\arraybslash{\sffamily
+\label{ref:DefinicionGeneraldelamatrizdeconectividad}(\stepcounter{Text}{\theText})}\\}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{m{15.8cm}m{1.8cm}}
+
+\end{supertabular}
+\end{center}
+{\sffamily
+Donde \textit{n}\textit{\textsubscript{i}} es el i-ésimo nodo del elemento e. }
+
+{\sffamily
+Volviendo a nuestro ejemplo de la ménsula con la numeración de la Figura~\ref{seq:refFigura0}, la matriz de conectividad
+quedará como}
+
+\begin{center}
+\tablefirsthead{\centering  $\mathit{MC}=\left(\begin{matrix}1&2\\2&3\\3&1\end{matrix}\right)$  &
+\raggedleft\arraybslash{\sffamily \label{ref:Definiciondelamatrizdeconectividad}(\stepcounter{Text}{\theText})}\\}
+\tablehead{\centering  $\mathit{MC}=\left(\begin{matrix}1&2\\2&3\\3&1\end{matrix}\right)$  &
+\raggedleft\arraybslash{\sffamily \label{ref:Definiciondelamatrizdeconectividad}(\stepcounter{Text}{\theText})}\\}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{m{15.8cm}m{1.8cm}}
+
+\end{supertabular}
+\end{center}
+{\sffamily
+Vale la pena aclarar aquí que el orden en el que se escribieron los nodos que conforman cada elemento es totalmente
+arbirtrario. A efectos de la formulación que sigue, es indistinto el orden elegido para cada nodo de cada elemento,
+siempre que se pueda trazar en forma unívoca desde la matriz de conectividad cuáles son las coordenadas de cada uno. }
+
+\subsubsection{Trazabilidad de los nodos, indexación y propiedades de los elementos.}
+{\sffamily
+Por ejemeplo, para obtener el ángulo del elemento \textbf{e} de nuestra ménsula, una vez que estan escritas las matrices
+no es necesario ver cuál es dicho elemento, sino que alcanza con la información en la matriz de conectividad y la
+matriz de nodos. El ángulo en cuestión quedará definido como el arcotangente del cociente entre la diferencia entre las
+coordenadas \textit{x} y la diferencia entre las coordenadas \textit{y} de los nodos que lo conforman. Entonces, sin
+revisar la Figura~\ref{seq:refFigura0}\ pero sí las definiciones de las matrices, se tiene para las coordenadas del
+elemento i-esimo del nodo e}
+
+\begin{equation}
+x_i^e=\mathit{MN}(\mathit{MC}(e,i),1);\ y_i^e=\mathit{MN}(\mathit{MC}(e,i),2)
+\end{equation}
+{\sffamily
+de manera que el ángulo determinado por el elemento es}
+
+\begin{equation}
+\theta _e=\mathit{arctg}_2\left(\frac{y_2^e-y_1^e}{x_2^e-x_1^e}\right)
+\end{equation}
+{\sffamily
+donde la función  $\mathit{arctg}_2$ \ es aquella que deduce el cuadrante del ángulo a partir de los signos de las
+diferencias. }
+
+\subsection{Matrices constitutivas del sistema}
+\subsubsection{Matriz de rigidez}
+{\sffamily
+La matriz de rigidez elemental para una barra con orientación arbirtraria es conocida a partir de la clase teórica, y la
+recordamos a continuación}
+
+\begin{flushleft}
+\tablefirsthead{{\centering  $\left[K\right]_e=k_e\left(\begin{matrix}\cos ^2(\theta _e)&\cos (\theta _e)\sin (\theta
+_e)&-\cos ^2(\theta _e)&-\cos (\theta _e)\sin (\theta _e)\\\cos (\theta _e)\sin (\theta _e)&\sin ^2(\theta _e)&-\cos
+(\theta _e)\sin (\theta _e)&-\sin ^2(\theta _e)\\-\cos ^2(\theta _e)&-\cos (\theta _e)\sin (\theta _e)&\cos ^2(\theta
+_e)&\cos (\theta _e)\sin (\theta _e)\\-\cos (\theta _e)\sin (\theta _e)&-\sin ^2(\theta _e)&\cos (\theta _e)\sin
+(\theta _e)&\sin ^2(\theta _e)\end{matrix}\right)$ \par}
+~
+
+\centering  $k_e=E_eA_e/L_e$ &
+\raggedleft\arraybslash{\sffamily (\stepcounter{Text}{\theText})}\\}
+\tablehead{{\centering  $\left[K\right]_e=k_e\left(\begin{matrix}\cos ^2(\theta _e)&\cos (\theta _e)\sin (\theta
+_e)&-\cos ^2(\theta _e)&-\cos (\theta _e)\sin (\theta _e)\\\cos (\theta _e)\sin (\theta _e)&\sin ^2(\theta _e)&-\cos
+(\theta _e)\sin (\theta _e)&-\sin ^2(\theta _e)\\-\cos ^2(\theta _e)&-\cos (\theta _e)\sin (\theta _e)&\cos ^2(\theta
+_e)&\cos (\theta _e)\sin (\theta _e)\\-\cos (\theta _e)\sin (\theta _e)&-\sin ^2(\theta _e)&\cos (\theta _e)\sin
+(\theta _e)&\sin ^2(\theta _e)\end{matrix}\right)$ \par}
+~
+
+\centering  $k_e=E_eA_e/L_e$ &
+\raggedleft\arraybslash{\sffamily (\stepcounter{Text}{\theText})}\\}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{m{16.8cm}m{0.791cm}}
+
+\end{supertabular}
+\end{flushleft}
+{\sffamily
+De esta manera, solo es necesario guardar un vector para cada propiedad intrínseca de las barras: \textbf{el módulo
+elástico E}\textbf{\textsubscript{e}}\textbf{ }\ y \textbf{la sección A}\textbf{\textsubscript{e}}\textbf{ }. En cuanto
+a la longitud del elemento, podemos obtenerlo a partir de la matriz de nodos y de la matriz de conectividad, }
+
+\begin{equation}
+L_e=\sqrt{\left(x_2^e-x_1^e\right)^2+\left(y_2^e-y_1^e\right)^2}
+\end{equation}
+\subsubsection{Matrices de rigidez elementales.}
+{\sffamily
+En el caso de nuestra ménsula, las matrices de rigidez locales pueden calcularse fácilmente pues los ángulos quedan bien
+determinados. }
+
+\begin{center}
+\tablefirsthead{\centering{\sffamily 
+$K_1=k_1\left[\begin{matrix}1&0&-1&0\\0&0&0&0\\-1&0&1&0\\0&0&0&0\end{matrix}\right]$; \ ; } &
+\raggedleft\arraybslash{\sffamily \label{ref:Matricesderigidezlocales}(\stepcounter{Text}{\theText})}\\}
+\tablehead{\centering{\sffamily  $K_1=k_1\left[\begin{matrix}1&0&-1&0\\0&0&0&0\\-1&0&1&0\\0&0&0&0\end{matrix}\right]$;
+\ ; } &
+\raggedleft\arraybslash{\sffamily \label{ref:Matricesderigidezlocales}(\stepcounter{Text}{\theText})}\\}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{m{15.8cm}m{1.8cm}}
+
+\end{supertabular}
+\end{center}
+\subsection{Matrices Globales: Ensamble de Matrices (con los dedos)}
+{\sffamily
+Hasta ahora hemos pensado a las matrices de rigidez del sistema en un sistema de indexación local. Esto se interpreta en
+el contexto de los grados de libertad locales de cada elemento. }
+
+\subsubsection{Ecuacion global para el elemento 1}
+{\sffamily
+Por ejemplo para el elemento 1, la matriz de conectividad de la ecuación (7)\ nos dice que la matriz de rigidez del
+mismo será la que describe el acoplamiento entre los grados de libertad del nodo 1 con los del nodo 2. Según la
+indexación definida en la Tabla~\ref{seq:refTabla0}, debemos reordenar los elementos de matriz de K\textsubscript{1} en
+los elementos de matriz correspondientes en una matriz que permita calcular la fuerza sobre los nodos del elemento 1 en
+función de \textbf{todos} los desplazamientos. }
+
+{\sffamily
+Para hacer eso, es conveniente escribir la ecuación para el elemento 1 con la indexación global. Redundamos al decir que
+para escribir esta ecuación recurrimos a la información que brindan la matriz de conectividad para saber cuáles son los
+nodos involucrados y a la Tabla~\ref{seq:refTabla0}\ para saber cuáles son los grados de libertad de cada nodo. A demás
+, localmente es importante que dichos índices aparezcan en el orden que detalla la matriz de conectividad. }
+
+\begin{equation}
+\left(\begin{matrix}F_1\\F_2\\F_3\\F_4\end{matrix}\right)^1=k_1\left(\begin{matrix}1&0&-1&0\\0&0&0&0\\-1&0&1&0\\0&0&0&0\end{matrix}\right)\left(\begin{matrix}u_1\\u_2\\u_3\\u_4\end{matrix}\right)
+\end{equation}
+{\sffamily
+donde se usó un supraíndice en el vector de fuerzas para indicar pertenencia al nodo. Ahora bien, para tener la ecuación
+global de la fuerza sobre los nodos del elemento 1, debemos expandir esta ecuación en todos los grados de libertad del
+sistema, }
+
+\begin{center}
+\tablefirsthead{\centering 
+$\left(\begin{matrix}F_1\\F_2\\F_3\\F_4\\F_5\\F_6\end{matrix}\right)^1=\left(\begin{matrix}k_1&0&-\mathit{k1}&0&0&0\\0&0&0&0&0&0\\-\mathit{k1}&0&\mathit{k1}&0&0&0\\0&0&0&0&0&0\\0&0&0&0&0&0\\0&0&0&0&0&0\end{matrix}\right)\left(\begin{matrix}u_1\\u_2\\u_3\\u_4\\u_5\\u_6\end{matrix}\right)$
+ &
+\raggedleft\arraybslash{\sffamily \label{ref:EcuacionGlobalElemento1}(\stepcounter{Text}{\theText})}\\}
+\tablehead{\centering 
+$\left(\begin{matrix}F_1\\F_2\\F_3\\F_4\\F_5\\F_6\end{matrix}\right)^1=\left(\begin{matrix}k_1&0&-\mathit{k1}&0&0&0\\0&0&0&0&0&0\\-\mathit{k1}&0&\mathit{k1}&0&0&0\\0&0&0&0&0&0\\0&0&0&0&0&0\\0&0&0&0&0&0\end{matrix}\right)\left(\begin{matrix}u_1\\u_2\\u_3\\u_4\\u_5\\u_6\end{matrix}\right)$
+ &
+\raggedleft\arraybslash{\sffamily \label{ref:EcuacionGlobalElemento1}(\stepcounter{Text}{\theText})}\\}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{m{15.8cm}m{1.8cm}}
+
+\end{supertabular}
+\end{center}
+\subsubsection{Ecuacion global para el elemento 2}
+{\sffamily
+El mismo procedimiento puede utilizarse para construir la matriz global de la fuerza sobre los nodos del elemento 2. La
+forma local de dicha ecuación es}
+
+\begin{center}
+\tablefirsthead{\centering  &
+\raggedleft\arraybslash{\sffamily (\stepcounter{Text}{\theText})}\\}
+\tablehead{\centering  &
+\raggedleft\arraybslash{\sffamily (\stepcounter{Text}{\theText})}\\}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{m{15.8cm}m{1.8cm}}
+
+\end{supertabular}
+\end{center}
+{\sffamily
+De modo que al expandir las ecuaciones en función de todos los grados de libertad del sistema, tenemos,}
+
+\begin{center}
+\tablefirsthead{\centering  &
+\raggedleft\arraybslash{\sffamily \label{ref:EcuacionGlobalElemento2}(\stepcounter{Text}{\theText})}\\}
+\tablehead{\centering  &
+\raggedleft\arraybslash{\sffamily \label{ref:EcuacionGlobalElemento2}(\stepcounter{Text}{\theText})}\\}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{m{15.8cm}m{1.8cm}}
+
+\end{supertabular}
+\end{center}
+\subsubsection{Ecuacion global para el elemento 3}
+{\sffamily
+Por último, consideremos al elemento 3. Notar que la fila correspondiente de la matriz de conectividad se escribió como
+(3,1). Por lo tanto, en los vectores locales aparecerán primero los grados de libertad del nodo 3 y luego los del nodo
+1, es decir,}
+
+\begin{equation}
+\left(\begin{matrix}F_5\\F_6\\F_1\\F_2\end{matrix}\right)^2=k_2\left(\begin{matrix}0.5&0.5&-0.5&-0.5\\0.5&0.5&-0.5&-0.5\\-0.5&-0.5&0.5&0.5\\-0.5&-0.5&0.5&0.5\end{matrix}\right)\left(\begin{matrix}u_5\\u_6\\u_1\\u_2\end{matrix}\right)
+\end{equation}
+{\sffamily
+Sin embargo al expandir en todos los grados de libertad, los elementos de matriz deben aparecer en el lugar correcto, es
+decir,}
+
+\begin{center}
+\tablefirsthead{\centering  &
+\raggedleft\arraybslash{\sffamily \label{ref:EcuacionGlobalElemento3}(\stepcounter{Text}{\theText})}\\}
+\tablehead{\centering  &
+\raggedleft\arraybslash{\sffamily \label{ref:EcuacionGlobalElemento3}(\stepcounter{Text}{\theText})}\\}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{m{15.8cm}m{1.8cm}}
+
+\end{supertabular}
+\end{center}
+\subsubsection{Ecuación Global}
+{\sffamily
+Por último, la fuerza total del sistema será la sumatoria de todas las fuerzas elementales que se ejerzan sobre los
+nodos, es decir,}
+
+\begin{center}
+\tablefirsthead{\centering  &
+\raggedleft\arraybslash{\sffamily (\stepcounter{Text}{\theText})}\\}
+\tablehead{\centering  &
+\raggedleft\arraybslash{\sffamily (\stepcounter{Text}{\theText})}\\}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{m{15.8cm}m{1.8cm}}
+
+\end{supertabular}
+\end{center}
+{\sffamily
+Al reemplazar por lo obtenido en las ecuaciones (14), (16)\ y (18), se obtiene el sistema de ecuaciones del sistema.}
+
+\begin{center}
+\tablefirsthead{\centering  &
+\raggedleft\arraybslash{\sffamily \label{ref:EcuacionEnsamblePorSuma}(\stepcounter{Text}{\theText})}\\}
+\tablehead{\centering  &
+\raggedleft\arraybslash{\sffamily \label{ref:EcuacionEnsamblePorSuma}(\stepcounter{Text}{\theText})}\\}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{m{15.8cm}m{1.8cm}}
+
+\end{supertabular}
+\end{center}
+{\sffamily
+Donde las M\textsuperscript{i} son las matrices de rigidez expandidas en todos los grados de libertad. }
+
+\subsection{Resolución del sistema. }
+{\sffamily
+La resolución del sistema fue abordada anteriormente y tiene que ver con la definición de los vectores de índices de
+desplazamientos vinculados y de incógnitas, s y r respectivamente, por lo que no lo volveremos a tratar aquí. }
+
+\subsection{Generalización: Ensamble de matrices }
+{\sffamily
+El esquema presentado hasta aquí, utilizando la expansión de las matrices de rigidez elementales a todos los grados de
+libertad del sistema es útil a modo didáctico. Sin embargo, es pobremente escalable al caso más general donde se
+tendrán un número arbitrario de elementos y nodos. En un sistema típico pueden alcanzarse fácilmente miles de elementos
+y el total de grados de libertad será por lo tanto un múltiplo entero de ese número. El esquema presentado hasta aquí
+requiere guardar al mismo tiempo todas las matrices elementales de millones de elementos de matriz. En términos
+computacionales, eso no es para nada eficiente. }
+
+{\sffamily
+Una alternativa posible es la de guardar simultánemanete una matriz elemental local no expandida, y una sola matriz
+global con todos los grados de libertad. Lo que sigue es un ejemplo de cómo ubicar los elementos de matriz de las
+matrices locales en la matriz global, usando solamente la información de la matriz de rigidez y la indexación de los
+grados de libertad en el sistema local y el sistema global. }
+
+\subsection{Grados de libertad locales y globales. }
+{\sffamily
+Las matrices de rigidez elementales deben ser pensadas como una representación de la interacción entre los grados de
+libertad de los nodos que conforman un elemento debido a las fuerzas constitutivas del problema a resolver. Es así que
+en la matriz global, los elementos de matriz debido al elemento en tratamiento tendrán la misma indexación que los
+grados de libertad de esos nodos.}
+
+{\sffamily
+En una matriz de rigidez local, podemos pensar que los elementos de matriz están organizados en bloques cuadrados con
+dimensión igual a los grados de libertad por nodo \textit{glxn}, y que habrá tantos bloques como nodos en el elemento,
+es decir,}
+
+\begin{equation}
+k_e\in \mathbb{R}^{\mathit{nxe}\cdot \mathit{glxn}\times \mathit{nxe}\cdot \mathit{glxn}}
+\end{equation}
+{\sffamily
+Por ejemplo en un problema de barras con glxn = 2, la matriz de rigidez local tendrá la estructura de la
+Figura~\ref{seq:refFigura1}, donde ni y nj son un los nodos del elemento e tal y como vienen dados en la fila
+correspondiente de la matriz de conectividad. }
+
+{\centering [Warning: Draw object ignored]\par}
+{\centering\sffamily\upshape
+Figura {\refstepcounter{Figura}\theFigura\label{seq:refFigura1}}: Bloques de las matrices de rigidez locales 
+\par}
+
+{\sffamily
+Como los grados de libertad involucrados tendrán ya asignada su indexación respecto de los grados de libertad del
+sistema total, el ejercicio consiste en encontrar los índices de esos grados de libertad en ese sistema global, para
+poder asignar los elementos de matriz correspondientes como se esquematiza en la Figura~\ref{seq:refFigura2}.}
+
+{\centering [Warning: Draw object ignored]\par}
+{\centering\sffamily
+Figura {\refstepcounter{Figura}\theFigura\label{seq:refFigura2}}: Bloques de las matrices de rigidez locales indexados
+globalmente
+\par}
+
+\subsubsection{Rangos de índices en matrices locales}
+{\sffamily
+Para eso, debemos pensar primero los rangos de índices que ocupan los elementos de matriz en la matriz de rigidez local.
+}
+
+{\sffamily
+Los grados de libertad del primer nodo del elemento ocuparán las primeras filas, desde la fila 1 hasta la fila glxn. Los
+grados de libertad del segundo nodo del elemento ocuparán las siguientes glxn filas, es decir desde glxn +1 hasta
+2glxn, y si hubieran más nodos la sucesión sería como se esquematiza en la Tabla~\ref{seq:refTabla1}:}
+
+{\centering\sffamily
+Tabla {\refstepcounter{Tabla}\theTabla\label{seq:refTabla1}}: Numeración de grados de libertad de los nodos del elemento
+\par}
+
+\begin{center}
+\tablefirsthead{}
+\tablehead{}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{|m{4.3cm}|m{4.301cm}|}
+\hline
+\centering{\sffamily\bfseries Nodo elemental (cumna de la matriz de conectividad)} &
+\centering\arraybslash{\sffamily\bfseries índices de los grados de libertad}\\\hline
+{\sffamily 1} &
+ $1:\mathit{glxn}$\\\hline
+{\sffamily 2} &
+ $\mathit{glxn}+1:2\mathit{glxn}$\\\hline
+{\sffamily 3} &
+ $2\mathit{glxn}+1:3\mathit{glxn}$\\\hline
+{\sffamily 4} &
+ $3\mathit{glxn}+1:4\mathit{glxn}$\\\hline
+\multicolumn{2}{|m{8.801cm}|}{{\sffamily etc}}\\\hline
+\end{supertabular}
+\end{center}
+{\sffamily
+Rápidamente es posible intuir el rango de índices en la matriz local que corresponden al nodo i-ésimo del elemento e, }
+
+\begin{center}
+\tablefirsthead{\centering  $(i-1)\mathit{glxn}+1:\mathit{iglxn}$ &
+\raggedleft\arraybslash{\sffamily \label{ref:rangoIndicesLocales}(\stepcounter{Text}{\theText})}\\}
+\tablehead{\centering  $(i-1)\mathit{glxn}+1:\mathit{iglxn}$ &
+\raggedleft\arraybslash{\sffamily \label{ref:rangoIndicesLocales}(\stepcounter{Text}{\theText})}\\}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{m{15.8cm}m{1.8cm}}
+
+\end{supertabular}
+\end{center}
+{\sffamily
+Estos rangos de índices definen los bloques correspondientes a los grados de libertad de cada nodo que debemos traspasar
+a la matriz global. En notación de tajadas de matrices o `slices', el bloque de matriz que acopla a los grados de
+libertad del nodo i-ésimo con los del nodo j-ésimo del elemento -- \textbf{filas i \ y j de la matriz de conectividad}
+-- quedará definido como}
+
+\begin{center}
+\tablefirsthead{\centering  $k_e^{i,j}=k_e[(i-1)\cdot \mathit{glxn}+1:i\cdot \mathit{glxn};(j-1)\cdot
+\mathit{glxn}+1:j\cdot \mathit{glxn}]$ &
+\raggedleft\arraybslash{\sffamily \label{ref:EcuacionBloqueLocal}(\stepcounter{Text}{\theText})}\\}
+\tablehead{\centering  $k_e^{i,j}=k_e[(i-1)\cdot \mathit{glxn}+1:i\cdot \mathit{glxn};(j-1)\cdot \mathit{glxn}+1:j\cdot
+\mathit{glxn}]$ &
+\raggedleft\arraybslash{\sffamily \label{ref:EcuacionBloqueLocal}(\stepcounter{Text}{\theText})}\\}
+\tabletail{}
+\tablelasttail{}
+\begin{supertabular}{m{15.8cm}m{1.8cm}}
+
+\end{supertabular}
+\end{center}
+{\sffamily
+Notar que cuando i=j se hará referencia a los bloques diagonales, mientras que si i ${\neq}$ j se obtendrán los bloques
+cruzados.}
+
+{\sffamily
+Por último, también es imprescindible notar que para recuperar la totalidad de los bloques de una matriz local, es
+necesario recorrer todas las combinaciones entre pares de nodos elementales. De esa manera, para el primer nodo del
+elemento, se recuperan todas las `columnas de bloques' , luego para el segundo nodo, y así sucesivamente. }
+
+\subsubsection{Rangos de índices en Matrices globales}
+{\sffamily
+Para indexar los grados de libertad de cada nodo en el sistema global ye hemos hecho la mitad del trabajo. Esto se debe
+a que dado un índice, el rango de variables asociadas ya fué deducido anteriormente. Simplemente es necesario notar
+aquí que en lugar de utilizar el número de columna de la matriz de conectividad, para ubicar al nodo en forma global
+debemos usar el número de nodo, es decir el valor guardado en la columna de la matriz de conectividad. Si conservamos
+la sucesión de índices  $i,j,k,...$ \ para indicar las columnas de la matriz, entonces  $n_i,n_j,n_k,...$ \ serán los
+números de nodos del elemento correspondiente a la fila en tratamiento. Pero entonces, con la misma capacidad deductiva
+que tuvimos antes encontramos que el bloque de matriz global asociado al bloque de matriz local de la ecuación (23)\ es
+}
+
+\begin{equation}
+M^{n_i,n_j}=M[(n_i-1)\cdot \mathit{glxn}+1:n_i\cdot \mathit{glxn};(n_j-1)\cdot \mathit{glxn}+1:n_j\cdot \mathit{glxn}]
+\end{equation}
+\subsection{Ensamble de Matrices}
+{\sffamily
+Con lo hecho hasta aquí, el camino a seguir queda algo esclarecido. Si lo que se busca es reconstruir la suma de la
+ecuación (20)\ usando solo sumas parciales por tajadas, entonces la estrategia queda trazada de la siguiente manera.}
+
+{\sffamily
+Para cada elemento, tomar los bloques de matriz elemental para cada par de nodos locales i, j \ y \textbf{sumarlos} a
+los bloques de matriz global correspondientes a los nodos  $n_i,n_j$. }
+
+{\sffamily
+Dicho en lenguaje de programación, la expresión para un bloque cualquiera  $n_i,n_j$ \ es}
+
+\begin{equation}
+M^{n_i,n_j}=M^{n_i,n_j}+k_e^{i,j}
+\end{equation}
+{\sffamily
+Dicha ecuación estaría dentro de un ciclo que recorrería todos los elementos, para cada elemento encontraría la matriz
+local, y luego asigna los bloques correspondientes de la matriz global. }
+
+\subsubsection[Ejemplo de la ménsula]{Ejemplo de la ménsula}
+{\sffamily
+Volvamos al ejemplo de la ménsula. Como ya dijimos, la matriz global va a tener dimensiones  $N\mathit{gl}\times
+N\mathit{gl}=6\times 6$ \ mientras que las matrices de rigidez locales tienen dimensión  $\mathit{nxe}\cdot
+\mathit{glxn}\times \mathit{nxe}\cdot \mathit{glxn}=4\times 4$. la matriz de conectividad era la definida en la
+ecuación (7). }
+
+\paragraph{Elemento 1}
+{\sffamily
+Entonces, para el elemento 1 se tiene,  $n_1=1,n_2=2$, y los bloques de matrices correspondientes son entonces,}
+
+\begin{equation}
+k_1^{1,1}=k_1[1:2,1:2];k_1^{1,2}=k_1[1:2,3:4];k_1^{2,1}=k_1[3:4,1:2];k_1^{2,2}=k_1[3:4,3:4]
+\end{equation}
+{\sffamily
+donde  $k_1$ es la matriz elemental definida en la ecuación (12). Estos bloques se asociaran a los bloques de matriz
+gloabal,}
+
+\begin{equation}
+\begin{gathered}M^{n_1=1,n_2=1}=M[1:2,1:2];M^{n_1=1,n_2=2}=M[1:2,3:4];\\M^{n_1=2,n_2=1}=M[3:4,1:2];M^{n_1=2,n_2=2}=M[3:4,3:4];\end{gathered}
+\end{equation}
+{\sffamily
+Como se ve, al tratarse de que los primeros grados de libertad son los de los primeros nodos, la asignación es trivial.}
+
+\paragraph{Elemento 2}
+{\sffamily
+Las asignaciones para el elemento 2 son tan triviales como para el elemento 1, de modo que puede quedar como actividad
+para el lector.}
+
+\paragraph{Elemento 3}
+{\sffamily
+Tenemos aquí, que la fila correspondiente de la matriz de conectividad es}
+
+\begin{equation}
+\mathit{MC}[3,:]=[3,1]
+\end{equation}
+{\sffamily
+De manera que los bloques de matriz local son}
+
+\begin{equation}
+\begin{gathered}k_3^{i=1,j=1}=k_3[1:2,1:2];k_3^{i=1,j=2}=k_3[1:2,3:4];\\k_3^{i=2,j=1}=k_3[3:4,1:2];k_3^{i=2,j=2}=k_3[3:4,3:4]\end{gathered}
+\end{equation}
+{\sffamily
+donde  $k_1$ es la matriz elemental definida en la ecuación (12). Estos bloques se asociaran a los bloques de matriz
+gloabal,}
+
+\begin{equation}
+\begin{gathered}M^{n_1=3,n_2=3}=M[5:6,5:6];M^{n_1=3,n_2=1}=M[5:6,1:2];\\M^{n_1=1,n_2=3}=M[1:2,5:6];M^{n_1=1,n_2=1}=M[1:2,1:2];\end{gathered}
+\end{equation}
+{\sffamily
+Con estas asignaciones, es necesario ir sumando para cada bloque de matriz global los bloques de matriz elemental
+correspondientes para reconstruir la suma de la ecuación (20).}
+
+\subsection{Ejercicio}
+{\sffamily
+En base a los conceptos aquí trabajados, escriba un diagrama de flujo de los pasos a seguir para reconstruir la matriz
+global a partir de la matriz de conectividad. Suponga conocidas las matrices de rigidez locales. }
+\end{document}

@@ -1,0 +1,239 @@
+\mode<all>
+% Incluyo los paquetes necesarios.
+\include{./PREAMBLE/PACKS}
+%\mode<presentation>{
+% para ver las notas con la presentacion.  
+%\setbeameroption{hide notes}
+%para dejar las notas en la segunda patnalla
+%}
+
+% incluyo los beamercolors
+\include{./PREAMBLE/BEAMERCOLORS}
+
+%incluyo el tema y modificaciones
+\include{./PREAMBLE/BEAMERTHEME}
+
+% modifico los temas
+\include{./PREAMBLE/THEMES}
+% defino el template para la diapositiva del título
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Defino la Clase
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{./PREAMBLE/MATERIA}
+\title{
+  \mode<article>{
+% \includegraphics[height=1cm]{./PREAMBLE/logo-isabt25.png}
+\includegraphics[height=1cm]{./PREAMBLE/logo-isabato.png}
+\hfill
+\includegraphics[height=1cm]{./PREAMBLE/ISOLOGOCNEA.png}
+\hfill
+\includegraphics[height=1cm]{./PREAMBLE/logo-unsam.png}
+\\}  Apéndice: Github}
+\subject{Apéndice: Github}
+\keywords{Python, Modelizacion 2022, Programación}
+%linea para fbox
+\setlength\fboxsep{0pt}
+\setlength\fboxrule{5pt}
+% Inicia el documento.
+\begin{document}
+
+% Título de la clase. 
+\mode<presentation>{
+\begin{frame}[plain]
+\titlepage
+\end{frame}
+}
+
+%\mode<article>{
+%\maketitle
+%}
+
+\begin{frame}<presentation>[label=FrameGithub]
+  \frametitle{Github}
+
+  \includegraphics[width=\textwidth]{Screenshots/GithubFrontPag.png}
+
+\end{frame}
+
+\begin{frame}<presentation>[label=FrameRepaso]
+  \frametitle{Creamos un usuario}
+
+  \begin{columns}
+    \column{0.5\textwidth}
+
+      \includegraphics[width=\textwidth]{Screenshots/SignUp.png}
+
+      \includegraphics[width=\textwidth]{Screenshots/CrearUsuario.png}
+
+    \column{0.5\textwidth}
+
+      \begin{itemize}
+	  \item Sign Up! 
+	  \item ingresamos los datos: use un correo electrónico formal!
+      \end{itemize}
+
+  \end{columns}
+
+\end{frame}
+
+\begin{frame}<presentation>[label=FrameRepoMateria2022]
+  \frametitle{Busque el repositorio de la materia ! }
+
+  \url{https://github.com/Modelizacion-de-Materiales/2022_Ingenieria}
+
+  \includegraphics[width=\textwidth]{Screenshots/Repo2022.png}
+
+\end{frame}
+
+\begin{frame}<presentation>[label=FrameMakeFork]
+  \frametitle{Haga un Fork (una copia)}
+
+\centering
+
+  \includegraphics[width=0.9\textwidth]{Screenshots/MakeFork.png}
+
+\end{frame}
+
+\begin{frame}<presentation>[label=FrameCarpetaConsultas]
+  \frametitle{Carpeta de Concultas}
+
+  Una vez hecho el for, usted tiene su propia copia del repositorio. EN la misma, genere una carpeta de consutlas.
+
+  \includegraphics[width=0.5\textwidth]{Screenshots/CarpetaConsultas.png}
+
+\end{frame}
+
+\begin{frame}<presentation>[label=FrameCrearNuevaCarpeta]
+  \frametitle{Cree Una carpeta con su nombre}
+  \begin{columns}
+    \column{0.5\textwidth}
+      \includegraphics[width=\textwidth]{Screenshots/AddFile_NewFile.png}
+      
+      \includegraphics[width=\textwidth]{Screenshots/IngreseSuNombredeCarpeta.png}
+
+      \includegraphics[width=\textwidth]{Screenshots/Readme.png}
+
+      \includegraphics[width=\textwidth]{Screenshots/ScrollComment.png}
+
+    \column{0.5\textwidth}
+    \begin{itemize}
+      \item Add Files $\quad \rightarrow \quad$  Create new file files
+      \item en el cuadro de texto ingrese el nombre de la carpeta terminando con la barra hacia la derecha '/' ,
+	la barra es lo que crea la carpeta!
+      \item cree un archivo \texttt{README} escrbiendo el nombre luego de la barra con un contenido mínimo
+      \item Scroll hacia abajo , ingrese un mínimo comentario explicativo 
+      \item confirme los cambios haciendo click en \texttt{commit}
+    \end{itemize}
+  \end{columns}
+
+\end{frame}
+
+\begin{frame}<presentation>[label=Frame Pull]
+  \frametitle{Fetch upstream}
+
+  es una operación para actualizar nuestro repositorio con los últimos cambios en el repositorio de origen (\texttt{upstream} ). 
+  Presione en \texttt{Fetch Upstream} y confirme la operación.
+
+  \includegraphics[width=0.4\textwidth]{Screenshots/FetchUpstream.png}
+  \quad
+  \includegraphics[width=0.4\textwidth]{Screenshots/FetchAndMerge.png}
+
+\end{frame}
+\begin{frame}<presentation>[label=FramePullRequest]
+  \frametitle{Pull Request}
+  \small
+  \only<1>{
+  Es un procedimiento que permite aplicar los cambios de un repositorio en otro. El dueño del repositorio A le avisa al dueño del repositorio B que 
+  tiene nuevos cambios en A que quiere aplicar en B. }
+\begin{columns}
+  \column{0.5\textwidth}
+  \only<2> { \includegraphics[width=\textwidth]{Screenshots/Contribute.png} }
+  \only<2>{ \includegraphics[width=\textwidth]{Screenshots/PulRequest.png}}
+  \only<3>{\includegraphics[width=\textwidth]{Screenshots/CheckAndConfirmMerge.png}}
+  \only<4> { \includegraphics[width=\textwidth]{Screenshots/CompareAcrossForks.png} }
+  \column{0.5\textwidth}
+  \only<2>{ Desde la pagina inicial de su repositorio ingresar ena  \emph{Contribute} o bien en  \emph{pull request} desde la tira de opciones superior y luego en \emph{ new pull request}. }
+  \only<3>{haga un pull request para iniciar su carpeta de consultas en el repositorio de la materia. Preste atención a los campos de \emph{base} y \emph{target}, que correspondan al origien y destino del pull request.}
+  \only<4>{  Para poder intercambiar con otros forks del mismo repositorio, haga click en \emph{ comparar a traves de forks } }
+\end{columns}
+
+\end{frame}
+
+\begin{frame}<presentation>[label=FrameHeadBase]
+  \frametitle{Dirección de Pull Request}
+
+  \only<1>{
+  en este paso se elige la dirección en la que se van a aplicar los cambios. preste atención a la flecha entre los 
+  menú desplegables. Si quiere forzar a aplicar los ultimos cambios desde el repositorio de la materia, elija 
+  las opciones correctas para \texttt{base}(destino)  y \texttt{head repository} (origen). 
+}
+  \only<2> { Si quiere aplicar los últimos cambios de su repositorio en el de la materia (enviar consultas y entregas) 
+  elija \texttt{su\_usuario/Modelizaion-2021-Ingenieria} como \emph{ head} y \texttt{Modelizacion-de-Materiales/Modelizaion-2021-Ingenieria} 
+  como \emph{base} }
+
+
+
+  \includegraphics[width=\textwidth]{Screenshots/ToDownload-ChooseHeadMateria.png}
+
+\end{frame}
+
+
+\begin{frame}<presentation>[label=FrameOptionsChosen]
+  \frametitle{Confirme}
+
+
+  
+
+  \only<1>{
+    Confirme la elección para base y head y cree el \emph{pull request} 
+
+  \includegraphics[width=\textwidth]{Screenshots/CreatePullRequest-HeadandBaseChosen.png}
+}
+
+  \only<2>{
+    comente sobre el contenido de los cambios que se aplicarán, y confirme
+
+    \center
+
+    \includegraphics[width=0.5\textwidth]{Screenshots/CommentPullRequest.png}
+  }
+
+  \only<3> { si el repsitorio \emph{ base } es el suyo , usted mismo deberá 
+  aceptar el \emph{ PR } para aplicar los cambios 
+ \center 
+  \includegraphics[width=0.5\textwidth]{Screenshots/ConfirmMergeRequest.png}
+  }
+
+\end{frame}
+
+\section{ Bajar un único archivo }
+
+\begin{frame}<presentation>[label=FrameDownload]
+  \frametitle{Bajar un archivo}
+
+\only<1>{
+\begin{itemize}
+
+    \item en el repositorio donde se encuentra el archivo, navege hasta el mismo.
+
+    \item abra el mismo haciedo click sobre el nombre.
+
+    \item note que puede visualizar los JupyterNotebooks y pdf's
+
+    \item busque el botón \emph{raw}
+
+\end{itemize}
+} 
+
+\only<2> { 
+Se abrirá una pestaña del navegador con el texto plano del archivo. simplemente presione en su teclad:
+  \emph{Ctrl + S} y elija la carpeta donde quiere guardarlo.
+}
+
+\center 
+\includegraphics[width=\textwidth]{Screenshots/PressRaw.png}
+
+\end{frame}
+
+\end{document}

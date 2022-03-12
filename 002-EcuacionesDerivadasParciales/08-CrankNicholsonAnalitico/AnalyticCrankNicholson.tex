@@ -1,0 +1,526 @@
+\documentclass[fleqn]{article}
+
+%% Created with wxMaxima 20.12.2
+
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+\usepackage{iftex}
+\ifPDFTeX
+  % PDFLaTeX or LaTeX 
+  \usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+  \DeclareUnicodeCharacter{00B5}{\ensuremath{\mu}}
+\else
+  %  XeLaTeX or LuaLaTeX
+  \usepackage{fontspec}
+\fi
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{grffile}
+\usepackage{ifthen}
+\newsavebox{\picturebox}
+\newlength{\pictureboxwidth}
+\newlength{\pictureboxheight}
+\newcommand{\includeimage}[1]{
+    \savebox{\picturebox}{\includegraphics{#1}}
+    \settoheight{\pictureboxheight}{\usebox{\picturebox}}
+    \settowidth{\pictureboxwidth}{\usebox{\picturebox}}
+    \ifthenelse{\lengthtest{\pictureboxwidth > .95\linewidth}}
+    {
+        \includegraphics[width=.95\linewidth,height=.80\textheight,keepaspectratio]{#1}
+    }
+    {
+        \ifthenelse{\lengthtest{\pictureboxheight>.80\textheight}}
+        {
+            \includegraphics[width=.95\linewidth,height=.80\textheight,keepaspectratio]{#1}
+            
+        }
+        {
+            \includegraphics{#1}
+        }
+    }
+}
+\newlength{\thislabelwidth}
+\DeclareMathOperator{\abs}{abs}
+
+\definecolor{labelcolor}{RGB}{100,0,0}
+
+\begin{document}
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+(\% i87)	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+\ensuremath{\lambda}\ :\ 1;
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{\% o87} 
+1\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+(\% i1)	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+T0:\ matrix(\\
+\ [T1],\ \\
+\ [0],\ \\
+\ [0],\ \\
+\ [T2]\\
+);
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{\% o1} 
+\begin{pmatrix}\ensuremath{\mathrm{T1}}\\
+0\\
+0\\
+\ensuremath{\mathrm{T2}}\end{pmatrix}\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+(\% i2)	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+M1\ :\ensuremath{\sim\ }matrix(\ [1,\ 0,\ 0,0\ ]\ ,\ \ [-\ensuremath{\lambda},\ 2*(1+\ \ensuremath{\lambda}),\ -\ensuremath{\lambda},\ 0\ ],\ [0,-\ensuremath{\lambda},\ 2*(1+\ \ensuremath{\lambda}),\ -\ensuremath{\lambda}],\ [0,0,0,1])\ ;
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{\% o2} 
+\begin{pmatrix}1 & 0 & 0 & 0\\
+-\lambda  & 2 \left( \lambda +1\right)  & -\lambda  & 0\\
+0 & -\lambda  & 2 \left( \lambda +1\right)  & -\lambda \\
+0 & 0 & 0 & 1\end{pmatrix}\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+(\% i3)	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+M1I\ :\ invert(M1);
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{\% o3} 
+\begin{pmatrix}1 & 0 & 0 & 0\\
+\frac{2 \lambda \, \left( \lambda +1\right) }{4 {{\left( \lambda +1\right) }^{2}}-{{\lambda }^{2}}} & \frac{2 \left( \lambda +1\right) }{4 {{\left( \lambda +1\right) }^{2}}-{{\lambda }^{2}}} & \frac{\lambda }{4 {{\left( \lambda +1\right) }^{2}}-{{\lambda }^{2}}} & \frac{{{\lambda }^{2}}}{4 {{\left( \lambda +1\right) }^{2}}-{{\lambda }^{2}}}\\
+\frac{{{\lambda }^{2}}}{4 {{\left( \lambda +1\right) }^{2}}-{{\lambda }^{2}}} & \frac{\lambda }{4 {{\left( \lambda +1\right) }^{2}}-{{\lambda }^{2}}} & \frac{2 \left( \lambda +1\right) }{4 {{\left( \lambda +1\right) }^{2}}-{{\lambda }^{2}}} & \frac{2 \lambda \, \left( \lambda +1\right) }{4 {{\left( \lambda +1\right) }^{2}}-{{\lambda }^{2}}}\\
+0 & 0 & 0 & 1\end{pmatrix}\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+(\% i4)	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+M2\ :\ matrix(\ [1,\ 0,\ 0,0\ ]\ ,\ \ [\ensuremath{\lambda},\ 2*(1-\ \ensuremath{\lambda}),\ \ensuremath{\lambda},\ 0\ ],\ [0,\ensuremath{\lambda},\ 2*(1-\ \ensuremath{\lambda}),\ \ensuremath{\lambda}],\ [0,0,0,1])\ ;
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{\% o4} 
+\begin{pmatrix}1 & 0 & 0 & 0\\
+\lambda  & 2 \left( 1-\lambda \right)  & \lambda  & 0\\
+0 & \lambda  & 2 \left( 1-\lambda \right)  & \lambda \\
+0 & 0 & 0 & 1\end{pmatrix}\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+(\% i5)	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+B\ :\ ev(M1I.M2);
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{\% o5} 
+\begin{pmatrix}1 & 0 & 0 & 0\\
+\frac{4 \lambda \, \left( \lambda +1\right) }{4 {{\left( \lambda +1\right) }^{2}}-{{\lambda }^{2}}} & \frac{{{\lambda }^{2}}}{4 {{\left( \lambda +1\right) }^{2}}-{{\lambda }^{2}}}+\frac{4 \left( 1-\lambda \right) \, \left( \lambda +1\right) }{4 {{\left( \lambda +1\right) }^{2}}-{{\lambda }^{2}}} & \frac{2 \lambda \, \left( \lambda +1\right) }{4 {{\left( \lambda +1\right) }^{2}}-{{\lambda }^{2}}}+\frac{2 \left( 1-\lambda \right)  \lambda }{4 {{\left( \lambda +1\right) }^{2}}-{{\lambda }^{2}}} & \frac{2 {{\lambda }^{2}}}{4 {{\left( \lambda +1\right) }^{2}}-{{\lambda }^{2}}}\\
+\frac{2 {{\lambda }^{2}}}{4 {{\left( \lambda +1\right) }^{2}}-{{\lambda }^{2}}} & \frac{2 \lambda \, \left( \lambda +1\right) }{4 {{\left( \lambda +1\right) }^{2}}-{{\lambda }^{2}}}+\frac{2 \left( 1-\lambda \right)  \lambda }{4 {{\left( \lambda +1\right) }^{2}}-{{\lambda }^{2}}} & \frac{{{\lambda }^{2}}}{4 {{\left( \lambda +1\right) }^{2}}-{{\lambda }^{2}}}+\frac{4 \left( 1-\lambda \right) \, \left( \lambda +1\right) }{4 {{\left( \lambda +1\right) }^{2}}-{{\lambda }^{2}}} & \frac{4 \lambda \, \left( \lambda +1\right) }{4 {{\left( \lambda +1\right) }^{2}}-{{\lambda }^{2}}}\\
+0 & 0 & 0 & 1\end{pmatrix}\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+(\% i6)	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+Tn:ev(\ (B\^\ n).T0\ );
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{\% o6} 
+\begin{pmatrix}\ensuremath{\mathrm{T1}}\\
+\frac{\ensuremath{\mathrm{T2}} {{2}^{n}} {{\left| \lambda \right| }^{2 n}}}{{{\left( 4 {{\left( \lambda +1\right) }^{2}}-{{\lambda }^{2}}\right) }^{n}}}+\ensuremath{\mathrm{T1}} {{4}^{n}} {{\left( \frac{\lambda \, \left( \lambda +1\right) }{4 {{\left( \lambda +1\right) }^{2}}-{{\lambda }^{2}}}\right) }^{n}}\\
+\frac{\ensuremath{\mathrm{T1}} {{2}^{n}} {{\left| \lambda \right| }^{2 n}}}{{{\left( 4 {{\left( \lambda +1\right) }^{2}}-{{\lambda }^{2}}\right) }^{n}}}+\ensuremath{\mathrm{T2}} {{4}^{n}} {{\left( \frac{\lambda \, \left( \lambda +1\right) }{4 {{\left( \lambda +1\right) }^{2}}-{{\lambda }^{2}}}\right) }^{n}}\\
+\ensuremath{\mathrm{T2}}\end{pmatrix}\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+(\% i7)	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+ratsimp(Tn);
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{\% o7} 
+\begin{pmatrix}\ensuremath{\mathrm{T1}}\\
+\frac{\ensuremath{\mathrm{T2}} {{2}^{n}} {{\left| \lambda \right| }^{2 n}}+\ensuremath{\mathrm{T1}} {{4}^{n}} {{\left( 3 {{\lambda }^{2}}+8 \lambda +4\right) }^{n}} {{\left( \frac{{{\lambda }^{2}}+\lambda }{3 {{\lambda }^{2}}+8 \lambda +4}\right) }^{n}}}{{{\left( 3 {{\lambda }^{2}}+8 \lambda +4\right) }^{n}}}\\
+\frac{\ensuremath{\mathrm{T1}} {{2}^{n}} {{\left| \lambda \right| }^{2 n}}+\ensuremath{\mathrm{T2}} {{4}^{n}} {{\left( 3 {{\lambda }^{2}}+8 \lambda +4\right) }^{n}} {{\left( \frac{{{\lambda }^{2}}+\lambda }{3 {{\lambda }^{2}}+8 \lambda +4}\right) }^{n}}}{{{\left( 3 {{\lambda }^{2}}+8 \lambda +4\right) }^{n}}}\\
+\ensuremath{\mathrm{T2}}\end{pmatrix}\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+ --\ensuremath{\ensuremath{>}}	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+
+\end{minipage}
+
+\noindent%
+
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+ --\ensuremath{\ensuremath{>}}	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+
+\end{minipage}
+
+\noindent%
+
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+ --\ensuremath{\ensuremath{>}}	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+float(ev(Tn,\ \ensuremath{\lambda}=0.1,\ n=2,\ T1=100,\ T2=50));
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{\% o34} 
+\begin{pmatrix}100.0\\
+29.33333333333333\\
+16.0\\
+50.0\end{pmatrix}\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+ --\ensuremath{\ensuremath{>}}	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+
+\end{minipage}
+
+\noindent%
+
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+ --\ensuremath{\ensuremath{>}}	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+
+\end{minipage}
+
+\noindent%
+
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+(\% i36)	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+float(ev(Tn,\ \ensuremath{\lambda}=0.2,\ n=2,\ T1=100,\ T2=50));
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{\% o36} 
+\begin{pmatrix}100.0\\
+2.826544085285344\\
+1.427942686683946\\
+50.0\end{pmatrix}\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+(\% i37)	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+float(ev(Tn,\ \ensuremath{\lambda}=0.3,\ n=2,\ T1=100,\ T2=50));
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{\% o37} 
+\begin{pmatrix}100.0\\
+5.506542081283196\\
+2.807891406620528\\
+50.0\end{pmatrix}\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+(\% i38)	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+float(ev(Tn,\ \ensuremath{\lambda}=0.3,\ n=2,\ T1=100,\ T2=50));
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{\% o38} 
+\begin{pmatrix}100.0\\
+5.506542081283196\\
+2.807891406620528\\
+50.0\end{pmatrix}\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+(\% i39)	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+float(ev(Tn,\ \ensuremath{\lambda}=0.4,\ n=2,\ T1=100,\ T2=50));
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{\% o39} 
+\begin{pmatrix}100.0\\
+8.593749999999998\\
+4.427083333333333\\
+50.0\end{pmatrix}\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+(\% i40)	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+float(ev(Tn,\ \ensuremath{\lambda}=0.9,\ n=2,\ T1=100,\ T2=50));
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{\% o40} 
+\begin{pmatrix}100.0\\
+25.89008644239408\\
+14.00453985398615\\
+50.0\end{pmatrix}\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+(\% i41)	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+float(ev(Tn,\ \ensuremath{\lambda}=1,\ n=2,\ T1=100,\ T2=50));
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{\% o41} 
+\begin{pmatrix}100.0\\
+29.33333333333333\\
+16.0\\
+50.0\end{pmatrix}\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+(\% i42)	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+float(ev(Tn,\ \ensuremath{\lambda}=1.1,\ n=2,\ T1=100,\ T2=50));
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{\% o42} 
+\begin{pmatrix}100.0\\
+32.71252763063871\\
+17.98337364402884\\
+50.0\end{pmatrix}\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+(\% i43)	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+float(ev(Tn,\ \ensuremath{\lambda}=2,\ n=2,\ T1=100,\ T2=50));
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{\% o43} 
+\begin{pmatrix}100.0\\
+59.375\\
+34.375\\
+50.0\end{pmatrix}\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+(\% i44)	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+float(ev(Tn,\ \ensuremath{\lambda}=3,\ n=2,\ T1=100,\ T2=50));
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{\% o44} 
+\begin{pmatrix}100.0\\
+81.52066115702479\\
+48.79338842975206\\
+50.0\end{pmatrix}\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+(\% i45)	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+float(ev(Tn,\ \ensuremath{\lambda}=4,\ n=2,\ T1=100,\ T2=50));
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{\% o45} 
+\begin{pmatrix}100.0\\
+97.95918367346938\\
+59.8639455782313\\
+50.0\end{pmatrix}\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+(\% i49)	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+float(ev(Tn,\ \ensuremath{\lambda}=4.1,\ n=2,\ T1=100,\ T2=50));
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{\% o49} 
+\begin{pmatrix}100.0\\
+99.36561128228908\\
+60.82382519951938\\
+50.0\end{pmatrix}\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+(\% i50)	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+float(ev(Tn,\ \ensuremath{\lambda}=8.3,\ \ n=2,\ T1=100,\ T2=50));
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{\% o50} 
+\begin{pmatrix}100.0\\
+136.5473836929741\\
+86.81987800849\\
+50.0\end{pmatrix}\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+
+
+\noindent
+%%%%%%%%
+%% INPUT:
+\begin{minipage}[t]{4.000000em}\color{red}\bfseries
+(\% i51)	
+\end{minipage}
+\begin{minipage}[t]{\textwidth}\color{blue}
+L1:limit(Tn,\ n,\ inf);
+\end{minipage}
+%%%% OUTPUT:
+\[\displaystyle \tag{\% o51} 
+\begin{pmatrix}\ensuremath{\mathrm{T1}}\\
+\lim_{\to n\operatorname{\backslash -\backslash >  }\infty }{\frac{\ensuremath{\mathrm{T2}} {{2}^{n}} {{\left| \lambda \right| }^{2 n}}}{{{\left( 4 {{\left( \lambda +1\right) }^{2}}-{{\lambda }^{2}}\right) }^{n}}}+\ensuremath{\mathrm{T1}} {{4}^{n}} {{\left( \frac{\lambda \, \left( \lambda +1\right) }{4 {{\left( \lambda +1\right) }^{2}}-{{\lambda }^{2}}}\right) }^{n}}}\\
+\lim_{\to n\operatorname{\backslash -\backslash >  }\infty }{\frac{\ensuremath{\mathrm{T1}} {{2}^{n}} {{\left| \lambda \right| }^{2 n}}}{{{\left( 4 {{\left( \lambda +1\right) }^{2}}-{{\lambda }^{2}}\right) }^{n}}}+\ensuremath{\mathrm{T2}} {{4}^{n}} {{\left( \frac{\lambda \, \left( \lambda +1\right) }{4 {{\left( \lambda +1\right) }^{2}}-{{\lambda }^{2}}}\right) }^{n}}}\\
+\ensuremath{\mathrm{T2}}\end{pmatrix}\mbox{}
+\]
+%%%%%%%%%%%%%%%%
+\end{document}
