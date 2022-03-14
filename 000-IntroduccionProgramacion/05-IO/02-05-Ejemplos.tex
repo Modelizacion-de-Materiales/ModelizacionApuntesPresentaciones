@@ -41,28 +41,42 @@ claro enseguida.
 \column{0.5\textwidth}
 \hfill Abrir archivo existente para lectura:
 \column{0.5\textwidth}
-\begin{codeblock}
-\verbatiminput{./CODEXAMPLES/open_file.m}
-\end{codeblock}
+\lstinputlisting{./CODEXAMPLES/open_file.m}
 \end{columns}
 
 \begin{columns}[T]
 \column{0.5\textwidth}
 \hfill Abrir archivo \emph{inexistente} para lectura:
 \column{0.5\textwidth}
-\begin{codeblock}
-\verbatiminput{./CODEXAMPLES/open_file_noex.m}
-\end{codeblock}
+\lstinputlisting{./CODEXAMPLES/open_file_noex.m}
 \end{columns}
 
 \begin{columns}[T]
 \column{0.5\textwidth}
 \hfill Abrir otro archivo  para \emph{escritura}:
 \column{0.5\textwidth}
-\begin{codeblock}
-\verbatiminput{./CODEXAMPLES/open_otherfile.m}
-\end{codeblock}
+\lstinputlisting{./CODEXAMPLES/open_otherfile.m}
 \end{columns}
+
+\end{frame}
+
+
+\begin{frame}<presentation>[label=FrameIOAbrirArchivosPython]
+\frametitle{Apertura y cierre de archivos en python}
+
+\begin{columns}[T]
+\column{0.3\textwidth}
+\hfill Abrir archivo para escritura, escrbir una variable y cerrarlo:
+\column{0.7\textwidth}
+    \lstinputlisting[language=Python]{./CODEXAMPLES/open_file.py}
+\end{columns}
+
+    \begin{columns}[T]
+        \column{0.3\textwidth}
+        \hfill \texttt{data.dat}
+        \column{0.7\textwidth}
+        \lstinputlisting{./CODEXAMPLES/data.dat}
+    \end{columns}
 
 \end{frame}
 

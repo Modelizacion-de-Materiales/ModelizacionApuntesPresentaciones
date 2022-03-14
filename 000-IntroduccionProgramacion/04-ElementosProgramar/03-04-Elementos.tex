@@ -90,38 +90,29 @@
 \begin{frame}<presentation>[fragile,label=FrameMatlabIndexacion]{Indexación de Variables}
 
 \begin{columns}[T]
-\column{0.25\textwidth}
+\column{0.2\textwidth}
   \vspace{0.5cm}
 \flushright \texttt{Rango de filas, todas las columnas}
 
 \column{0.25\textwidth}
   \textbf{Matlab}
 
-\begin{codeblock}
-  \verbatiminput{./CODEXAMPLES/Slice1.m}
-\end{codeblock}
-  \column{0.4\textwidth}
+    \lstinputlisting[language=Octave]{./CODEXAMPLES/Slice1.m}
+  \column{0.45\textwidth}
   \textbf{Python}
-\begin{codeblock}
-%  \verbatiminput{./CODEXAPLES/Slice1.py}
-  \verbatiminput{./CODEXAMPLES/Slice1.py}
-\end{codeblock}
+    \lstinputlisting[language=Python]{./CODEXAMPLES/Slice1.py}
 
 \end{columns}
   \vspace{0.5cm}
 \begin{columns}[T]
-\column{0.25\textwidth}
+\column{0.2\textwidth}
 \hfill \texttt{Vector de Índices}
 
 \column{0.25\textwidth}
-\begin{codeblock}
-  \verbatiminput{./CODEXAMPLES/Slices2.m}
-\end{codeblock}
+    \lstinputlisting[language=Octave]{./CODEXAMPLES/Slices2.m}
 
-  \column{0.4\textwidth}
-  \begin{codeblock}
-    \verbatiminput{./CODEXAMPLES/Slices2.py}
-  \end{codeblock}
+  \column{0.45\textwidth}
+    \lstinputlisting[language=Python]{./CODEXAMPLES/Slices2.py}
 \end{columns}
 \end{frame}
 
@@ -176,15 +167,10 @@ las filas y las columnas para obtener el resultado del ejemplo.
       \flushright \large\texttt{for}
 
     \column{0.4\textwidth}
-      \begin{codeblock}
-	\verbatiminput{./CODEXAMPLES/suma_for.m}
-      \end{codeblock}
+	\lstinputlisting[language=Octave]{./CODEXAMPLES/suma_for.m}
 
     \column{0.4\textwidth}
-      \begin{codeblock}
-	\verbatiminput{./CODEXAMPLES/suma_for.py}
-
-      \end{codeblock}
+	\lstinputlisting[language=Python]{./CODEXAMPLES/suma_for.py}
 
   \end{columns}
 
@@ -193,14 +179,10 @@ las filas y las columnas para obtener el resultado del ejemplo.
     \flushright \large\texttt{while}
 
     \column{0.4\textwidth}
-      \begin{codeblock}
-	\verbatiminput{./CODEXAMPLES/suma_while.m}
-      \end{codeblock}
+	\lstinputlisting[language=Octave]{./CODEXAMPLES/suma_while.m}
 
     \column{0.4\textwidth}
-      \begin{codeblock}
-	\verbatiminput{./CODEXAMPLES/suma_while.py}
-      \end{codeblock}
+	\lstinputlisting[language=Python]{./CODEXAMPLES/suma_while.py}
 
   \end{columns}
 \end{frame}
@@ -243,18 +225,28 @@ en una cantidad de iteraciones razonable.
 
 \begin{frame}<presentation>[label=FrameMatlabIf]{Control de flujo: Condicionales} 
 \begin{columns}[T]
-\column{0.2\textwidth}
+\column{0.1\textwidth}
 \hfill \large\texttt{if}
 
-\column{0.4\textwidth}
-\begin{codeblock}
-\verbatiminput{./CODEXAMPLES/suma.m}
-\end{codeblock}
+\column{0.45\textwidth}
+  \lstinputlisting[language=Octave]{./CODEXAMPLES/suma.m}
 
-\column{0.4\textwidth}
-\begin{codeblock}
-\verbatiminput{./CODEXAMPLES/suma_continue.m}
-\end{codeblock}
+\column{0.45\textwidth}
+\lstinputlisting[language=Octave]{./CODEXAMPLES/suma_continue.m}
+
+\end{columns}
+\end{frame}
+
+\begin{frame}<presentation>[label=FramePythonIf]{Control de flujo: Condicionales} 
+\begin{columns}[T]
+\column{0.1\textwidth}
+\hfill \large\texttt{if}
+
+\column{0.45\textwidth}
+  \lstinputlisting[language=Python]{./CODEXAMPLES/suma.py}
+
+\column{0.45\textwidth}
+  \lstinputlisting[language=Python]{./CODEXAMPLES/suma_continue.py}
 
 \end{columns}
 \end{frame}
@@ -292,6 +284,16 @@ prosigue a partir de end.
 
 \end{figure}
 
+\begin{figure}
+  \includeslide[width=\textwidth]{FramePythonIf}
+  
+  \caption{Condicionales con uso de 
+  \protect\textbf{continue} y \protect\textbf{break}
+  en Python
+  \label{FigPythonf}
+  }
+
+\end{figure}
 Si la condición lógica que es argumento de \textbf{if}
 no se cumple, se evalúa 
 la condición lógica que es argumento del 
