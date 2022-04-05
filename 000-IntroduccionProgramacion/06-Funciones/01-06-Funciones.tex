@@ -8,6 +8,16 @@ entrada. La \texttt{función} entrega variables de salida que permiten
 \emph{comunicar} el resultado de la operación al flujo principal
 del programa. Estos conceptos se muestran en la \autoref{FigFrameFunciones}
 
+\subsection{ Funciones en Python }
+
+En python la sintaxis es muy similar. 
+La palabra clave que comienza la definición de las funciones es \texttt{def}, 
+seguido del nombre de la función y los argumentos entre paréntesis. 
+Los dos puntos \texttt{:} señalan el comienzo del \texttt{scope} de la función.
+La palabra clave  \texttt{return } se utiliza para indicar las variables internas 
+que serán devueltas a la salida de la función. 
+Estos conceptos quedan ilustrados en la \autoref{FigFrameFuncionesPython}
+
 \begin{figure}
 
   \includeslide[width=\textwidth]{FrameFunciones}
@@ -16,6 +26,15 @@ del programa. Estos conceptos se muestran en la \autoref{FigFrameFunciones}
 
 \end{figure}
 
+\begin{figure}
+
+  \includeslide[width=\textwidth]{FrameFuncionesPython}
+  \caption{ Las funciones deben recibir variables de entrada
+  y entregan variables de salida \protect\label{FigFrameFuncionesPython} }
+
+\end{figure}
+
+
 \mode*
 \begin{frame}<presentation>[label=FrameFunciones]
   \frametitle{Funciones}
@@ -23,14 +42,23 @@ del programa. Estos conceptos se muestran en la \autoref{FigFrameFunciones}
 
     \begin{columns}
       \column{0.6\textwidth}
-      \begin{codeblock}
-	\verbatiminput{CODEXAMPLES/funcion_partida.m}
-      \end{codeblock}
+	\lstinputlisting{CODEXAMPLES/funcion_partida.m}
       \column{0.4\textwidth}
-      \begin{codeblock}
-	\verbatiminput{CODEXAMPLES/use_partida.m}
-      \end{codeblock}
+	\lstinputlisting{CODEXAMPLES/use_partida.m}
     \end{columns}
+
+\end{frame}
+
+\begin{frame}<presentation>[label=FrameFuncionesPython]
+  \frametitle{Funciones en Python}
+
+    \begin{columns}
+      \column{0.6\textwidth}
+	\lstinputlisting{CODEXAMPLES/funcion_partida.py}
+      \column{0.4\textwidth}
+	\lstinputlisting{CODEXAMPLES/use_partida.py}
+    \end{columns}
+
 
 \end{frame}
 \mode<all>

@@ -25,10 +25,25 @@ o \emph{retornos de carro} para indicar los fines de línea.
 Los archivos siempre deben ser cerrados al terminar la operación 
 de escritura o lectura. 
 
+\subsection{Escritura secuencial en \texttt{Python}}
+
+En python, la sintáxis de formato de strings es algo distinta.
+Lo más práctico en general es definir strings de formato o \emph{f-strings}. 
+El valor de estas variables se define entre comillas pero anteponiendo la letra 
+\texttt{f}, y la variable cuyo valor se va a incluir se indica en la posición 
+correspondiente entre corchetes, \texttt{\{\}}. 
+La operación completa se muestra en la \autoref{FigIOEscribirPython}
+
 \begin{figure}
   \includeslide[width=\textwidth]{FrameIOEscribir}
   \caption{Algunos ejemplos de escritura secuencial con formato\label{FigIOEscribir}}
 \end{figure}
+
+\begin{figure}
+  \includeslide[width=\textwidth]{FrameIOEscribirPython}
+    \caption{Algunos ejemplos de escritura secuencial con formato en \texttt{Python}\label{FigIOEscribirPython}}
+\end{figure}
+
 \mode*
 
 \begin{frame}<presentation>[label=FrameIOEscribir]
