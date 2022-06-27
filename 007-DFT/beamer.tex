@@ -1,0 +1,8 @@
+% modo presentación. si se cambia a modo notas se imprimen las notas (creo)
+\documentclass[presentation,xcolor={dvipsnames,x11names,svgnames,aspectratio=169}]{beamer} %,aspectratio=169
+%\setbeameroption{show notes}
+% en forma arbitraria decido que los parrafos no llevan indentación.
+\setlength{\parindent}{0cm}
+\renewenvironment{equation}{\begin{equation*}}{\end{equation*}}
+\mode<presentation>
+\input{main}

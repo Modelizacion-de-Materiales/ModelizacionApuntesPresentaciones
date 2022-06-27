@@ -1,0 +1,95 @@
+% modo presentación. si se cambia a modo notas se imprimen las notas (creo)
+%\documentclass[xcolor={dvipsnames,x11names,svgnames},aspectratio=169,notes]{beamer}
+% \mode<presentation>
+%handout de las diapositivas, comentar arriva!
+% handout de la presentacion
+%\documentclass[handout,xcolor={dvipsnames,x11names,svgnames},aspectratio=169,notes]{beamer}
+%\mode<handout>
+
+% paquete beamer, opciones para nombres de colores y aspect ratio de panatalla grande.
+%\documentclass[a4paper,12pt]{article}
+%\usepackage{beamerarticle}
+
+\include{./PREAMBLE/PACKS}
+% para mostrar las notas en modo presentacion. 
+%\setbeameroption{show notes}
+%para ocultar las notas
+%\setbeameroption{hide notes}
+%para dejar las notas en la segunda patnalla
+%\setbeameroption{show notes on second screen}
+%incluyo los paquetes necesarios
+
+% en caso de handouts, ver 2 en 1 o 4 en 
+
+
+% en forma arbitraria decid que los parrafos no llevan indentación.
+\setlength{\parindent}{0cm}
+
+% incluyo los beamercolors
+\include{./PREAMBLE/BEAMERCOLORS}
+
+%incluyo el tema y modificaciones
+\include{./PREAMBLE/BEAMERTHEME}
+
+% modifico los temas
+\include{./PREAMBLE/THEMES}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% newcommands
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\tikzsets
+% defino el template para la diapositiva del título
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Defino la presentación
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{
+  \mode<article>{
+\includegraphics[height=1cm]{./PREAMBLE/logo-isabt25.png}
+\hfill
+\includegraphics[height=1cm]{./PREAMBLE/ISOLOGOCNEA.png}
+\hfill
+\includegraphics[height=1cm]{./PREAMBLE/logo-unsam.png}
+\\} Teoría del funcional de la densidad}
+\subtitle[Modelización 2022]{ Modelización de Propiedades y Procesos 2022}
+\author{Ruben Weht\inst{1}\inst{2} \and Mariano Forti\inst{1}\inst{3} }
+\institute{
+  \inst{1}Instituto de Tecnología Prof. Jorge Sabato
+  \and
+  \inst{2}Fisica del Sólido, Edificio TANDAR, \url{weht@cnea.gov.ar},
+  interno 7104
+  \and
+  \inst{3}División Aleaciones Especiales, Edificio 47 (microscopía),
+  \url{mforti@cnea.gov.ar}, interno 7832
+}
+\subject{DFT}
+\keywords{DFT, Density Functional Theory}
+\date{2022}
+
+% Inicia el documento.
+\begin{document}
+% Título de la clase. 
+\mode<presentation>{
+\begin{frame}[plain]
+\titlepage
+\end{frame}
+}
+\mode<article>{
+  \maketitle
+}
+\mode<all>
+
+\section{Introducción}
+\input{00-Motivacion/00-Motivacion.tex}
+\section{Teoría del funcional de la Densidad}
+
+\input{00-DFT/03-DFT.tex}
+\input{00-DFT/03_02_DFT_solids.tex}
+
+\section{Implementación}
+
+\input{01-SelfConsistant/01-SCCycle.tex}
+
+\input{02-PlaneWaves/03_03_DFT_bs.tex}
+
+
+\end{document}

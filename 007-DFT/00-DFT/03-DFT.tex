@@ -1,0 +1,73 @@
+\newcommand{\eqa}{
+  $ \left ( \nabla^2 + V_{Ne}[\rho] +V_{ee}[\rho] +V_{XC}[\rho] \right ) \varphi _\mu = \varepsilon _{\mu} \varphi_{\mu} $
+}
+\newcommand{\eqb}{
+$ \rho_0 (\vec{r}) = \sum _{\mu} f_{\mu} | \varphi | ^2 $
+}
+\newcommand{\toten}{
+  $  E = T [\rho_0] + \int \left ( V_{Ne}+V_{ee} + V_{XC}{\tikz[remember picture, overlay]\node (nxc) at  (-5pt, -5pt) { };} \right ) \rho _0 d \vec{r}  $
+}
+\newcommand{\eqgga}{
+  $  V_{XC} = f \left ( \rho_{\uparrow}, \rho_{\downarrow} , \nabla \rho \right )$
+}
+
+\begin{frame}<presentation>[label=FrameSketch]
+  \frametitle{Ecuación de Schrödinger vs DFT}
+  \begin{columns}
+    \column{0.5\textwidth}
+      \centering
+      \scriptsize
+      \texttt{Schrödinger equation}
+      \includegraphics[width=\textwidth]{Figures/SketchSchrodingerEq.pdf}
+    \column{0.5\textwidth}
+      \scriptsize
+      \texttt{DFT}
+
+      \includegraphics[width=\textwidth]{Figures/SketchDFT.pdf}
+      $$E[\rho] = T[\rho(r)] +V_{ne}[\rho(r)] + V_{ee}[\rho(r)]$$
+
+      E = E\textsubscript{cinética} + E\textsubscript{nucleo-e} + E\textsubscript{electrón - electrón}
+
+
+  \end{columns}
+
+
+\end{frame}
+
+\begin{frame}<presentation>[label=KohnShamEquations]
+
+  \frametitle{Kohn - Sham Equations}
+
+    \begin{itemize}
+
+      \item Kohn and Sham Equations , $ \{\varphi\} $ se definen como partículas no interactuantes!
+
+	\vspace{0.5cm}
+
+	\eqa\tikz[remember picture]\node[anchor=center] (A)  {};
+
+	\vspace{0.5cm}
+
+
+	\eqb\tikz[remember picture]\node[anchor=center] (B)  {};
+
+	\tikz[remember picture, overlay]\path[draw=black, -latex] (B.east) -- ($(B)+(5cm,0)$) |-  (A.east);
+
+      \item Total  Energy
+
+	\toten
+
+	\vspace{1cm}
+	\centering \tikz[remember picture]\node (targ) {  GGA-PBE:};
+
+	\eqgga
+
+	\tikz[remember picture, overlay]\draw[black,-latex]   (nxc.south) -- ++(0,-0.1cm) |- (targ.north);
+
+	Potencial de correlación e intercambio: es responsable de modelar los efectos cuánticos. 
+
+    \end{itemize}
+\end{frame}
+
+
+\mode<all>
