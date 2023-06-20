@@ -1,0 +1,34 @@
+SECTIONS := 00-DFT/
+
+notes.pdf: notes.aux
+	pdflatex notes.tex
+
+notes.aux: handout.aux notes.tex
+	pdflatex notes.tex
+
+handout.aux: handout.tex beamer.aux main.tex 
+	pdflatex handout.tex
+
+beamer.pdf: beamer.aux
+
+beamer.aux: beamer.tex  $(SECTIONS) LO-Apuntes
+	echo $(SECTIONS)
+	pdflatex beamer.tex
+
+#LO-Apuntes: Libreoffice
+#Libreoffice: ./Libreoffice/
+#	make -C Libreoffice
+
+
+.PHONY: LO-Apuntes Libreoffice
+
+
+clean: 
+	find -iname \*.aux\
+	  -o -iname \*.log\
+	  -o -iname \*.nav\
+	  -o -iname \*.out\
+	  -o -iname \*.pdf\
+	  -o -iname \*.snm\
+	  -o -iname \*.toc\
+	  | xargs rm
